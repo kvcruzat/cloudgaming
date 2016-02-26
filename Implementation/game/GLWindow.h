@@ -10,6 +10,7 @@ class QLabel;
 class QCheckBox;		// forward declaration
 class GLPolygonWidget;
 class QSpinBox;
+class QPushButton;
 
 /**
  * Class definition for Qt window config
@@ -36,6 +37,7 @@ class GLWindow : public QWidget {
 		QCheckBox* shadingButton;
 		QCheckBox* leavesButton;
 		QSpinBox* seasonsSelector;
+		QPushButton* moveTreeButton;
 		QLabel* labelTrans;
 		QLabel* labelX;
 		QLabel* labelY;

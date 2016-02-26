@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QCheckBox>
 #include <QSpinBox>
+#include <QPushButton>
 
 #include "GLPolygonWidget.h"
 #include "GLWindow.h"
@@ -47,12 +48,16 @@ GLWindow::GLWindow()
 	labelRot->setText("Rotation");
 	labelRot->setAlignment(Qt::AlignHCenter);
 
+	moveTreeButton = new QPushButton("Move Tree");
+	moveTreeButton->setMaximumWidth(150);
+
 	sliderScale = sliderScaleCreate();
 	labelScale = new QLabel();			// Creates scale sliders
 	labelScale->setText("Scale");
 	labelScale->setAlignment(Qt::AlignHCenter);
 
 	seasonsSelector = new QSpinBox();
+	seasonsSelector->setMaximumWidth(150);
 	seasonsSelector->setRange(1, 15);
     seasonsSelector->setSingleStep(1);
     seasonsSelector->setValue(1);
@@ -94,6 +99,7 @@ GLWindow::GLWindow()
 	connect(shadingButton, SIGNAL(clicked(bool)), glPolyWidget, SLOT(setShading(bool)));
 	connect(leavesButton, SIGNAL(clicked(bool)), glPolyWidget, SLOT(setLeaves(bool)));
 	connect(seasonsSelector, SIGNAL(valueChanged(int)), glPolyWidget, SLOT(setSeasons(int)));
+	connect(moveTreeButton, SIGNAL(released()), glPolyWidget, SLOT(moveTree()));
 
 	QHBoxLayout* translateLayout = new QHBoxLayout;
 	translateLayout->addWidget(sliderX);
@@ -121,6 +127,7 @@ GLWindow::GLWindow()
 	controlLayout->addLayout(labelAxisLayout);
 	controlLayout->addWidget(labelRot);
 	controlLayout->addLayout(rotationLayout);
+	controlLayout->addWidget(moveTreeButton);
 	controlLayout->addWidget(labelScale);
 	controlLayout->addWidget(sliderScale);
 	controlLayout->addWidget(labelSeasons);
@@ -137,7 +144,7 @@ GLWindow::GLWindow()
 // method to help create translation sliders
 QSlider* GLWindow::sliderTransCreate() {
 	QSlider* slider = new QSlider(Qt::Vertical);
-	slider->setRange(-100, 100);
+	slider->setRange(-200, 200);
 	slider->setTickInterval(1);
 	slider->setValue(0);
 
@@ -147,7 +154,7 @@ QSlider* GLWindow::sliderTransCreate() {
 // method to help create rotation sliders
 QSlider* GLWindow::sliderRotCreate() {
 	QSlider* slider = new QSlider(Qt::Vertical);
-	slider->setRange(-180, 180);
+	slider->setRange(-360, 360);
 	slider->setTickInterval(1);
 	slider->setValue(0);
 
@@ -157,7 +164,7 @@ QSlider* GLWindow::sliderRotCreate() {
 // method to help create scale sliders
 QSlider* GLWindow::sliderScaleCreate() {
 	QSlider* slider = new QSlider(Qt::Horizontal);
-	slider->setRange(-50, 50);
+	slider->setRange(-100, 100);
 	slider->setTickInterval(1);
 	slider->setValue(0);
 	slider->setMaximumWidth(150);

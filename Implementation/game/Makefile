@@ -566,8 +566,9 @@ moc_GLPolygonWidget.cpp: /home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QSurfaceFormat \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/qsurfaceformat.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/QWidget \
+		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QWheelEvent \
 		GLPolygonWidget.h
-	/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/bin/moc $(DEFINES) -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/mkspecs/linux-g++ -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/Git/cloudgaming/Implementation/game -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/Git/cloudgaming/Implementation/game -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore GLPolygonWidget.h -o moc_GLPolygonWidget.cpp
+	/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/bin/moc $(DEFINES) -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/mkspecs/linux-g++ -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/Git/game -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/Git/game -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore GLPolygonWidget.h -o moc_GLPolygonWidget.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -808,6 +809,7 @@ GLPolygonWidget.o: GLPolygonWidget.cpp GLPolygonWidget.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QSurfaceFormat \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/qsurfaceformat.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/QWidget \
+		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QWheelEvent \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GLPolygonWidget.o GLPolygonWidget.cpp
 
@@ -934,6 +936,8 @@ GLWindow.o: GLWindow.cpp /home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/qvalidator.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/QPushButton \
+		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
 		GLPolygonWidget.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL/QGLWidget \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL/qgl.h \
@@ -950,6 +954,7 @@ GLWindow.o: GLWindow.cpp /home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QSurfaceFormat \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/qsurfaceformat.h \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/QWidget \
+		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QWheelEvent \
 		GLWindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GLWindow.o GLWindow.cpp
 

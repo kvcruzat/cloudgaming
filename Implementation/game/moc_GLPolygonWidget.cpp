@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GLPolygonWidget_t {
-    QByteArrayData data[18];
-    char stringdata[141];
+    QByteArrayData data[19];
+    char stringdata[150];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,15 +43,16 @@ QT_MOC_LITERAL(10, 72, 7),
 QT_MOC_LITERAL(11, 80, 8),
 QT_MOC_LITERAL(12, 89, 1),
 QT_MOC_LITERAL(13, 91, 8),
-QT_MOC_LITERAL(14, 100, 10),
-QT_MOC_LITERAL(15, 111, 9),
-QT_MOC_LITERAL(16, 121, 10),
-QT_MOC_LITERAL(17, 132, 8)
+QT_MOC_LITERAL(14, 100, 8),
+QT_MOC_LITERAL(15, 109, 10),
+QT_MOC_LITERAL(16, 120, 9),
+QT_MOC_LITERAL(17, 130, 10),
+QT_MOC_LITERAL(18, 141, 8)
     },
     "GLPolygonWidget\0translateX\0\0x\0translateY\0"
     "y\0translateZ\0z\0rotateX\0rotateY\0rotateZ\0"
-    "setScale\0s\0setLight\0setShading\0setLeaves\0"
-    "setSeasons\0nSeasons"
+    "setScale\0s\0moveTree\0setLight\0setShading\0"
+    "setLeaves\0setSeasons\0nSeasons"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,7 +62,7 @@ static const uint qt_meta_data_GLPolygonWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,17 +70,18 @@ static const uint qt_meta_data_GLPolygonWidget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   69,    2, 0x0a /* Public */,
-       4,    1,   72,    2, 0x0a /* Public */,
-       6,    1,   75,    2, 0x0a /* Public */,
-       8,    1,   78,    2, 0x0a /* Public */,
-       9,    1,   81,    2, 0x0a /* Public */,
-      10,    1,   84,    2, 0x0a /* Public */,
-      11,    1,   87,    2, 0x0a /* Public */,
-      13,    1,   90,    2, 0x0a /* Public */,
-      14,    1,   93,    2, 0x0a /* Public */,
-      15,    1,   96,    2, 0x0a /* Public */,
-      16,    1,   99,    2, 0x0a /* Public */,
+       1,    1,   74,    2, 0x0a /* Public */,
+       4,    1,   77,    2, 0x0a /* Public */,
+       6,    1,   80,    2, 0x0a /* Public */,
+       8,    1,   83,    2, 0x0a /* Public */,
+       9,    1,   86,    2, 0x0a /* Public */,
+      10,    1,   89,    2, 0x0a /* Public */,
+      11,    1,   92,    2, 0x0a /* Public */,
+      13,    0,   95,    2, 0x0a /* Public */,
+      14,    1,   96,    2, 0x0a /* Public */,
+      15,    1,   99,    2, 0x0a /* Public */,
+      16,    1,  102,    2, 0x0a /* Public */,
+      17,    1,  105,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -89,10 +91,11 @@ static const uint qt_meta_data_GLPolygonWidget[] = {
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void, QMetaType::Int,    7,
     QMetaType::Void, QMetaType::Int,   12,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,    2,
     QMetaType::Void, QMetaType::Bool,    2,
     QMetaType::Void, QMetaType::Bool,    2,
-    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Void, QMetaType::Int,   18,
 
        0        // eod
 };
@@ -109,10 +112,11 @@ void GLPolygonWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 4: _t->rotateY((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 5: _t->rotateZ((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->setScale((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 7: _t->setLight((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 8: _t->setShading((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 9: _t->setLeaves((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 10: _t->setSeasons((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->moveTree(); break;
+        case 8: _t->setLight((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 9: _t->setShading((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: _t->setLeaves((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 11: _t->setSeasons((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -143,13 +147,13 @@ int GLPolygonWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }
