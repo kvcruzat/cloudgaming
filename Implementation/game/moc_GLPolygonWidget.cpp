@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GLPolygonWidget_t {
-    QByteArrayData data[19];
-    char stringdata[150];
+    QByteArrayData data[20];
+    char stringdata[155];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,12 +47,13 @@ QT_MOC_LITERAL(14, 100, 8),
 QT_MOC_LITERAL(15, 109, 10),
 QT_MOC_LITERAL(16, 120, 9),
 QT_MOC_LITERAL(17, 130, 10),
-QT_MOC_LITERAL(18, 141, 8)
+QT_MOC_LITERAL(18, 141, 8),
+QT_MOC_LITERAL(19, 150, 4)
     },
     "GLPolygonWidget\0translateX\0\0x\0translateY\0"
     "y\0translateZ\0z\0rotateX\0rotateY\0rotateZ\0"
     "setScale\0s\0moveTree\0setLight\0setShading\0"
-    "setLeaves\0setSeasons\0nSeasons"
+    "setLeaves\0setSeasons\0nSeasons\0move"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +63,7 @@ static const uint qt_meta_data_GLPolygonWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,18 +71,19 @@ static const uint qt_meta_data_GLPolygonWidget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   74,    2, 0x0a /* Public */,
-       4,    1,   77,    2, 0x0a /* Public */,
-       6,    1,   80,    2, 0x0a /* Public */,
-       8,    1,   83,    2, 0x0a /* Public */,
-       9,    1,   86,    2, 0x0a /* Public */,
-      10,    1,   89,    2, 0x0a /* Public */,
-      11,    1,   92,    2, 0x0a /* Public */,
-      13,    0,   95,    2, 0x0a /* Public */,
-      14,    1,   96,    2, 0x0a /* Public */,
-      15,    1,   99,    2, 0x0a /* Public */,
-      16,    1,  102,    2, 0x0a /* Public */,
-      17,    1,  105,    2, 0x0a /* Public */,
+       1,    1,   79,    2, 0x0a /* Public */,
+       4,    1,   82,    2, 0x0a /* Public */,
+       6,    1,   85,    2, 0x0a /* Public */,
+       8,    1,   88,    2, 0x0a /* Public */,
+       9,    1,   91,    2, 0x0a /* Public */,
+      10,    1,   94,    2, 0x0a /* Public */,
+      11,    1,   97,    2, 0x0a /* Public */,
+      13,    0,  100,    2, 0x0a /* Public */,
+      14,    1,  101,    2, 0x0a /* Public */,
+      15,    1,  104,    2, 0x0a /* Public */,
+      16,    1,  107,    2, 0x0a /* Public */,
+      17,    1,  110,    2, 0x0a /* Public */,
+      19,    0,  113,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -96,6 +98,7 @@ static const uint qt_meta_data_GLPolygonWidget[] = {
     QMetaType::Void, QMetaType::Bool,    2,
     QMetaType::Void, QMetaType::Bool,    2,
     QMetaType::Void, QMetaType::Int,   18,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -117,6 +120,7 @@ void GLPolygonWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 9: _t->setShading((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 10: _t->setLeaves((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 11: _t->setSeasons((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->move(); break;
         default: ;
         }
     }
@@ -147,13 +151,13 @@ int GLPolygonWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

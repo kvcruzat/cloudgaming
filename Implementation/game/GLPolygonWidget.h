@@ -3,6 +3,7 @@
 #include <QWidget>
 #include <vector>
 #include "GL/glu.h"
+#include <GL/glut.h>
 #include <QWheelEvent>
 
 #ifndef __GL_POLYGON_WIDGET_H__
@@ -36,6 +37,7 @@ class GLPolygonWidget: public QGLWidget {
 		void setShading(bool);
 		void setLeaves(bool);
 		void setSeasons(int nSeasons);
+		void move();
 
 	private:
 		void wheelEvent ( QWheelEvent * event );
@@ -52,6 +54,8 @@ class GLPolygonWidget: public QGLWidget {
 		void treeGen(int);
 		void growBranch(int,double,double,bool);
 		std::vector<float> genRand(int);
+		int currentTime, previousTime;
+		int frameCount;
 
 
 };

@@ -6,6 +6,7 @@
 #include <vector>
 #include <QtDebug>
 #include <time.h>
+#include <QTimer>
 
 double PI = M_PI;
 
@@ -30,6 +31,14 @@ GLPolygonWidget::GLPolygonWidget(QWidget *parent) : QGLWidget(parent){
 	moveTree();			// create the random coordinate for tree
 	leavesEnabled = false;	// leaves turned off by default
 	lightEnabled = true;	// lights and shadow turned on by default
+
+	currentTime = 0;
+	previousTime = 0;
+	frameCount = 0;
+
+	QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+    timer->start(1000/60);
 }
 
 void GLPolygonWidget::initializeGL(){
@@ -115,6 +124,23 @@ void GLPolygonWidget::paintGL(){
 	treeGen( numSeasons);	// draw tree
 
 	glFlush();
+
+
+	frameCount++;
+
+	currentTime = glutGet(GLUT_ELAPSED_TIME);
+	int timeInterval = currentTime - previousTime;
+	// std::cout << timeInterval << std::endl;
+
+	if(timeInterval > 1000) {
+		std::cout << frameCount / (timeInterval/1000.0f) << std::endl;
+
+		previousTime = currentTime;
+
+		frameCount = 0;
+	}
+
+
 }
 
 // creates a leaf
@@ -380,5 +406,10 @@ void GLPolygonWidget::moveTree(){
 void GLPolygonWidget::wheelEvent ( QWheelEvent* event )
 {
     scaleChange+= ((event->delta()/120)*0.05); 
+    updateGL();
+}
+
+void GLPolygonWidget::move()
+{
     updateGL();
 }

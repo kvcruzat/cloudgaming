@@ -18,7 +18,7 @@ CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/mkspecs/linux-g++ -I. -I. -I/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include -I/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL -I/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets -I/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui -I/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore -I.
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64 -Wl,-rpath,/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/lib
-LIBS          = $(SUBLIBS) -lGLU -L/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/lib -lQt5OpenGL -L/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lGLU -lglut -L/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/lib -lQt5OpenGL -L/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/bin/qmake
@@ -568,7 +568,7 @@ moc_GLPolygonWidget.cpp: /home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets/QWidget \
 		/home/cserv1_a/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui/QWheelEvent \
 		GLPolygonWidget.h
-	/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/bin/moc $(DEFINES) -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/mkspecs/linux-g++ -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/Git/game -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/Git/game -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore GLPolygonWidget.h -o moc_GLPolygonWidget.cpp
+	/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/bin/moc $(DEFINES) -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/mkspecs/linux-g++ -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/game/game -I/home/cserv1_a/soc_ug/sc13kvc/Work/Y3/Research/game/game -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtOpenGL -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtWidgets -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtGui -I/home/csunix/linux/apps/install/qt/5.3.1/5.3/gcc_64/include/QtCore GLPolygonWidget.h -o moc_GLPolygonWidget.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
