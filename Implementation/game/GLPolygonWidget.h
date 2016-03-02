@@ -4,6 +4,8 @@
 #include <vector>
 #include "GL/glu.h"
 #include <GL/glut.h>
+#include "Vector.h"
+#include "Point.h"
 #include <QWheelEvent>
 
 #ifndef __GL_POLYGON_WIDGET_H__
@@ -37,6 +39,7 @@ class GLPolygonWidget: public QGLWidget {
 		void setShading(bool);
 		void setLeaves(bool);
 		void setSeasons(int nSeasons);
+
 		void move();
 
 	private:
@@ -50,13 +53,27 @@ class GLPolygonWidget: public QGLWidget {
 		std::vector<float> seedVector;
 		std::vector<float> tempSeedVector;
 		std::vector<float> seedCoordVector;
-		void leafGen();
+		void leafGen(bool);
 		void treeGen(int);
 		void growBranch(int,double,double,bool);
 		std::vector<float> genRand(int);
 		int currentTime, previousTime;
 		int frameCount;
 
+		Point eye; Point center; Vector upVec; // For Look at
+		Vector right; Vector up; Vector forward; // For the movement
+		int goRight; int goUp; int goForward; int doRoll;
+		Point currentPosition; // Store where currently I am
+		float speed; // Speed of movement
+
+		void roll(double);
+		void pitch(double);
+		void yaw(double);
+
+		void keyPressEvent(QKeyEvent*);
+		void keyReleaseEvent(QKeyEvent*);
+		void pickMovement();
+		void updateCurrent();
 
 };
 

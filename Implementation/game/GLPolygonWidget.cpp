@@ -7,19 +7,33 @@
 #include <QtDebug>
 #include <time.h>
 #include <QTimer>
+#include <QKeyEvent>
 
 double PI = M_PI;
 
-GLfloat light_position[4] = {0.0, 0.0, 8.0, 1.0};	// define some vectors
-GLfloat ground_plane[4][4] = {{-10.0, 10.0, 0.0},
-								{10.0, 10.0, 0.0},
-								{10.0, -10.0, 0.0},
-								{-10.0, -10.0, 0.0}};
+GLfloat light_position[4] = {0.0, 0.0, 40.0, 1.0};	// define some vectors
+GLfloat ground_plane[4][4] = {{-100.0, 100.0, 0.0},
+								{100.0, 100.0, 0.0},
+								{100.0, -100.0, 0.0},
+								{-100.0, -100.0, 0.0}};
+const float speedChange = 0.001;
+const float angle = 0.02;
 
 /**
  * Implementation for OpenGL widget
  */
 GLPolygonWidget::GLPolygonWidget(QWidget *parent) : QGLWidget(parent){
+	this->setFocusPolicy(Qt::StrongFocus);
+	goForward = 0; goUp = 0; goRight = 0; doRoll = 0;
+	speed = 0.00;
+	forward = Vector(0, 0, -1);
+    right = Vector(1, 0, 0);
+    up = Vector(0, 1, 0);
+    currentPosition = Point(0, 10, 0);
+    eye = currentPosition;
+    center = currentPosition + forward;
+    upVec = up;
+
 	xChange = 0;
 	yChange = 0;		// intializes translation values
 	zChange = 0;
@@ -55,6 +69,11 @@ void GLPolygonWidget::initializeGL(){
 	glShadeModel(GL_SMOOTH);
 	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+	glFrustum(-1.0, 1.0, -1.0, 1.0, 1.0, 3000.0);
+    glMatrixMode(GL_MODELVIEW);
+
     //Set and enable lights
     glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, whiteColour);
@@ -81,13 +100,10 @@ void GLPolygonWidget::initializeGL(){
 void GLPolygonWidget::resizeGL(int w, int h){
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
-
     glLoadIdentity();
-
-	glOrtho(-2.0 * (GLfloat) w / (GLfloat) h,
-	    2.0 * (GLfloat) w / (GLfloat) h, -2.0, 2.0, -10.0, 10.0);
-
-	glMatrixMode(GL_MODELVIEW);
+    glFrustum(-1.0, 1.0, -1.0, 1.0, 1.0, 3000.0);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 }
 
 // Draw method
@@ -101,7 +117,10 @@ void GLPolygonWidget::paintGL(){
 	}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
-
+	glPushMatrix();
+	gluLookAt(eye.x, eye.y, eye.z,
+		                    center.x, center.y, center.z,
+		                    upVec.x, upVec.y, upVec.z);
 	glTranslatef(xChange,yChange,zChange);		// Applies transformation
 	glRotatef(zAngle, 0.0, 0.0, 1.0);
 	glRotatef(xAngle, 1.0, 0.0, 0.0);
@@ -117,11 +136,13 @@ void GLPolygonWidget::paintGL(){
 			// position sun to light source position
 			glTranslatef(light_position[0],light_position[1],light_position[2]);
 			glColor3f(1.0,0.72,0.07);
-			gluSphere(baseQuad2, 0.8, 25, 25);
+			gluSphere(baseQuad2, 8, 20, 20);
 		glPopMatrix();
 	}
 
 	treeGen( numSeasons);	// draw tree
+
+	glPopMatrix();
 
 	glFlush();
 
@@ -144,30 +165,77 @@ void GLPolygonWidget::paintGL(){
 }
 
 // creates a leaf
-void GLPolygonWidget::leafGen(){
+void GLPolygonWidget::leafGen(bool shadow){
 
-	GLfloat vertex1[3] = {0.0,-0.1,0.0};	// vertices for triangle leaf
-	GLfloat vertex2[3] = {-0.07,-0.04,0.01};
-	GLfloat vertex3[3] = {0.07,-0.04,0.0};
+	GLfloat scale = 2.0;
 
-	GLfloat u[3];
-	GLfloat v[3];
-	for (int i = 0; i < 3; ++i) {
-		u[i] = vertex2[i] - vertex1[i];
-		v[i] = vertex3[i] - vertex1[i];
+	GLfloat vertices[][3] = {{0.0,-0.6f/scale,0.0},{-0.5f/scale,-0.3f/scale,0.1f/scale},
+	{-0.3f/scale,-0.3f/scale,0.0},{-0.5f/scale,0.2f/scale,-0.1f/scale}, {-0.2f/scale,0.0,0.0}, 
+	{0.0,0.6f/scale,0.0}, {0.2f/scale,0.0,0.0}, {0.5f/scale,0.2f/scale,-0.1f/scale}, {0.3f/scale,-0.3f/scale,0.0}, 
+	{0.5f/scale,-0.3f/scale,0.1f/scale}};
+
+	GLfloat normals[][3] = {{0.0,-0.6f/scale,0.0},{-0.5f/scale,-0.3f/scale,0.1f/scale},
+	{-0.3f/scale,-0.3f/scale,0.0},{-0.5f/scale,0.2f/scale,-0.1f/scale}, {-0.2f/scale,0.0,0.0}, 
+	{0.0,0.6f/scale,0.0}, {0.2f/scale,0.0,0.0}, {0.5f/scale,0.2f/scale,-0.1f/scale}, {0.3f/scale,-0.3f/scale,0.0}, 
+	{0.5f/scale,-0.3f/scale,0.1f/scale}};
+
+
+	GLfloat colours[2][3] = {{0.0,0.3,0.1},{0.6,0.3,0.1}};
+
+	if (shadow) {
+		for (int i=0;i<2; ++i){
+			for (int j=0;j<3;++j){
+				colours[i][j] = 0.0;
+			}
+		}
 	}
 
-	GLfloat faceNormal[4];
-	faceNormal[0] = (u[1]*v[2]) - (u[2]*v[1]);	// calculate face normal since onl1 using 1 triangle for each leaf
-	faceNormal[1] = (u[2]*v[0]) - (u[0]*v[2]);
-	faceNormal[2] = (u[0]*v[1]) - (u[1]*v[0]);
-	faceNormal[3] = 1.0;
+	// Draw veins in leaf
+	glBegin(GL_LINES);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[0]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[2]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[0]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[4]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[0]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[5]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[0]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[6]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[0]);
+		glColor3fv(colours[1]);
+		glVertex2fv(vertices[8]);
+	glEnd();
 
-	glBegin(GL_TRIANGLES);
-		glNormal3f(faceNormal[0],faceNormal[1],faceNormal[2]);	// draw triangle leaf
-		glVertex3f(vertex1[0], vertex1[1], vertex1[2]);
-		glVertex3f(vertex2[0], vertex2[1], vertex2[2]);
-		glVertex3f(vertex3[0], vertex3[1], vertex3[2]);
+	glBegin(GL_POLYGON);
+		glColor3fv(colours[0]);
+		glNormal3fv(normals[0]);
+		glVertex3fv(vertices[0]);
+		glNormal3fv(normals[1]);
+		glVertex3fv(vertices[1]);
+		glNormal3fv(normals[2]);
+		glVertex3fv(vertices[2]);
+		glNormal3fv(normals[3]);
+		glVertex3fv(vertices[3]);
+		glNormal3fv(normals[4]);
+		glVertex3fv(vertices[4]);
+		glNormal3fv(normals[5]);
+		glVertex3fv(vertices[5]);
+		glNormal3fv(normals[6]);
+		glVertex3fv(vertices[6]);
+		glNormal3fv(normals[7]);
+		glVertex3fv(vertices[7]);
+		glNormal3fv(normals[8]);
+		glVertex3fv(vertices[8]);
+		glNormal3fv(normals[9]);
+		glVertex3fv(vertices[9]);
 	glEnd();
 }
 
@@ -195,18 +263,19 @@ void GLPolygonWidget::growBranch( int nSeasons, double diam, double length, bool
 	
 	if(nSeasons == 1 && leavesEnabled){	// check  for last branch and if leaves should be drawn option is on
 
+		glRotatef( 45, 0.0, 1.0, 0.0 );	// rotate to draw first leaf
+
 		if (shadow){
-			glColor3f(0.0,0.0,0.0);
+			leafGen(true);
+			glRotatef( 45, 1.0, 0.0, 0.0 );	// rotate again to draw second leaf
+			leafGen(true);
+			
 		}
 		else {
-			glColor3f(0.0,0.5,0.0);
+			leafGen(false);
+			glRotatef( 45, 1.0, 0.0, 0.0 );	// rotate again to draw second leaf
+			leafGen(false);
 		}
-		
-		glRotatef( 45, 0.0, 1.0, 0.0 );	// rotate to draw first leaf
-		leafGen();
-		
-		glRotatef( 45, 1.0, 0.0, 0.0 );	// rotate again to draw second leaf
-		leafGen();
 
 		glTranslatef( 0.0, 0.0, length );	// moves leaf to end of branch
 
@@ -241,13 +310,12 @@ void GLPolygonWidget::growBranch( int nSeasons, double diam, double length, bool
      glPopMatrix();
   glPopMatrix();
    }
-
 }
 
 // Create tree using number of seasons
 void GLPolygonWidget::treeGen( int nSeasons) {
 
-	glPushMatrix();
+	glPushMatrix();		
 
 		glEnable(GL_TEXTURE_2D);	// draw grass texture
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPEAT);
@@ -256,29 +324,29 @@ void GLPolygonWidget::treeGen( int nSeasons) {
 		glTranslatef(0,0,-0.0001);
 		glBegin(GL_QUADS);
 			glColor3f(0.0,0.36,0.04);
-			glTexCoord2f(0, 10);
+			glTexCoord2f(0, 20);
 			glVertex3fv(ground_plane[0]);
-			glTexCoord2f(10, 10);
+			glTexCoord2f(20, 20);
 			glVertex3fv(ground_plane[1]);
-			glTexCoord2f(10, 0);
+			glTexCoord2f(20, 0);
 			glVertex3fv(ground_plane[2]);
 			glTexCoord2f(0, 0);
 			glVertex3fv(ground_plane[3]);
 		glEnd();
 
 		glDisable(GL_TEXTURE_2D);
-		
+
 	glPopMatrix();
 
 	// create random coordinate for tree
 	srand(seedCoordVector[0]);
-	GLfloat randX = rand()%11+(-5);
+	GLfloat randX = rand()%101+(-50);
 	srand(seedCoordVector[1]);
-	GLfloat randY = rand()%11+(-5);
+	GLfloat randY = rand()%101+(-50);
 	glTranslatef(randX,randY,0);
 
 	// makes sure the lighting for tree is correct
-	GLfloat light_position[] = {-randX, -randY, 8.0, 1.0};
+	GLfloat light_position[] = {-randX, -randY, 40.0, 1.0};
 	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 	
 	baseQuad = gluNewQuadric();
@@ -293,13 +361,13 @@ void GLPolygonWidget::treeGen( int nSeasons) {
 			
 	if (numSeasons > 1) tempSeedVector = seedVector; // makes a copy of seeds
 
-	growBranch(nSeasons, 0.08, 0.8, false);	// render tree
+	growBranch(nSeasons, 0.8, 4, false);	// render tree
 
 	if (numSeasons > 1) tempSeedVector = seedVector;	// makes a copy of seeds
 
 	if (lightEnabled){ 
 		glMultMatrixf(shadowMatrix);	// apply shadow matrix and draw shadow
-		growBranch(nSeasons, 0.08, 0.8, true);	
+		growBranch(nSeasons, 0.8, 4, true);	
 	}
 
   return;
@@ -411,5 +479,145 @@ void GLPolygonWidget::wheelEvent ( QWheelEvent* event )
 
 void GLPolygonWidget::move()
 {
+	pickMovement();
+    updateCurrent();
     updateGL();
+}
+
+void GLPolygonWidget::roll(double angle)
+{
+    // To roll, I want to go right, by the amount of the angle, plus
+    // up by this amount too.
+    //I roll the other way by a negative angle.
+    Vector tempRight = (right * cos(angle));
+    Vector tempUp = (up * sin(angle));
+
+    right = tempRight + tempUp;
+    right = right.getUnitVector(right);
+    up = right.crossProduct(forward);
+}
+
+void GLPolygonWidget::pitch(double angle)
+{
+    // To pitch, I want to go up, by the amount of the angle, plus
+    // forward by this amount too.
+    // Pitch down is done by a negative angle.
+    Vector tempForward = (forward * cos(angle));
+    Vector tempUp = (up * sin(angle));
+
+    forward = tempForward + tempUp;
+    forward = forward.getUnitVector(forward);
+    up = right.crossProduct(forward);
+}
+
+void GLPolygonWidget::yaw(double angle)
+{
+    // To yaw, I want to go right, by the amount of the angle, plus
+    // up by this amount too.
+    // Left yaw is done by a negative angle.
+    Vector tempRight = (right * cos(angle));
+    Vector tempForward = (forward * sin(angle));
+
+    right = tempRight + tempForward;
+    right = right.getUnitVector(right);
+    forward = up.crossProduct(right);
+}
+
+void GLPolygonWidget::keyPressEvent(QKeyEvent* event)
+{
+    // Pick the key that has been pressed and assign the
+    // relevant variables.
+    switch ( event->key()) {
+        case Qt::Key_Up:
+            goUp = -1;
+            break;
+        case Qt::Key_Down:
+            goUp = 1;
+            break;
+        case Qt::Key_Right:
+            goRight = -1;
+            break;
+        case Qt::Key_Left:
+            goRight = 1;
+            break;
+        case Qt::Key_Q:
+            doRoll = 1;
+            break;
+        case Qt::Key_E:
+            doRoll = -1;
+            break;
+        case Qt::Key_W:
+            goForward = 1;
+            break;
+        case Qt::Key_S:
+            goForward = -1;
+            break;
+        case Qt::Key_Space:
+            speed = 0;
+        default:
+            event->ignore();
+            break;
+    }
+}
+
+void GLPolygonWidget::keyReleaseEvent( QKeyEvent* event )
+{
+    switch ( event->key()) {
+        case Qt::Key_Up:
+            goUp = 0;
+            break;
+        case Qt::Key_Down:
+            goUp = 0;
+            break;
+        case Qt::Key_Right:
+            goRight = 0;
+            break;
+        case Qt::Key_Left:
+            goRight = 0;
+            break;
+        case Qt::Key_Q:
+            doRoll = 0;
+            break;
+        case Qt::Key_E:
+            doRoll = 0;
+            break;
+        case Qt::Key_W:
+            goForward = 0;
+            break;
+        case Qt::Key_S:
+            goForward = 0;
+            break;
+        default:
+            event->ignore();
+            break;
+    }
+}
+
+void GLPolygonWidget::updateCurrent()
+{
+    // The current position is the original position plus
+    // the movement vector times by the speed
+    Vector change = (forward * speed);
+    currentPosition = currentPosition + change;
+
+    // Eye is where I currently am
+    eye = currentPosition;
+    // Center (What I'm looking at) is the eye + what is infront of me
+    center = currentPosition + forward;
+    // Up vector is what is currently up relative to me
+    upVec = up;
+
+}
+
+void GLPolygonWidget::pickMovement()
+{
+    // Move if required
+    if(goUp != 0)
+        pitch(goUp * angle);
+    if(goRight != 0)
+        yaw(goRight * angle);
+    if(goForward != 0)
+        speed = speed + (speedChange * goForward);
+    if(doRoll != 0)
+        roll(doRoll * angle);
 }
