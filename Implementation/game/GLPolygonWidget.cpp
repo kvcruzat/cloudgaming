@@ -5,6 +5,7 @@
 #include <math.h>
 #include <vector>
 #include <QtDebug>
+#include <QDebug>
 #include <time.h>
 #include <QTimer>
 #include <QKeyEvent>
@@ -49,6 +50,7 @@ GLPolygonWidget::GLPolygonWidget(QWidget *parent) : QGLWidget(parent){
 	currentTime = 0;
 	previousTime = 0;
 	frameCount = 0;
+	qImageCount = 0;
 
 	QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -144,8 +146,8 @@ void GLPolygonWidget::paintGL(){
 
 	glPopMatrix();
 
-	glFlush();
 
+	glFlush();
 
 	frameCount++;
 
@@ -155,6 +157,12 @@ void GLPolygonWidget::paintGL(){
 
 	if(timeInterval > 1000) {
 		std::cout << frameCount / (timeInterval/1000.0f) << std::endl;
+
+		QImage image = this->grabFrameBuffer();
+		srand(time(NULL));
+		QString str = QString::number(qImageCount) + ".jpg";
+		image.save(str,"JPEG");
+		qImageCount++;
 
 		previousTime = currentTime;
 

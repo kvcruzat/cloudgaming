@@ -58,7 +58,7 @@ class GLPolygonWidget: public QGLWidget {
 		void growBranch(int,double,double,bool);
 		std::vector<float> genRand(int);
 		int currentTime, previousTime;
-		int frameCount;
+		int frameCount, qImageCount;
 
 		Point eye; Point center; Vector upVec; // For Look at
 		Vector right; Vector up; Vector forward; // For the movement
