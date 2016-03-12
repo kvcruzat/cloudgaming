@@ -14,6 +14,8 @@ using std::string;
  */
 ClientWindow::ClientWindow()
 {	
+    this->setFocusPolicy(Qt::StrongFocus);
+
  	pressedKey = "";
 
     tcpSocket = new QTcpSocket(this);
@@ -44,39 +46,54 @@ ClientWindow::ClientWindow()
 
 void ClientWindow::keyPressEvent(QKeyEvent* event)
 {
-    // Pick the key that has been pressed and assign the
-    // arelevant variables.
-    // switch ( event->key()) {
-    //     case Qt::Key_Up:
-    //         goUp = -1;
-    //         break;
-    //     case Qt::Key_Down:
-    //         goUp = 1;
-    //         break;
-    //     case Qt::Key_Right:
-    //         goRight = -1;
-    //         break;
-    //     case Qt::Key_Left:
-    //         goRight = 1;
-    //         break;
-    //     case Qt::Key_Q:
-    //         doRoll = 1;
-    //         break;
-    //     case Qt::Key_E:
-    //         doRoll = -1;
-    //         break;
-    //     case Qt::Key_W:
-    //         goForward = 1;
-    //         break;
-    //     case Qt::Key_S:
-    //         goForward = -1;
-    //         break;
-    //     case Qt::Key_Space:
-    //         speed = 0;
-    //     default:
-    //         event->ignore();
-    //         break;
-    // }
+    //Pick the key that has been pressed and assign the relevant variables.
+    switch ( event->key()) {
+        case Qt::Key_Up:
+            pressedKey = "Up";
+            break;
+        case Qt::Key_Down:
+            pressedKey = "Down";
+            break;
+        case Qt::Key_Right:
+            pressedKey = "Right";
+            break;
+        case Qt::Key_Left:
+            pressedKey = "Left";
+            break;
+        case Qt::Key_Q:
+            pressedKey = "Q";
+            break;
+        case Qt::Key_E:
+            pressedKey = "E";
+            break;
+        case Qt::Key_W:
+            pressedKey = "W";
+            break;
+        case Qt::Key_S:
+            pressedKey = "S";
+            break;
+        case Qt::Key_Space:
+            pressedKey = "Space";
+        default:
+            event->ignore();
+            break;
+    }
+
+    if (pressedKey != "") {
+        // tcpSocket->write(QString::fromStdString(pressedKey).toLatin1().data());
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        out << (quint16)0;
+        out << QString::fromStdString(pressedKey);
+        out.device()->seek(0);
+        out << (quint16)(block.size() - sizeof(quint16));
+
+        tcpSocket->write(block);
+        qDebug() << QString::fromStdString(pressedKey);
+        pressedKey = "";
+    }
+   
 }
 
 void ClientWindow::connectServer(string hostname, string port){
@@ -105,22 +122,23 @@ void ClientWindow::sessionOpened()
 }
 
 void ClientWindow::readData()
-{
+{   
     QDataStream in(tcpSocket);
     in.setVersion(QDataStream::Qt_4_0);
 
     if (blockSize == 0) {
-        if (tcpSocket->bytesAvailable() < (int)sizeof(quint16))
+        if (tcpSocket->bytesAvailable() < (int)sizeof(quint16)){
             return;
-
+        } 
         in >> blockSize;
     }
 
-    if (tcpSocket->bytesAvailable() < blockSize)
+    if (tcpSocket->bytesAvailable() < blockSize){
         return;
+    }
 
-    QString nextFortune;
-    in >> nextFortune;
+    QString message;
+    in >> message;
 
-    qDebug() << nextFortune;
+    qDebug() << message;
 }

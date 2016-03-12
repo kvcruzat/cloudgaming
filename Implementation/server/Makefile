@@ -1040,6 +1040,7 @@ Server.o: Server.cpp /home/sc13kvc/apps/Qt5/5.3/gcc_64/include/QtWidgets/QtWidge
 		/home/sc13kvc/apps/Qt5/5.3/gcc_64/include/QtNetwork/qsslkey.h \
 		/home/sc13kvc/apps/Qt5/5.3/gcc_64/include/QtNetwork/qtnetworkversion.h \
 		/home/sc13kvc/apps/Qt5/5.3/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/sc13kvc/apps/Qt5/5.3/gcc_64/include/QtCore/QDebug \
 		Server.h \
 		/home/sc13kvc/apps/Qt5/5.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Server.o Server.cpp

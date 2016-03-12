@@ -52,13 +52,14 @@ void Server::sendData()
     out.device()->seek(0);
     out << (quint16)(block.size() - sizeof(quint16));
 
-    QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
+    clientConnection = tcpServer->nextPendingConnection();
     connect(clientConnection, SIGNAL(disconnected()),
             clientConnection, SLOT(deleteLater()));
 
     clientConnection->write(block);
     std::cout<< "2" << std::endl;
-    clientConnection->disconnectFromHost();
+    blockSize = 0;
+    connect(clientConnection, SIGNAL(readyRead()), this, SLOT(readData()));
 }
 
 void Server::sessionOpened()
@@ -102,3 +103,27 @@ void Server::sessionOpened()
     qDebug() << ipAddress << tcpServer->serverPort();
 
 }
+
+void Server::readData()
+{	
+	// QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
+    QDataStream in(clientConnection);
+    in.setVersion(QDataStream::Qt_4_0);
+
+    if (blockSize == 0) {
+        if (clientConnection->bytesAvailable() < (int)sizeof(quint16)){
+            return;
+        }  
+        in >> blockSize;
+    }
+
+    if (clientConnection->bytesAvailable() < blockSize){
+        return;
+    }
+
+    QString message;
+    in >> message;
+
+    qDebug() << message;
+    blockSize = 0;
+}  

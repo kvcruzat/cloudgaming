@@ -5,6 +5,7 @@
 #include <QWidget>
 
 class QTcpServer;
+class QTcpSocket;
 class QNetworkSession;
 
 class Server : public QWidget {
@@ -17,9 +18,12 @@ class Server : public QWidget {
 	private slots:
 	    void sessionOpened();
 	    void sendData();
+	    void readData();
 
 	private:
 	    QTcpServer *tcpServer;
+	    QTcpSocket *clientConnection;
+	    quint16 blockSize;
 	    QNetworkSession *networkSession;
 
 };
