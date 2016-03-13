@@ -11,14 +11,24 @@ class QCheckBox;		// forward declaration
 class GLPolygonWidget;
 class QSpinBox;
 class QPushButton;
+class QTcpServer;
+class QTcpSocket;
+class QNetworkSession;
 
 /**
  * Class definition for Qt window config
  */
 class GLWindow : public QWidget {
 
+	Q_OBJECT
+
 	public:
-		GLWindow();
+		GLWindow(QWidget *parent = 0);
+
+	private slots:
+	    void sessionOpened();
+	    void sendData();
+	    void readData();
 
 	private:
 		QSlider* sliderTransCreate();	// helper functions to create sliders
@@ -48,6 +58,11 @@ class GLWindow : public QWidget {
 		QLabel* labelShading;
 		QLabel* labelLeaves;
 		QLabel* labelSeasons;
+
+		QTcpServer *tcpServer;
+	    QTcpSocket *clientConnection;
+	    quint16 blockSize;
+	    QNetworkSession *networkSession;
 };
 
 #endif

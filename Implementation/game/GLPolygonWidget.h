@@ -20,6 +20,7 @@ class GLPolygonWidget: public QGLWidget {
 
 	public:
 		GLPolygonWidget(QWidget *parent=0);
+		void simulateKey(std::string key);
 
 	protected:
 		void initializeGL();

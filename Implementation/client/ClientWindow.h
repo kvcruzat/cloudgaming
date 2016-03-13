@@ -23,10 +23,12 @@ class ClientWindow : public QWidget {
 	public slots:
 		void sessionOpened();
 		void readData();
+		void sendData();
 
 	private:
 		std::string pressedKey;
 		void keyPressEvent(QKeyEvent*);
+		void keyReleaseEvent(QKeyEvent*);
 		
 
 		QTcpSocket *tcpSocket;

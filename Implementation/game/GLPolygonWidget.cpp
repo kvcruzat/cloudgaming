@@ -10,8 +10,6 @@
 #include <QTimer>
 #include <QKeyEvent>
 
-double PI = M_PI;
-
 GLfloat light_position[4] = {0.0, 0.0, 40.0, 1.0};	// define some vectors
 GLfloat ground_plane[4][4] = {{-100.0, 100.0, 0.0},
 								{100.0, 100.0, 0.0},
@@ -156,12 +154,12 @@ void GLPolygonWidget::paintGL(){
 	// std::cout << timeInterval << std::endl;
 
 	if(timeInterval > 1000) {
-		std::cout << frameCount / (timeInterval/1000.0f) << std::endl;
+		// std::cout << frameCount / (timeInterval/1000.0f) << std::endl;
 
 		QImage image = this->grabFrameBuffer();
 		srand(time(NULL));
 		QString str = QString::number(qImageCount) + ".jpg";
-		image.save(str,"JPEG");
+		// image.save(str,"JPEG");
 		qImageCount++;
 
 		previousTime = currentTime;
@@ -628,4 +626,42 @@ void GLPolygonWidget::pickMovement()
         speed = speed + (speedChange * goForward);
     if(doRoll != 0)
         roll(doRoll * angle);
+}
+
+void GLPolygonWidget::simulateKey(std::string key){
+
+	if (key == "Up")
+        goUp = -1;
+    if (key == "Down")
+        goUp = 1;
+    if (key == "Right")
+        goRight = -1;
+    if (key == "Left")
+        goRight = 1;
+    if (key == "Q")
+        doRoll = 1;
+    if (key == "E")
+        doRoll = -1;
+    if (key == "W")
+        goForward = 1;
+    if (key == "S")
+        goForward = -1;
+    if (key == "Space")
+        speed = 0;
+    if (key == "-Up")
+        goUp = 0;
+    if (key == "-Down")
+        goUp = 0;
+    if (key == "-Right")
+        goRight = 0;
+    if (key == "-Left")
+        goRight = 0;
+    if (key == "-Q")
+        doRoll = 0;
+    if (key == "-E")
+        doRoll = 0;
+    if (key == "-W")
+        goForward = 0;
+    if (key == "-S")
+        goForward = 0;
 }

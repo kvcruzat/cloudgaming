@@ -47,37 +47,84 @@ ClientWindow::ClientWindow()
 void ClientWindow::keyPressEvent(QKeyEvent* event)
 {
     //Pick the key that has been pressed and assign the relevant variables.
-    switch ( event->key()) {
-        case Qt::Key_Up:
-            pressedKey = "Up";
-            break;
-        case Qt::Key_Down:
-            pressedKey = "Down";
-            break;
-        case Qt::Key_Right:
-            pressedKey = "Right";
-            break;
-        case Qt::Key_Left:
-            pressedKey = "Left";
-            break;
-        case Qt::Key_Q:
-            pressedKey = "Q";
-            break;
-        case Qt::Key_E:
-            pressedKey = "E";
-            break;
-        case Qt::Key_W:
-            pressedKey = "W";
-            break;
-        case Qt::Key_S:
-            pressedKey = "S";
-            break;
-        case Qt::Key_Space:
-            pressedKey = "Space";
-        default:
-            event->ignore();
-            break;
+    if (!event->isAutoRepeat()){
+        switch ( event->key()) {
+            case Qt::Key_Up:
+                pressedKey = "Up";
+                break;
+            case Qt::Key_Down:
+                pressedKey = "Down";
+                break;
+            case Qt::Key_Right:
+                pressedKey = "Right";
+                break;
+            case Qt::Key_Left:
+                pressedKey = "Left";
+                break;
+            case Qt::Key_Q:
+                pressedKey = "Q";
+                break;
+            case Qt::Key_E:
+                pressedKey = "E";
+                break;
+            case Qt::Key_W:
+                pressedKey = "W";
+                break;
+            case Qt::Key_S:
+                pressedKey = "S";
+                break;
+            case Qt::Key_Space:
+                pressedKey = "Space";
+            default:
+                event->ignore();
+                break;
+        }
+
+        sendData();
     }
+    pressedKey = "";    
+}
+void ClientWindow::keyReleaseEvent( QKeyEvent* event )
+{
+    if (!event->isAutoRepeat()){
+        switch ( event->key()) {
+            case Qt::Key_Up:
+                pressedKey = "-Up";
+                break;
+            case Qt::Key_Down:
+                pressedKey = "-Down";
+                break;
+            case Qt::Key_Right:
+                pressedKey = "-Right";
+                break;
+            case Qt::Key_Left:
+                pressedKey = "-Left";
+                break;
+            case Qt::Key_Q:
+                pressedKey = "-Q";
+                break;
+            case Qt::Key_E:
+                pressedKey = "-E";
+                break;
+            case Qt::Key_W:
+                pressedKey = "-W";
+                break;
+            case Qt::Key_S:
+                pressedKey = "-S";
+                break;
+            case Qt::Key_Space:
+                break;
+            default:
+                event->ignore();
+                break;
+        }
+
+        sendData();
+    }
+    pressedKey = "";
+}
+
+void ClientWindow::sendData(){
 
     if (pressedKey != "") {
         // tcpSocket->write(QString::fromStdString(pressedKey).toLatin1().data());
@@ -91,7 +138,6 @@ void ClientWindow::keyPressEvent(QKeyEvent* event)
 
         tcpSocket->write(block);
         qDebug() << QString::fromStdString(pressedKey);
-        pressedKey = "";
     }
    
 }
@@ -140,5 +186,5 @@ void ClientWindow::readData()
     QString message;
     in >> message;
 
-    qDebug() << message;
+    qDebug() << "From Server:" << message;
 }
