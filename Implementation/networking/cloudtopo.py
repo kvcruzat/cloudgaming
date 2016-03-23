@@ -1,4 +1,5 @@
 from mininet.topo import Topo
+from mininet.link import TCLink
 
 class CloudTopo( Topo ):
     "Simple cloud gaming topology"
@@ -28,9 +29,12 @@ class CloudTopo( Topo ):
         self.addLink( leftSwitch, exitSwitch )
         self.addLink( middleSwitch, exitSwitch )
         self.addLink( rightSwitch, exitSwitch )
-        self.addLink( playerHost1, exitSwitch )
-        self.addLink( playerHost2, exitSwitch )
-        self.addLink( playerHost3, exitSwitch )
+        self.addLink( playerHost1, exitSwitch,
+        				bw=5, delay='30ms', loss=5, max_queue_size=1000, use_htb=True )
+        self.addLink( playerHost2, exitSwitch,
+        				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+        self.addLink( playerHost3, exitSwitch,
+        				bw=70, delay='50ms', loss=1, max_queue_size=1000, use_htb=True )
 
 
 topos = { 'cloudtopo': ( lambda: CloudTopo() ) }
