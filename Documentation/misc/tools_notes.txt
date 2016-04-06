@@ -1,0 +1,31 @@
+// Commands to start up openvswitch
+
+sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock                      --remote=db:Open_vSwitch,Open_vSwitch,manager_options                      --private-key=db:Open_vSwitch,SSL,private_key                      --certificate=db:Open_vSwitch,SSL,certificate                      --bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert                      --pidfile --detach
+
+sudo ovs-vsctl --no-wait init
+
+sudo ovs-vswitchd --pidfile --detach
+
+// To start mininet
+
+sudo mn --controller=remote,ip=127.0.0.1 --custom cloudtopo.py --topo cloudtopo --link tc
+
+// iperf
+
+server:
+iperf -s
+
+client:
+iperf -c 10.0.0.X
+
+// ODL feature install
+
+feature:install odl-l2switch-all 
+feature:install odl-adsal-compatibility
+feature:install odl-nsf-all
+feature:install odl-dlux-all
+
+// ODL dlux GUI
+http://localhost:8080/dlux/index.html
+http://localhost:8181/index.html
+
