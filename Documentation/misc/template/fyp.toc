@@ -1,0 +1,8 @@
+\contentsline {chapter}{\numberline {1}Chapter 1 Title}{3}
+\contentsline {section}{\numberline {1.1}Starting section}{3}
+\contentsline {chapter}{\numberline {2}Chapter 2 Title}{5}
+\contentsline {section}{\numberline {2.1}Section 1}{5}
+\contentsline {chapter}{References}{6}
+\contentsline {chapter}{Appendices}{9}
+\contentsline {chapter}{\numberline {A}External Material}{11}
+\contentsline {chapter}{\numberline {B}Ethical Issues Addressed}{13}
