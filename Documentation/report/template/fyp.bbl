@@ -1,9 +1,31 @@
 \begin{thebibliography}{1}
 
-\bibitem{parikh1980adaptive}
-D.~Parikh, N.~Ahmed, and S.~Stearns.
-\newblock An adaptive lattice algorithm for recursive filters.
-\newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
-  28(1):110--111, 1980.
+\bibitem{chuah2014cloud}
+S.-P. Chuah, C.~Yuen, and N.-M. Cheung.
+\newblock Cloud gaming: a green solution to massive multiplayer online games.
+\newblock {\em Wireless Communications, IEEE}, 21(4):78--87, 2014.
+
+\bibitem{deutsch1994eight}
+P.~Deutsch.
+\newblock The eight fallacies of distributed computing.
+\newblock {\em URL: http://today. java. net/jag/Fallacies. html}, 1994.
+
+\bibitem{jarschel2011evaluation}
+M.~Jarschel, D.~Schlosser, S.~Scheuring, and T.~Ho{\ss}feld.
+\newblock An evaluation of qoe in cloud gaming based on subjective tests.
+\newblock In {\em Innovative Mobile and Internet Services in Ubiquitous
+  Computing (IMIS), 2011 Fifth International Conference on}, pages 330--335.
+  IEEE, 2011.
+
+\bibitem{mariano2015cloud}
+B.~Mariano and S.~G. Koo.
+\newblock Is cloud gaming the future of the gaming industry?
+\newblock In {\em Ubiquitous and Future Networks (ICUFN), 2015 Seventh
+  International Conference on}, pages 969--972. IEEE, 2015.
+
+\bibitem{shea2013cloud}
+R.~Shea, J.~Liu, E.~Ngai, and Y.~Cui.
+\newblock Cloud gaming: architecture and performance.
+\newblock {\em Network, IEEE}, 27(4):16--21, 2013.
 
 \end{thebibliography}
