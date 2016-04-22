@@ -7,7 +7,7 @@ Compute power of games can be offloaded to a server of much powerful computers a
 Another problem that is directly linked to delay in the system is the effect of packet loss. As stated in the \textit{Eight Fallacies of Distributed Computing} \cite{deutsch1994eight}, it should be assumed that latency is never zero as mentioned above as well as network is not always reliable. This means that packet loss can occur which in terms of cloud computing can mean the degradation of image quality. In the investigation conducted by Jarschel et al. \cite{jarschel2011evaluation} in which they surveyed average consumers about the importance of packet loss and delay. Generally the quality of the video streamed to the clients plays an important role as the participants were open to using such as a service if provided in good quality.
 
 \section{Cloud Computing}
-\lipsum[1-1]
+According to the National Institute of Standards and Technology \cite{mell2011nist}, cloud computing is a means of providing on demand access to computing resources over the network. This should be executed with minimal management effort or service provider interaction
 
 \section{Cloud Gaming}
 Cloud gaming is new technology that can be seen as an alternative by having the games run remotely on a server and then streamed to the user. Performing computations remotely as with streaming games remotely is believed to gain traction in the future in the same way how streaming videos and audio have become ubiquitous through services such as Netflix and Spotify. NVIDIA's GRID Cloud Gaming advancements have shown that this is becoming the case. As stated by Mariano in \textit{Is cloud gaming the future of the gaming industry} \cite{mariano2015cloud}, cloud gaming is increasingly becoming an attractive option for consumers as higher end games can then work on simpler, cheaper clients as well as with devices that they may already own.
@@ -15,6 +15,16 @@ Cloud gaming is new technology that can be seen as an alternative by having the 
 In the paper \textit{Cloud Gaming: A Green Solution to Massive Multiplayer Online Games} \cite{chuah2014cloud} it mentions that NVIDIA has introduced SHIELD which is a mobile gaming device that can be connected a desktop PC with a compatible NVIDIA GPU and stream gameplay to the device via 802.11n WiFi. Another feature is the ability to connect to one of NVIDIA's data centres to play games from their selection of stream-ready games. One of the benefits of this service is the convenience of not having to wait for the download and installation of the game as you simply pick a game and instantly start playing. The service also boasts gameplay performance of up to 1080p at 60fps.
 
 \section{Latency Mitigation}
+\lipsum[1-1]
+
+\subsection{Software-Defined Networking}
+As stated by Kirkpatrick \cite{kirkpatrick2013software}, software-defined networking (SDN) is a new networking architecture that allows programmers to quickly reconfigure and define network usage. Whilst signifcant advances have been in other areas of technology, networking has not been able to evolve in the same pace.
+\par
+Similar to mobile phones shifting to the world of smartphones with the help of APIs (application program interface), in an SDN environment, applications can communicate with network switches through an API. The API can be used to quickly reconfigure the resources of the network to accommodate the needs of the applications being executed. This main benefit of using SDN is also discussed in \textit{Improving network management with software defined networking} \cite{kim2013improving}. Kim et al mentions that network operators will not need to configure all the network devices indivdually to make network behaviour changes, but instead make network-wide traffic forwarding decisions. The SDN controller is used for this and would have global knowledge of the state of the network.
+\par
+SDN consists of two planes, the data and control plane. The data plane also known as the forwarding plane is the part of the network that carries user traffic by forwarding them to the next hop along the path to its destination in accordance to the logic in the control plane. The control plane has command where the traffic is sent by creating the routing tables and is also repsonsible for managing connections between switches, handling errors and exceptions.
+
+\subsection{Speculative Execution: Outatime}
 \lipsum[1-1]
 
 \section{Related Works}
