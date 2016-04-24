@@ -27,6 +27,14 @@ K.~Kirkpatrick.
 \newblock Software-defined networking.
 \newblock {\em Communications of the ACM}, 56(9):16--19, 2013.
 
+\bibitem{lee2015outatime}
+K.~Lee, D.~Chu, E.~Cuervo, J.~Kopf, A.~Wolman, Y.~Degtyarev, S.~Grizan, and
+  J.~Flinn.
+\newblock Outatime: Using speculation to enable low-latency continuous
+  interaction for mobile cloud gaming.
+\newblock {\em GetMobile: Mobile Computing and Communications}, 19(3):14--17,
+  2015.
+
 \bibitem{mariano2015cloud}
 B.~Mariano and S.~G. Koo.
 \newblock Is cloud gaming the future of the gaming industry?
