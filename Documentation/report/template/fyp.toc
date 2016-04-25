@@ -9,10 +9,10 @@
 \contentsline {section}{\numberline {2.2}Cloud Computing}{5}
 \contentsline {section}{\numberline {2.3}Cloud Gaming}{5}
 \contentsline {section}{\numberline {2.4}Latency Mitigation}{6}
-\contentsline {subsection}{\numberline {2.4.1}Software-Defined Networking}{6}
+\contentsline {subsection}{\numberline {2.4.1}Software-Defined Networking}{7}
 \contentsline {subsection}{\numberline {2.4.2}Speculative Execution: Outatime}{7}
-\contentsline {section}{\numberline {2.5}Related Works}{7}
-\contentsline {chapter}{References}{8}
+\contentsline {section}{\numberline {2.5}Related Works}{8}
+\contentsline {chapter}{References}{9}
 \contentsline {chapter}{Appendices}{11}
 \contentsline {chapter}{\numberline {A}External Material}{13}
 \contentsline {chapter}{\numberline {B}Ethical Issues Addressed}{15}

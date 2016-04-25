@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  24 APR 2016 00:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  25 APR 2016 01:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -475,10 +475,14 @@ Chapter 2.
 
 
 
-] [6]) [7] (./fyp.bbl [8
+] [6]
+Underfull \vbox (badness 1796) has occurred while \output is active []
+
+ [7])
+[8] (./fyp.bbl) [9
 
 
-]) [9]
+]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex [10
@@ -499,7 +503,7 @@ Appendix B.
 Here is how much of TeX's memory you used:
  4116 strings out of 495028
  58140 string characters out of 6181496
- 207640 words of memory out of 5000000
+ 208640 words of memory out of 5000000
  7204 multiletter control sequences out of 15000+600000
  17114 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -514,9 +518,9 @@ c13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk>{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/sc13kvc/.texmf-var/fonts/pk/lj
 four/jknappen/ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/urw/
 times/utmr8a.pfb>
-Output written on fyp.pdf (19 pages, 135326 bytes).
+Output written on fyp.pdf (19 pages, 136888 bytes).
 PDF statistics:
- 407 PDF objects out of 1000 (max. 8388607)
+ 410 PDF objects out of 1000 (max. 8388607)
  81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
