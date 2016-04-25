@@ -1,18 +1,18 @@
-\contentsline {chapter}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {1.1}Context}{3}
-\contentsline {section}{\numberline {1.2}Project Aim}{3}
-\contentsline {section}{\numberline {1.3}Project Objectives}{3}
-\contentsline {section}{\numberline {1.4}Deliverables}{3}
-\contentsline {section}{\numberline {1.5}Project Schedule}{4}
-\contentsline {chapter}{\numberline {2}Background Research}{5}
-\contentsline {section}{\numberline {2.1}Problem Overview}{5}
-\contentsline {section}{\numberline {2.2}Cloud Computing}{5}
-\contentsline {section}{\numberline {2.3}Cloud Gaming}{5}
-\contentsline {section}{\numberline {2.4}Latency Mitigation}{6}
-\contentsline {subsection}{\numberline {2.4.1}Software-Defined Networking}{7}
-\contentsline {subsection}{\numberline {2.4.2}Speculative Execution: Outatime}{7}
-\contentsline {section}{\numberline {2.5}Related Works}{8}
-\contentsline {chapter}{References}{9}
-\contentsline {chapter}{Appendices}{11}
-\contentsline {chapter}{\numberline {A}External Material}{13}
-\contentsline {chapter}{\numberline {B}Ethical Issues Addressed}{15}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Context}{1}
+\contentsline {section}{\numberline {1.2}Project Aim}{1}
+\contentsline {section}{\numberline {1.3}Project Objectives}{1}
+\contentsline {section}{\numberline {1.4}Deliverables}{1}
+\contentsline {section}{\numberline {1.5}Project Schedule}{2}
+\contentsline {chapter}{\numberline {2}Background Research}{3}
+\contentsline {section}{\numberline {2.1}Problem Overview}{3}
+\contentsline {section}{\numberline {2.2}Cloud Computing}{3}
+\contentsline {section}{\numberline {2.3}Cloud Gaming}{3}
+\contentsline {section}{\numberline {2.4}Latency Mitigation}{5}
+\contentsline {subsection}{\numberline {2.4.1}Software-Defined Networking}{5}
+\contentsline {subsection}{\numberline {2.4.2}Speculative Execution: Outatime}{6}
+\contentsline {section}{\numberline {2.5}Related Works}{6}
+\contentsline {chapter}{References}{7}
+\contentsline {chapter}{Appendices}{9}
+\contentsline {chapter}{\numberline {A}External Material}{11}
+\contentsline {chapter}{\numberline {B}Ethical Issues Addressed}{13}

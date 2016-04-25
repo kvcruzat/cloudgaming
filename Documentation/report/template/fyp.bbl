@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{chuah2014cloud}
 S.-P. Chuah, C.~Yuen, and N.-M. Cheung.
@@ -9,6 +9,12 @@ S.-P. Chuah, C.~Yuen, and N.-M. Cheung.
 P.~Deutsch.
 \newblock The eight fallacies of distributed computing.
 \newblock {\em URL: http://today. java. net/jag/Fallacies. html}, 1994.
+
+\bibitem{goty2015}
+{GameCentral for Metro.co.uk}.
+\newblock The witcher 3 wins game of the year at golden joysticks 2015, 2015.
+\newblock [Online]. [Accessed 15 April 2016]. Available from:
+  http://metro.co.uk/2015/10/30/the-witcher-3-wins-ultimate-game-of-the-year-at-golden-joysticks-2015-5471812/.
 
 \bibitem{jarschel2011evaluation}
 M.~Jarschel, D.~Schlosser, S.~Scheuring, and T.~Ho{\ss}feld.
@@ -45,6 +51,13 @@ B.~Mariano and S.~G. Koo.
 P.~Mell and T.~Grance.
 \newblock The nist definition of cloud computing.
 \newblock 2011.
+
+\bibitem{witcher}
+D.~Piner.
+\newblock {Witcher III} system minimum and recommended system requirements and
+  upgrade guide, 2016.
+\newblock [Online]. [Accessed 15 April 2016]. Available from:
+  http://www.tentonhammer.com/guides/witcher-iii-system-minimum-and-recommended-system-requirements-and-upgrade-guide.
 
 \bibitem{shea2013cloud}
 R.~Shea, J.~Liu, E.~Ngai, and Y.~Cui.

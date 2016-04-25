@@ -14,18 +14,25 @@ According to the National Institute of Standards and Technology \cite{mell2011ni
 Cloud gaming is new technology that can be seen as an alternative by having the games run remotely on a server and then streamed to the user. Performing computations remotely as with streaming games remotely is believed to gain traction in the future in the same way how streaming videos and audio have become ubiquitous through services such as Netflix and Spotify. NVIDIA's GRID Cloud Gaming advancements have shown that this is becoming the case. As stated by Mariano in \textit{Is cloud gaming the future of the gaming industry} \cite{mariano2015cloud}, cloud gaming is increasingly becoming an attractive option for consumers as higher end games can then work on simpler, cheaper clients as well as with devices that they may already own also known as thin clients.
 \newline
 \par
-These thin clients are responsible for displaying the game frames rendered on the cloud server side in the form of video frames. Also, it has to collect and process the game control inputs from the user and send these to cloud to be registered as inputs on the game engine. According to Shea et al \cite{shea2013cloud}, cloud gaming would be of great benefit to the game industry as it would open the user base to the thin clients. For example the recommended specifications to run the Game of the Year title Witcher 3 would require a system that has:
+These thin clients are responsible for displaying the game frames rendered on the cloud server side in the form of video frames. Also, it has to collect and process the game control inputs from the user and send these to cloud to be registered as inputs on the game engine. According to Shea et al \cite{shea2013cloud}, cloud gaming would be of great benefit to the game industry as it would open the user base to the thin clients. For example the recommended specifications to run the 2015 Game of the Year title Witcher 3\cite{goty2015} would require a system that has \cite{witcher}:
 \begin{itemize}
  \item CPU: Intel Core i7 3770 3.4 GHz / AMD FX-8350 4 GHz
  \item GPU: GeForce GTX 770 / AMD Radeon R9 290
  \item RAM: 8GB
 \end{itemize}
-A system that has these components would cost around £400 and this does not include peripherals such as keyboard, mouse and monitor. Cloud gaming would enable consumers with lower end devices to run and play graphically intensive games.
+A system that has these components would cost around \textlira400 and this does not include peripherals such as keyboard, mouse and monitor. The latest tablets and laptops can barely if at all meet the recommended specifications to run the game natively. Furthermore, games will have to deal with running on different hardware architectures and operating systems. Cloud gaming would enable consumers with lower end devices to run and play graphically intensive games.
 \newline
 \par
-In the paper \textit{Cloud Gaming: A Green Solution to Massive Multiplayer Online Games} \cite{chuah2014cloud} it mentions that NVIDIA has introduced SHIELD which is a mobile gaming device that can be connected to a desktop PC with a compatible NVIDIA GPU and stream gameplay to the device via 802.11n WiFi. Another feature is the ability to connect to one of NVIDIA's data centres to play games from their selection of stream-ready games. One of the benefits of this service is the convenience of not having to wait for the download and installation of the game as you simply pick a game and instantly start playing. The service also boasts gameplay performance of up to 1080p at 60fps.
-\newline
-\par
+In the paper \textit{Cloud Gaming: A Green Solution to Massive Multiplayer Online Games} \cite{chuah2014cloud} it mentions that NVIDIA has introduced SHIELD which is a mobile gaming device that can be connected to a desktop PC with a compatible NVIDIA GPU and stream gameplay to the device via 802.11n WiFi. Another feature is the ability to connect to one of NVIDIA's data centres to play games from their selection of stream-ready games. One of the benefits of this service is the convenience of not having to wait for the download and installation of the game as you simply pick a game and instantly start playing. The service also boasts gameplay performance of up to 1080p at 60fps which are deemed by gamers to be the target performance.
+
+\clearpage
+\begin{figure}
+ \includegraphics[width=\linewidth]{images/arch.png}
+ \caption{Cloud gaming system architecture}
+ \label{fig:arch}
+\end{figure}
+
+A simple cloud gaming architecture consists of several procedures which adds on top of the game engine process. The client would send user inputs through some form of controller like a keyboard, mouse, or gamepead to the thin client. The game client then encodes these commands so it can easily be sent to the game server via a network. 
 
 \section{Latency Mitigation}
 One method of latency mitigation is to simply move the server to the clients. This means that traffic will have to travel less distance therefore latency will decrease. Unfortunately, this solution is not feasible since building and maintaining data centres are expensive. Video streaming services such as Netflix and YouTube use buffering which loads video data before playing the video in order for continuous playback. This cannot be done for live cloud gaming so other solutions to improve experiences of latency sensitive games must be explored.
