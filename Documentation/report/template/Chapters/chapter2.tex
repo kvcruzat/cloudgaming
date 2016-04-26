@@ -32,7 +32,16 @@ In the paper \textit{Cloud Gaming: A Green Solution to Massive Multiplayer Onlin
  \label{fig:arch}
 \end{figure}
 
-A simple cloud gaming architecture consists of several procedures which adds on top of the game engine process. The client would send user inputs through some form of controller like a keyboard, mouse, or gamepead to the thin client. The game client then encodes these commands so it can easily be sent to the game server via a network. 
+A simple cloud gaming architecture consists of several procedures which adds on top of the game engine process as shown in Figure \ref{fig:arch}. The client would send user inputs through some form of controller like a keyboard, mouse, or gamepead to the thin client. The game client then encodes these commands so it can easily be sent to the game server via network. When the server receives the user inputs, it simulates them so the game that is running recognises them. The game renders the frames produced as a result of the inputs and are captured and encoded to video frames. This is done so it can be easily streamed to the client through the use of Real Time Streaming Protocol (RTSP) which is a network control protocol that manages delivery of data with real time properties \cite{rtsp}. The thin client uses RTSP to receive the video frames and decodes them to be displayed on a video player. The user then sees the results of the button presses sent from the game running on the server side. 
+\par
+Due to the many different processes involved in the architecture of a cloud gaming system, managing latency has become a problem. A traditional gaming system already experiences latency and as shown in Figure \ref{fig:latency}, this arises from the game pipeline and display lag. The game pipiline latency is the amount of time it takes for the game to comput and render a frame and the display lag is the time it takes to display the frames on the screen. Display lag can be caused by display's scaler since current display's have a fixed resolution and expensive image processing such as dynamic contrast and motion interpolation \cite{displaylag}. Cloud gaming introduces latency from capturing/encoding game frame to video frame, network and decoding on the client side.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.7\linewidth]{images/latency.png}
+ \caption{Latency in cloud gaming}
+ \label{fig:latency}
+\end{figure}
 
 \section{Latency Mitigation}
 One method of latency mitigation is to simply move the server to the clients. This means that traffic will have to travel less distance therefore latency will decrease. Unfortunately, this solution is not feasible since building and maintaining data centres are expensive. Video streaming services such as Netflix and YouTube use buffering which loads video data before playing the video in order for continuous playback. This cannot be done for live cloud gaming so other solutions to improve experiences of latency sensitive games must be explored.

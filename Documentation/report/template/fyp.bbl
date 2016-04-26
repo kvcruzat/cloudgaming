@@ -59,9 +59,21 @@ D.~Piner.
 \newblock [Online]. [Accessed 15 April 2016]. Available from:
   http://www.tentonhammer.com/guides/witcher-iii-system-minimum-and-recommended-system-requirements-and-upgrade-guide.
 
+\bibitem{rtsp}
+H.~Schulzrinne, A.~Rao, and R.~Lanphier.
+\newblock Real time streaming protocol, 1998.
+\newblock [Online]. [Accessed 20 April 2016]. Available from:
+  https://www.ietf.org/rfc/rfc2326.txt.
+
 \bibitem{shea2013cloud}
 R.~Shea, J.~Liu, E.~Ngai, and Y.~Cui.
 \newblock Cloud gaming: architecture and performance.
 \newblock {\em Network, IEEE}, 27(4):16--21, 2013.
+
+\bibitem{displaylag}
+A.~Soomoro.
+\newblock What is input lag: The breakdown, 2013.
+\newblock Online]. [Accessed 21 April 2016]. Available from:
+  http://www.displaylag.com/what-is-input-lag-the-breakdown/.
 
 \end{thebibliography}
