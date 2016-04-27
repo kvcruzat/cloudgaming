@@ -16,6 +16,17 @@ P.~Deutsch.
 \newblock [Online]. [Accessed 15 April 2016]. Available from:
   http://metro.co.uk/2015/10/30/the-witcher-3-wins-ultimate-game-of-the-year-at-golden-joysticks-2015-5471812/.
 
+\bibitem{grossman2009case}
+R.~L. Grossman.
+\newblock The case for cloud computing.
+\newblock {\em IT professional}, 11(2):23--27, 2009.
+
+\bibitem{jadeja2012cloud}
+Y.~Jadeja and K.~Modi.
+\newblock Cloud computing-concepts, architecture and challenges.
+\newblock In {\em Computing, Electronics and Electrical Technologies (ICCEET),
+  2012 International Conference on}, pages 877--880. IEEE, 2012.
+
 \bibitem{jarschel2011evaluation}
 M.~Jarschel, D.~Schlosser, S.~Scheuring, and T.~Ho{\ss}feld.
 \newblock An evaluation of qoe in cloud gaming based on subjective tests.
@@ -32,6 +43,13 @@ H.~Kim and N.~Feamster.
 K.~Kirkpatrick.
 \newblock Software-defined networking.
 \newblock {\em Communications of the ACM}, 56(9):16--19, 2013.
+
+\bibitem{cloudservices}
+A.~Kumawat.
+\newblock Cloud service models (iaas, saas, paas) + how microsoft office 365,
+  azure fit in, 2013.
+\newblock [Online]. [Accessed on 22 April 2016]. Available from:
+  http://www.cmswire.com/cms/information-management/cloud-service-models-iaas-saas-paas-how-microsoft-office-365-azure-fit-in-021672.php.
 
 \bibitem{lee2015outatime}
 K.~Lee, D.~Chu, E.~Cuervo, J.~Kopf, A.~Wolman, Y.~Degtyarev, S.~Grizan, and
@@ -73,7 +91,7 @@ R.~Shea, J.~Liu, E.~Ngai, and Y.~Cui.
 \bibitem{displaylag}
 A.~Soomoro.
 \newblock What is input lag: The breakdown, 2013.
-\newblock Online]. [Accessed 21 April 2016]. Available from:
+\newblock [Online]. [Accessed 21 April 2016]. Available from:
   http://www.displaylag.com/what-is-input-lag-the-breakdown/.
 
 \end{thebibliography}

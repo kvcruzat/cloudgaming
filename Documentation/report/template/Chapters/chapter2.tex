@@ -8,7 +8,13 @@ Compute power of games can be offloaded to a server of much powerful computers a
 Another problem that is directly linked to delay in the system is the effect of packet loss. As stated in the \textit{Eight Fallacies of Distributed Computing} \cite{deutsch1994eight}, it should be assumed that latency is never zero as mentioned above as well as network is not always reliable. This means that packet loss can occur which in terms of cloud computing can mean the degradation of image quality. In the investigation conducted by Jarschel et al. \cite{jarschel2011evaluation} in which they surveyed average consumers about the importance of packet loss and delay. Generally the quality of the video streamed to the clients plays an important role as the participants were open to using such as a service if provided in good quality.
 
 \section{Cloud Computing}
-According to the National Institute of Standards and Technology \cite{mell2011nist}, cloud computing is a means of providing on demand access to computing resources over the network. This should be executed with minimal management effort or service provider interaction
+According to the National Institute of Standards and Technology \cite{mell2011nist}, cloud computing is a means of providing on demand access to computing resources over the network. This should be executed with minimal management effort or service provider interaction. With the shared computing resources, cloud computing aims to process larger data and solve large scale computation.
+\newline
+\par
+This cloud computing model can be separated in to three different service models: Software as a Sevice (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS) \cite{jadeja2012cloud}. 'SaaS' model attempts to eliminate the need to install and run the application on the user's system. An example of this is the Microsoft Office 365 package which provides productivity software through the web browser. 'PaaS' model provides the consumer a computing platform using the cloud infrastructure to allow running and building their own applications. The consumer does not need to manage the "underlying cloud infrastructure including networks, servers, operating systems or storage \cite{mell2011nist}". 'IaaS' model provides the capability to control the processing, storage and networks to an extent. The consumers will have to install the OS images and related application software on the cloud infrastructure \cite{cloudservices}.
+\newline
+\par
+A disadvantage stated by Grossman \cite{grossman2009case} is that since cloud services are often remote, it can suffer from latency and bandwidth realted issues. Data centers can be physically located anywhere in the world, so the number of router hops from the client to the server may attribute to the latency. As well as distance, delays are also introduced by network hardware and error correction on data packets.
 
 \section{Cloud Gaming}
 Cloud gaming is new technology that can be seen as an alternative by having the games run remotely on a server and then streamed to the user. Performing computations remotely as with streaming games remotely is believed to gain traction in the future in the same way how streaming videos and audio have become ubiquitous through services such as Netflix and Spotify. NVIDIA's GRID Cloud Gaming advancements have shown that this is becoming the case. As stated by Mariano in \textit{Is cloud gaming the future of the gaming industry} \cite{mariano2015cloud}, cloud gaming is increasingly becoming an attractive option for consumers as higher end games can then work on simpler, cheaper clients as well as with devices that they may already own also known as thin clients.
@@ -25,26 +31,26 @@ A system that has these components would cost around \textlira400 and this does 
 \par
 In the paper \textit{Cloud Gaming: A Green Solution to Massive Multiplayer Online Games} \cite{chuah2014cloud} it mentions that NVIDIA has introduced SHIELD which is a mobile gaming device that can be connected to a desktop PC with a compatible NVIDIA GPU and stream gameplay to the device via 802.11n WiFi. Another feature is the ability to connect to one of NVIDIA's data centres to play games from their selection of stream-ready games. One of the benefits of this service is the convenience of not having to wait for the download and installation of the game as you simply pick a game and instantly start playing. The service also boasts gameplay performance of up to 1080p at 60fps which are deemed by gamers to be the target performance.
 
-\clearpage
-\begin{figure}
+\begin{figure}[h]
  \includegraphics[width=\linewidth]{images/arch.png}
  \caption{Cloud gaming system architecture}
  \label{fig:arch}
 \end{figure}
 
-A simple cloud gaming architecture consists of several procedures which adds on top of the game engine process as shown in Figure \ref{fig:arch}. The client would send user inputs through some form of controller like a keyboard, mouse, or gamepead to the thin client. The game client then encodes these commands so it can easily be sent to the game server via network. When the server receives the user inputs, it simulates them so the game that is running recognises them. The game renders the frames produced as a result of the inputs and are captured and encoded to video frames. This is done so it can be easily streamed to the client through the use of Real Time Streaming Protocol (RTSP) which is a network control protocol that manages delivery of data with real time properties \cite{rtsp}. The thin client uses RTSP to receive the video frames and decodes them to be displayed on a video player. The user then sees the results of the button presses sent from the game running on the server side. 
+A simple cloud gaming architecture consists of several procedures which adds on top of the game engine process as shown in Figure \ref{fig:arch}. The client would send user inputs through some form of controller like a keyboard, mouse, or gamepead to the thin client. The game client then encodes these commands so it can easily be sent to the game server via network. When the server receives the user inputs, it simulates them so the game that is running recognises them. The game renders the frames produced as a result of the inputs and are captured and encoded to video frames. This is done so it can be easily streamed to the client through the use of Real Time Streaming Protocol (RTSP) which is a network control protocol that manages delivery of data with real time properties \cite{rtsp}. The thin client uses RTSP to receive the video frames and decodes them to be displayed on a video player. The user then sees the results of the button presses sent from the game running on the server side.
+\newline 
 \par
 Due to the many different processes involved in the architecture of a cloud gaming system, managing latency has become a problem. A traditional gaming system already experiences latency and as shown in Figure \ref{fig:latency}, this arises from the game pipeline and display lag. The game pipiline latency is the amount of time it takes for the game to comput and render a frame and the display lag is the time it takes to display the frames on the screen. Display lag can be caused by display's scaler since current display's have a fixed resolution and expensive image processing such as dynamic contrast and motion interpolation \cite{displaylag}. Cloud gaming introduces latency from capturing/encoding game frame to video frame, network and decoding on the client side.
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.7\linewidth]{images/latency.png}
+ \includegraphics[width=0.8\linewidth]{images/latency.png}
  \caption{Latency in cloud gaming}
  \label{fig:latency}
 \end{figure}
 
 \section{Latency Mitigation}
-One method of latency mitigation is to simply move the server to the clients. This means that traffic will have to travel less distance therefore latency will decrease. Unfortunately, this solution is not feasible since building and maintaining data centres are expensive. Video streaming services such as Netflix and YouTube use buffering which loads video data before playing the video in order for continuous playback. This cannot be done for live cloud gaming so other solutions to improve experiences of latency sensitive games must be explored.
+One method of latency mitigation in the network is to simply move the server closer to the clients. This means that traffic will have to travel less distance therefore latency will decrease. Unfortunately, this solution is not feasible since building and maintaining data centres are expensive. Video streaming services such as Netflix and YouTube use buffering which loads video data before playing the video in order for continuous playback. This cannot be done for live cloud gaming so other solutions to improve experiences of latency sensitive games must be explored.
 
 \subsection{Software-Defined Networking}
 As stated by Kirkpatrick \cite{kirkpatrick2013software}, software-defined networking (SDN) is a new networking architecture that allows programmers to quickly reconfigure and define network usage. Whilst signifcant advances have been in other areas of technology, networking has not been able to evolve in the same pace.
