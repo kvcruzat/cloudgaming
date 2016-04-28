@@ -1,5 +1,12 @@
 \begin{thebibliography}{10}
 
+\bibitem{beigbeder2004effects}
+T.~Beigbeder, R.~Coughlan, C.~Lusher, J.~Plunkett, E.~Agu, and M.~Claypool.
+\newblock The effects of loss and latency on user performance in unreal
+  tournament 2003{\textregistered}.
+\newblock In {\em Proceedings of 3rd ACM SIGCOMM workshop on Network and system
+  support for games}, pages 144--151. ACM, 2004.
+
 \bibitem{chuah2014cloud}
 S.-P. Chuah, C.~Yuen, and N.-M. Cheung.
 \newblock Cloud gaming: a green solution to massive multiplayer online games.

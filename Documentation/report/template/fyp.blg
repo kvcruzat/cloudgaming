@@ -5,48 +5,52 @@ The style file: abbrv.bst
 A level-1 auxiliary file: prelude.aux
 A level-1 auxiliary file: ./Chapters/chapter1.aux
 A level-1 auxiliary file: ./Chapters/chapter2.aux
+A level-1 auxiliary file: ./Chapters/chapter3.aux
+A level-1 auxiliary file: ./Chapters/chapter4.aux
+A level-1 auxiliary file: ./Chapters/chapter5.aux
+A level-1 auxiliary file: ./Chapters/chapter6.aux
 A level-1 auxiliary file: appendix.aux
 Database file #1: refs.bib
 Warning--empty journal in mell2011nist
-You've used 16 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            593 strings with 6897 characters,
-and the built_in function-call counts, 5144 in all, are:
-= -- 514
-> -- 226
-< -- 3
-+ -- 95
-- -- 74
-* -- 322
-:= -- 842
-add.period$ -- 51
-call.type$ -- 16
-change.case$ -- 85
+            603 strings with 7301 characters,
+and the built_in function-call counts, 5735 in all, are:
+= -- 574
+> -- 259
+< -- 4
++ -- 109
+- -- 86
+* -- 364
+:= -- 930
+add.period$ -- 55
+call.type$ -- 17
+change.case$ -- 94
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 190
-empty$ -- 420
-format.name$ -- 74
-if$ -- 1088
+cite$ -- 18
+duplicate$ -- 213
+empty$ -- 461
+format.name$ -- 86
+if$ -- 1219
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 11
-newline$ -- 83
-num.names$ -- 32
-pop$ -- 109
+int.to.str$ -- 17
+missing$ -- 12
+newline$ -- 88
+num.names$ -- 34
+pop$ -- 121
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 77
 quote$ -- 0
-skip$ -- 148
+skip$ -- 166
 stack$ -- 0
-substring$ -- 301
-swap$ -- 45
-text.length$ -- 3
+substring$ -- 339
+swap$ -- 56
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
+type$ -- 68
 warning$ -- 1
-while$ -- 53
-width$ -- 18
-write$ -- 173
+while$ -- 58
+width$ -- 19
+write$ -- 185
 (There was 1 warning)
