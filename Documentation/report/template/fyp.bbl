@@ -75,7 +75,7 @@ B.~Mariano and S.~G. Koo.
 \bibitem{mell2011nist}
 P.~Mell and T.~Grance.
 \newblock The nist definition of cloud computing.
-\newblock 2011.
+\newblock {\em NIST}, 2011.
 
 \bibitem{witcher}
 D.~Piner.
@@ -83,6 +83,11 @@ D.~Piner.
   upgrade guide, 2016.
 \newblock [Online]. [Accessed 15 April 2016]. Available from:
   http://www.tentonhammer.com/guides/witcher-iii-system-minimum-and-recommended-system-requirements-and-upgrade-guide.
+
+\bibitem{prusinkiewicz2012algorithmic}
+P.~Prusinkiewicz and A.~Lindenmayer.
+\newblock {\em The algorithmic beauty of plants}.
+\newblock Springer Science \& Business Media, 2012.
 
 \bibitem{rtsp}
 H.~Schulzrinne, A.~Rao, and R.~Lanphier.
