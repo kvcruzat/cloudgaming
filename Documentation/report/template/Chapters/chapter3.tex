@@ -14,9 +14,9 @@ A design improvement on this is to allow the client to specify the video setting
 \par
 The software-defined networking controller will manage the networking inside the data centre. It will have global knowledge of the all switches and the links between them. A load balancing application will be used to make sure that traffic generated with the video streaming is routed appropriately to help keep latency in the network to a minimum. This will be discussed later on section 3.4.
 \clearpage
-\begin{figure}[h]
+\begin{figure}[h!]
  \centering
- \includegraphics[width=0.8\linewidth]{images/cloudsystemmodel.png}
+ \includegraphics[width=0.9\linewidth]{images/cloudsystemmodel.png}
  \caption{Cloud Gaming System Model}
  \label{fig:cloudmodel}
 \end{figure}
@@ -37,11 +37,34 @@ Lindenmayer systems or 'L-systems' is a part of formal language theory to write 
  \item {[,]}	:	push / pop
 \end{itemize}
 
+Using the symbols above, grammars for tree generation can be produced that will specify the pattern to be followed. The symbols '[' and ']'  which represent push and pop respectively refer to a Last in First Out stack. When the symbol '[' is reached, the current position and angle is saved and are restored when the symbol ']' is encountered. Variations can be implemented through randomized parameters such as random angles for rotation and length of branches. For more complex games, environmental factors can be used to determine the parameters such as competition for light, food, diseases and animals \cite{plantslecture}. For the game produced from this project, random rotation angles will be used to generate variation. The production rules below are recursive and will produce two branches for each branch on each recursion.
+
 \[Trunk \rightarrow F[+\theta /\theta Branch][-\theta \backslash\theta Branch]\]
 \[Branch \rightarrow F[+\theta /\theta Branch][-\theta \backslash\theta Branch]\]
 
+To better illustrate how a tree is produced at each recursion, Figure \ref{fig:tree} shows a two dimensional version. The production rules are based on the Pythagoras tree which is a tree constructed from squares and is named due to each triple of squares enclose a right angle triangle. The tree starts with one square and with each recursion two squares are used for each square from the previous recursion. As shown in Figure \ref{fig:tree}, the amount of branches grows in size and complexity pretty quickly, in fact it grows exponentially where the total branches equal to \(2^n - 1\) with n being the number of recursions.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.8\linewidth]{images/tree.png}
+ \caption{2D Pythagorean L-system tree}
+ \label{fig:tree}
+\end{figure}
+
+Computing the vertices of these many branches in real time will be expensive and adding lighting and shadows will add even more to the resource requirement. Projective shadows is a shadow technique that casts shadows by point light sources onto planes. It takes advantage of a shadow matrix that uses persepective transformation to render an object on to the plane depending on the position of the light source \cite{hawkins2001opengl}. The problem with this is that it doubles the computation since the object is being rendered twice; the actual object and its shadow. To measure the performance, a frames-per-second counter should be used. The higher the number the FPS counter shows, it means the higher performance the system is capable of since it can push more frames at a given time which means the player will have a smoother gameplay experience. An important factor that should also 
+\newline
+\par
+In order for latency to be evident when playing the game, a form of interaction needs to implemented. A simple flight simulator was chosen so the user can traverse the game and be a way to view the tree model from different angles. The flight simulator will support basic controls such as acceleration and deceleration and roll, yaw and pitch movement. Latency will be easily detected when the user inputs a command then the game's camera doesn't move immediately.
+
 \section{Virtual Network}
-\lipsum[1-1]
+Due to limitations with the School of Computing cloud testbed, the proposed solution of software-defined networking to mitigate latency will not be able to be conducted. An alternative solution is to simulate the video traffic that would have been using the data centre's network. This can be done through virtual networks where it can run real kernel, switch and application code on a single machine. Simulating a network also means that switched and links can be easily configurable for software-defined networking controller to work and to simulate real world factors such as latency and bandwidth limitations.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.7\linewidth]{images/network.png}
+ \caption{Virtual Network Topology}
+ \label{fig:network}
+\end{figure}
 
 \section{SDN Application Design}
 \lipsum[1-1]

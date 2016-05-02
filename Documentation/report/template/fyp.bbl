@@ -7,6 +7,11 @@ T.~Beigbeder, R.~Coughlan, C.~Lusher, J.~Plunkett, E.~Agu, and M.~Claypool.
 \newblock In {\em Proceedings of 3rd ACM SIGCOMM workshop on Network and system
   support for games}, pages 144--151. ACM, 2004.
 
+\bibitem{plantslecture}
+H.~Carr.
+\newblock 15: Natural phenomena: Terrain \& plants.
+\newblock University Lecture, 2015.
+
 \bibitem{chuah2014cloud}
 S.-P. Chuah, C.~Yuen, and N.-M. Cheung.
 \newblock Cloud gaming: a green solution to massive multiplayer online games.
@@ -27,6 +32,11 @@ P.~Deutsch.
 R.~L. Grossman.
 \newblock The case for cloud computing.
 \newblock {\em IT professional}, 11(2):23--27, 2009.
+
+\bibitem{hawkins2001opengl}
+K.~Hawkins and D.~Astle.
+\newblock {\em OpenGL game programming}.
+\newblock Cengage Learning, 2001.
 
 \bibitem{jadeja2012cloud}
 Y.~Jadeja and K.~Modi.
