@@ -33,6 +33,8 @@ feature:install odl-nsf-all
 feature:install odl-dlux-all
 feature:install odl-restconf-all
 
+feature:install odl-dlux-all odl-restconf-all odl-l2switch-switch
+
 // ODL dlux GUI
 http://localhost:8080/dlux/index.html
 http://localhost:8181/index.html

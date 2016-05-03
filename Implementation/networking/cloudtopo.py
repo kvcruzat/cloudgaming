@@ -23,12 +23,12 @@ class CloudTopo( Topo ):
 
         # Add links
         self.addLink( cloudHost, cloudSwitch )
-        self.addLink( cloudSwitch, leftSwitch )
-        self.addLink( cloudSwitch, middleSwitch )
-        self.addLink( cloudSwitch, rightSwitch )
-        self.addLink( leftSwitch, exitSwitch )
-        self.addLink( middleSwitch, exitSwitch )
-        self.addLink( rightSwitch, exitSwitch )
+        # self.addLink( cloudSwitch, leftSwitch )
+        # self.addLink( cloudSwitch, middleSwitch )
+        # self.addLink( cloudSwitch, rightSwitch )
+        # self.addLink( leftSwitch, exitSwitch )
+        # self.addLink( middleSwitch, exitSwitch )
+        # self.addLink( rightSwitch, exitSwitch )
 
         # self.addLink( playerHost1, exitSwitch)
         # self.addLink( playerHost2, exitSwitch)
