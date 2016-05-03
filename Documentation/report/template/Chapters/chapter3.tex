@@ -1,9 +1,9 @@
 \chapter{Design}
 \label{chapter3}
-This chapter will outline the proposed design of the cloud gaming system as well as the game that will be used to run on the system. Also at a high level, I will discuss the virtual network design that will be used to simulate a cloud data center as well as the proposed solution to use software-defined networking to reduce latency in the network.
+This chapter will outline the proposed design of the cloud gaming system as well as the game that will be used to run on the system. Also at a high level, I will discuss the virtual network design that will be used to simulate a cloud data centre as well as the proposed solution to use software-defined networking to reduce latency in the network.
 
 \section{Cloud Gaming System}
-As a result of the background research conducted, the cloud gaming system will aim to offload the game engine to the cloud data center. This includes the game logic, physics and graphics rendering. Due to this, it will leave the client's application to just take control of receiving physical button input and send this to the game server as well as receiving and displaying the game video frames.
+As a result of the background research conducted, the cloud gaming system will aim to offload the game engine to the cloud data centre. This includes the game logic, physics and graphics rendering. Due to this, it will leave the client's application to just take control of receiving physical button input and send this to the game server as well as receiving and displaying the game video frames.
 \newline
 \par
 It can be seen at Figure \ref{fig:cloudmodel} that multiple players should be able to connect to the cloud server and a new virtual machine should be generated for each player. For each virtual machine, an instance of the game will be executed with the required resources such as RAM and processing power provided by the cloud's resource manager. The resources required can be specified as a template with the parameters already set. This makes sure that each game instance has sufficient resources to run at smoothly.
@@ -36,8 +36,8 @@ Lindenmayer systems or 'L-systems' is a part of formal language theory to write 
  \item /,\(\backslash\) \(\theta\)	:	rotate \(\theta\) around z-axis
  \item {[,]}	:	push / pop
 \end{itemize}
-
 Using the symbols above, grammars for tree generation can be produced that will specify the pattern to be followed. The symbols '[' and ']'  which represent push and pop respectively refer to a Last in First Out stack. When the symbol '[' is reached, the current position and angle is saved and are restored when the symbol ']' is encountered. Variations can be implemented through randomized parameters such as random angles for rotation and length of branches. For more complex games, environmental factors can be used to determine the parameters such as competition for light, food, diseases and animals \cite{plantslecture}. For the game produced from this project, random rotation angles will be used to generate variation. The production rules below are recursive and will produce two branches for each branch on each recursion.
+
 
 \[Trunk \rightarrow F[+\theta /\theta Branch][-\theta \backslash\theta Branch]\]
 \[Branch \rightarrow F[+\theta /\theta Branch][-\theta \backslash\theta Branch]\]
@@ -51,20 +51,26 @@ To better illustrate how a tree is produced at each recursion, Figure \ref{fig:t
  \label{fig:tree}
 \end{figure}
 
-Computing the vertices of these many branches in real time will be expensive and adding lighting and shadows will add even more to the resource requirement. Projective shadows is a shadow technique that casts shadows by point light sources onto planes. It takes advantage of a shadow matrix that uses persepective transformation to render an object on to the plane depending on the position of the light source \cite{hawkins2001opengl}. The problem with this is that it doubles the computation since the object is being rendered twice; the actual object and its shadow. To measure the performance, a frames-per-second counter should be used. The higher the number the FPS counter shows, it means the higher performance the system is capable of since it can push more frames at a given time which means the player will have a smoother gameplay experience. An important factor that should also 
+Computing the vertices of these many branches in real time will be expensive and adding lighting and shadows will add even more to the resource requirement. Projective shadows is a shadow technique that casts shadows by point light sources onto planes. It takes advantage of a shadow matrix that uses perspective transformation to render an object on to the plane depending on the position of the light source \cite{hawkins2001opengl}. The problem with this is that it doubles the computation since the object is being rendered twice; the actual object and its shadow. To measure the performance, a frames-per-second counter should be used. The higher the number the FPS counter shows, it means the higher performance the system is capable of since it can push more frames at a given time which means the player will have a smoother gameplay experience. An important factor that should also be considered is the variance in the framerate. A steady framerate should be the aim as frame drops would cause stuttering.
 \newline
 \par
 In order for latency to be evident when playing the game, a form of interaction needs to implemented. A simple flight simulator was chosen so the user can traverse the game and be a way to view the tree model from different angles. The flight simulator will support basic controls such as acceleration and deceleration and roll, yaw and pitch movement. Latency will be easily detected when the user inputs a command then the game's camera doesn't move immediately.
 
 \section{Virtual Network}
 Due to limitations with the School of Computing cloud testbed, the proposed solution of software-defined networking to mitigate latency will not be able to be conducted. An alternative solution is to simulate the video traffic that would have been using the data centre's network. This can be done through virtual networks where it can run real kernel, switch and application code on a single machine. Simulating a network also means that switched and links can be easily configurable for software-defined networking controller to work and to simulate real world factors such as latency and bandwidth limitations.
+\newline
+\par
+Figure \ref{fig:network} shows a basic topology of a cloud network that is currently in use by three different clients. Each client is connected to a single switch which is the core switch acts as an entry point to the data centre. The core switch is linked to other switches called aggregation switches and is eventually linked to a Top of Rack (ToR) switch which is connected to the cloud server host machine running multiple virtual machines. Simulated video traffic will be generated at a cloud game server source and sent to the client machines. Large amounts of video data will have be to be transmitted which makes the core switches prone to congestion.
 
-\begin{figure}[h]
+\begin{figure}[h!]
  \centering
- \includegraphics[width=0.7\linewidth]{images/network.png}
+ \includegraphics[width=\linewidth]{images/network.png}
  \caption{Virtual Network Topology}
  \label{fig:network}
 \end{figure}
 
 \section{SDN Application Design}
-\lipsum[1-1]
+In a traditional cloud gaming system, several methods allow optimal paths in the network to be determined but use link status and parameters provided when the network was set up. Current states of network links when in use such as the amount of bandwidth currently available are not considered. The software-defined network application that will be used to control network traffic through a centralized network controller will aim to lower the latency.
+\newline
+\par
+In order to find optimal paths, the shortest paths between two nodes needs to be computed. The algorithm that will be used to do this is Dijkstra's algorithm which will result in finding paths of the same length to reduce the inspection for load statistics. The path with the least load is determined from the set of all shortest path and the flows for this path is pushed to the flow tables of all the switches in that path. The main difference with this method is unlike traditional networking is that this process is executed repeatedly so the path will always be the optimal for every communication.
