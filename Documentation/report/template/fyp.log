@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  4 MAY 2016 23:18
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  4 MAY 2016 23:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -588,91 +588,114 @@ File: images/cloudsystemmodel.png Graphic file (type png)
 
 <use images/cloudsystemmodel.png>
 Package pdftex.def Info: images/cloudsystemmodel.png used on input line 19.
-(pdftex.def)             Requested size: 409.71692pt x 619.4706pt.
+(pdftex.def)             Requested size: 432.48051pt x 653.88304pt.
+ [10
+
+ <./images/cloudsystemmodel.png>] [11
+
+]
+<images/cloudgamingdiagram.png, id=69, 588.1975pt x 842.14626pt>
+File: images/cloudgamingdiagram.png Graphic file (type png)
+
+<use images/cloudgamingdiagram.png>
+Package pdftex.def Info: images/cloudgamingdiagram.png used on input line 28.
+(pdftex.def)             Requested size: 455.24411pt x 651.79565pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10
+ [12
 
- <./images/cloudsystemmodel.png>] [11]
-<images/tree.png, id=71, 638.385pt x 285.065pt>
+ <./images/cloudgamingdiagram.png>] [13]
+<images/tree.png, id=79, 638.385pt x 285.065pt>
 File: images/tree.png Graphic file (type png)
  <use images/tree.png>
-Package pdftex.def Info: images/tree.png used on input line 49.
-(pdftex.def)             Requested size: 364.19667pt x 162.62793pt.
- [12 <./images/tree.png>] <images/network.png, id=77, 1021.8175pt x 662.475pt>
+Package pdftex.def Info: images/tree.png used on input line 58.
+(pdftex.def)             Requested size: 409.71692pt x 182.95424pt.
+ [14 <./images/tree.png>] <images/network.png, id=86, 1021.8175pt x 662.475pt>
 File: images/network.png Graphic file (type png)
 
 <use images/network.png>
-Package pdftex.def Info: images/network.png used on input line 67.
+Package pdftex.def Info: images/network.png used on input line 79.
 (pdftex.def)             Requested size: 455.24411pt x 295.13908pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [13] [14 <./images/network.png>]
-\openout2 = `./Chapters/chapter4.aux'.
+[15] [16 <./images/network.png>]
+<images/sdnarchitecture.png, id=93, 415.5525pt x 295.1025pt>
+File: images/sdnarchitecture.png Graphic file (type png)
 
- (./Chapters/chapter4.tex
-Chapter 4.
-<images/odltopo.png, id=85, 751.80875pt x 741.77126pt>
-File: images/odltopo.png Graphic file (type png)
-
-<use images/odltopo.png>
-Package pdftex.def Info: images/odltopo.png used on input line 8.
-(pdftex.def)             Requested size: 364.19667pt x 359.33984pt.
- <images/mnnetwork.png, id=86, 1261.71375pt x 883.3pt>
-File: images/mnnetwork.png Graphic file (type png)
-
-<use images/mnnetwork.png>
-Package pdftex.def Info: images/mnnetwork.png used on input line 15.
-(pdftex.def)             Requested size: 364.19667pt x 254.96437pt.
+<use images/sdnarchitecture.png>
+Package pdftex.def Info: images/sdnarchitecture.png used on input line 98.
+(pdftex.def)             Requested size: 409.71692pt x 290.9681pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [15
+) [17] [18 <./images/sdnarchitecture.png>]
+\openout2 = `./Chapters/chapter4.aux'.
+
+ (./Chapters/chapter4.tex
+Chapter 4.
+<images/odltopo.png, id=101, 751.80875pt x 741.77126pt>
+File: images/odltopo.png Graphic file (type png)
+
+<use images/odltopo.png>
+Package pdftex.def Info: images/odltopo.png used on input line 8.
+(pdftex.def)             Requested size: 455.24411pt x 449.1748pt.
+
+<images/mnnetwork.png, id=102, 908.39375pt x 618.31pt>
+File: images/mnnetwork.png Graphic file (type png)
+
+<use images/mnnetwork.png>
+Package pdftex.def Info: images/mnnetwork.png used on input line 15.
+(pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [19
 
 
 
- <./images/odltopo.png>] [16 <./images/mnnetwork.png>]
+ <./images/odltopo.png>] [20 <./images/mnnetwork.png>]
 \openout2 = `./Chapters/chapter5.aux'.
 
 
 (./Chapters/chapter5.tex
 Chapter 5.
-) [17
+) [21
 
 
 
 ]
 \openout2 = `./Chapters/chapter6.aux'.
 
- (./Chapters/chapter6.tex [18
+ (./Chapters/chapter6.tex [22
 
 
 
 ]
 Chapter 6.
-) [19] (./fyp.bbl [20
+) [23] (./fyp.bbl [24
 
 
-] [21]) [22]
+] [25]) [26]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [23
+ (./appendix.tex [27
 
 
 
-] [24]
+] [28]
 Appendix A.
-[25
+[29
 
-] [26
+] [30
 
 ]
 Appendix B.
-) [27] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
+) [31] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
 (./Chapters/chapter2.aux) (./Chapters/chapter3.aux) (./Chapters/chapter4.aux)
 (./Chapters/chapter5.aux) (./Chapters/chapter6.aux) (./appendix.aux))
 
@@ -680,13 +703,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5348 strings out of 495028
- 75955 string characters out of 6181496
- 232030 words of memory out of 5000000
- 8371 multiletter control sequences out of 15000+600000
+ 5364 strings out of 495028
+ 76340 string characters out of 6181496
+ 232068 words of memory out of 5000000
+ 8385 multiletter control sequences out of 15000+600000
  17788 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,10n,64p,1070b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,10n,64p,1261b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home
 /sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/sc13kvc/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/sc13kvc/.texmf-va
@@ -700,10 +723,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on fyp.pdf (32 pages, 384342 bytes).
+Output written on fyp.pdf (36 pages, 431806 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
+ 523 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

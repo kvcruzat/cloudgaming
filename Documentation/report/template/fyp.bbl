@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{al2008scalable}
+M.~Al-Fares, A.~Loukissas, and A.~Vahdat.
+\newblock A scalable, commodity data center network architecture.
+\newblock {\em ACM SIGCOMM Computer Communication Review}, 38(4):63--74, 2008.
+
 \bibitem{beigbeder2004effects}
 T.~Beigbeder, R.~Coughlan, C.~Lusher, J.~Plunkett, E.~Agu, and M.~Claypool.
 \newblock The effects of loss and latency on user performance in unreal
@@ -105,6 +110,18 @@ H.~Schulzrinne, A.~Rao, and R.~Lanphier.
 \newblock [Online]. [Accessed 20 April 2016]. Available from:
   https://www.ietf.org/rfc/rfc2326.txt.
 
+\bibitem{northbound}
+SDxCentral.
+\newblock What are sdn northbound apis?, 2015.
+\newblock [Online]. [Accessed on 1 May 2016]. Available from:
+  https://www.sdxcentral.com/resources/sdn/north-bound-interfaces-api/.
+
+\bibitem{southbound}
+SDxCentral.
+\newblock What are sdn southbound apis? - where they are used., 2015.
+\newblock [Online]. [Accessed on 1 May 2016]. Available from:
+  https://www.sdxcentral.com/resources/sdn/southbound-interface-api/.
+
 \bibitem{shea2013cloud}
 R.~Shea, J.~Liu, E.~Ngai, and Y.~Cui.
 \newblock Cloud gaming: architecture and performance.
@@ -115,5 +132,11 @@ A.~Soomoro.
 \newblock What is input lag: The breakdown, 2013.
 \newblock [Online]. [Accessed 21 April 2016]. Available from:
   http://www.displaylag.com/what-is-input-lag-the-breakdown/.
+
+\bibitem{wu2015cloud}
+C.~Wu and R.~Buyya.
+\newblock {\em Cloud Data Centers and Cost Modeling: A Complete Guide To
+  Planning, Designing and Building a Cloud Data Center}.
+\newblock Elsevier Science, 2015.
 
 \end{thebibliography}
