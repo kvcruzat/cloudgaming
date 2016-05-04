@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.6.19)  3 MAY 2016 17:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.6.19)  4 MAY 2016 17:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -641,74 +641,96 @@ File: images/cloudsystemmodel.png Graphic file (type png)
 
 <use images/cloudsystemmodel.png>
 Package pdftex.def Info: images/cloudsystemmodel.png used on input line 19.
-(pdftex.def)             Requested size: 409.71692pt x 619.4706pt.
+(pdftex.def)             Requested size: 432.48051pt x 653.88304pt.
+ [10
+
+ <./images/cloudsystemmodel.png>] [11
+
+]
+<images/cloudgamingdiagram.png, id=69, 588.1975pt x 842.14626pt>
+File: images/cloudgamingdiagram.png Graphic file (type png)
+
+<use images/cloudgamingdiagram.png>
+Package pdftex.def Info: images/cloudgamingdiagram.png used on input line 28.
+(pdftex.def)             Requested size: 455.24411pt x 651.79565pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10
+ [12
 
- <./images/cloudsystemmodel.png>] [11]
-<images/tree.png, id=71, 638.385pt x 285.065pt>
+ <./images/cloudgamingdiagram.png>] [13]
+<images/tree.png, id=79, 638.385pt x 285.065pt>
 File: images/tree.png Graphic file (type png)
  <use images/tree.png>
-Package pdftex.def Info: images/tree.png used on input line 49.
-(pdftex.def)             Requested size: 364.19667pt x 162.62793pt.
- [12 <./images/tree.png>] <images/network.png, id=77, 1021.8175pt x 662.475pt>
+Package pdftex.def Info: images/tree.png used on input line 58.
+(pdftex.def)             Requested size: 409.71692pt x 182.95424pt.
+ [14 <./images/tree.png>] <images/network.png, id=86, 1021.8175pt x 662.475pt>
 File: images/network.png Graphic file (type png)
 
 <use images/network.png>
-Package pdftex.def Info: images/network.png used on input line 67.
+Package pdftex.def Info: images/network.png used on input line 79.
 (pdftex.def)             Requested size: 455.24411pt x 295.13908pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [13] [14 <./images/network.png>]
+[15] [16 <./images/network.png>]
+<images/sdnarchitecture.png, id=93, 415.5525pt x 295.1025pt>
+File: images/sdnarchitecture.png Graphic file (type png)
+
+<use images/sdnarchitecture.png>
+Package pdftex.def Info: images/sdnarchitecture.png used on input line 98.
+(pdftex.def)             Requested size: 409.71692pt x 290.9681pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [17] [18 <./images/sdnarchitecture.png>]
 \openout2 = `./Chapters/chapter4.aux'.
 
  (./Chapters/chapter4.tex
 Chapter 4.
-) [15
+) [19
 
 
 
 ]
 \openout2 = `./Chapters/chapter5.aux'.
 
- (./Chapters/chapter5.tex [16
+ (./Chapters/chapter5.tex [20
 
 
 
 ]
 Chapter 5.
-) [17]
+) [21]
 \openout2 = `./Chapters/chapter6.aux'.
 
- (./Chapters/chapter6.tex [18
+ (./Chapters/chapter6.tex [22
 
 
 
 ]
 Chapter 6.
-) [19] (./fyp.bbl [20
+) [23] (./fyp.bbl [24
 
 
-] [21]) [22]
+] [25]) [26]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [23
+ (./appendix.tex [27
 
 
 
-] [24]
+] [28]
 Appendix A.
-[25
+[29
 
-] [26
+] [30
 
 ]
 Appendix B.
-) [27] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
+) [31] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
 (./Chapters/chapter2.aux) (./Chapters/chapter3.aux) (./Chapters/chapter4.aux)
 (./Chapters/chapter5.aux) (./Chapters/chapter6.aux) (./appendix.aux))
 
@@ -716,13 +738,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5354 strings out of 493089
- 78987 string characters out of 6127232
- 246723 words of memory out of 5000000
- 8651 multiletter control sequences out of 15000+600000
+ 5370 strings out of 493089
+ 79372 string characters out of 6127232
+ 246761 words of memory out of 5000000
+ 8665 multiletter control sequences out of 15000+600000
  17788 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,64p,1070b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,10n,64p,1261b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/cserv1_a/apps/install/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super
 /cm-super-t1.enc}{/home/cserv1_a/apps/install/texlive/2015/texmf-dist/fonts/enc
 /dvips/cm-super/cm-super-ts1.enc}{/home/cserv1_a/apps/install/texlive/2015/texm
@@ -741,10 +763,10 @@ apps/install/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><
 public/cm-super/sfsl1200.pfb></home/cserv1_a/apps/install/texlive/2015/texmf-di
 st/fonts/type1/public/cm-super/sfti1200.pfb></home/cserv1_a/apps/install/texliv
 e/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on fyp.pdf (32 pages, 338508 bytes).
+Output written on fyp.pdf (36 pages, 396240 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
+ 186 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

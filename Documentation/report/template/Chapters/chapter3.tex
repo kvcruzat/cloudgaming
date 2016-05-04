@@ -16,9 +16,18 @@ The software-defined networking controller will manage the networking inside the
 \clearpage
 \begin{figure}[h!]
  \centering
- \includegraphics[width=0.9\linewidth]{images/cloudsystemmodel.png}
+ \includegraphics[width=0.95\linewidth]{images/cloudsystemmodel.png}
  \caption{Cloud Gaming System Model}
  \label{fig:cloudmodel}
+\end{figure}
+\clearpage
+As for the framework of the cloud gaming system, it will start with a local program on the client's machine. This program will connect to a server on another machine using its IP address and the port number it listening at. Once a connection is made the server will launch the game and start capturing the rendered frames and encoded them to video to be streamed to the client. The client program will receive the video frames and display them using a video player embedded on the program. It will also be actively waiting for player interaction through the keyboard. The only commands that will register with the client program will be the ones binded for the flight simulator controls. Once the player has pressed one of these, it will send the input to the server where it is processed and simulated as an in game command. Then similarly to traditional games, the game pipeline uses the game command to process the game logic with this new information for rendering updated video frames. This process is displayed in Figure \ref{fig:cloudframework} as a cycle where the player receives video feedback of the game and responds with keyboard game commands.
+\clearpage
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/cloudgamingdiagram.png}
+ \caption{Cloud Gaming Framework}
+ \label{fig:cloudframework}
 \end{figure}
 
 \section{Game Design}
@@ -36,7 +45,7 @@ Lindenmayer systems or 'L-systems' is a part of formal language theory to write 
  \item /,\(\backslash\) \(\theta\)	:	rotate \(\theta\) around z-axis
  \item {[,]}	:	push / pop
 \end{itemize}
-Using the symbols above, grammars for tree generation can be produced that will specify the pattern to be followed. The symbols '[' and ']'  which represent push and pop respectively refer to a Last in First Out stack. When the symbol '[' is reached, the current position and angle is saved and are restored when the symbol ']' is encountered. Variations can be implemented through randomized parameters such as random angles for rotation and length of branches. For more complex games, environmental factors can be used to determine the parameters such as competition for light, food, diseases and animals \cite{plantslecture}. For the game produced from this project, random rotation angles will be used to generate variation. The production rules below are recursive and will produce two branches for each branch on each recursion.
+Using the symbols above, grammars for tree generation can be produced that will specify the pattern to be followed. The symbols '[' and ']'  which represent push and pop respectively refer to a Last In First Out stack. When the symbol '[' is reached, the current position and angle is saved and are restored when the symbol ']' is encountered. Variations can be implemented through randomized parameters such as random angles for rotation and length of branches. For more complex games, environmental factors can be used to determine the parameters such as competition for light, food, diseases and animals \cite{plantslecture}. For the game produced from this project, random rotation angles will be used to generate variation. The production rules below are recursive and will produce two branches for each branch on each recursion.
 
 
 \[Trunk \rightarrow F[+\theta /\theta Branch][-\theta \backslash\theta Branch]\]
@@ -46,7 +55,7 @@ To better illustrate how a tree is produced at each recursion, Figure \ref{fig:t
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=0.8\linewidth]{images/tree.png}
+ \includegraphics[width=0.9\linewidth]{images/tree.png}
  \caption{2D Pythagorean L-system tree}
  \label{fig:tree}
 \end{figure}
@@ -60,7 +69,10 @@ In order for latency to be evident when playing the game, a form of interaction 
 Due to limitations with the School of Computing cloud testbed, the proposed solution of software-defined networking to mitigate latency will not be able to be conducted. An alternative solution is to simulate the video traffic that would have been using the data centre's network. This can be done through virtual networks where it can run real kernel, switch and application code on a single machine. Simulating a network also means that switched and links can be easily configurable for software-defined networking controller to work and to simulate real world factors such as latency and bandwidth limitations.
 \newline
 \par
-Figure \ref{fig:network} shows a basic topology of a cloud network that is currently in use by three different clients. Each client is connected to a single switch which is the core switch acts as an entry point to the data centre. The core switch is linked to other switches called aggregation switches and is eventually linked to a Top of Rack (ToR) switch which is connected to the cloud server host machine running multiple virtual machines. Simulated video traffic will be generated at a cloud game server source and sent to the client machines. Large amounts of video data will have be to be transmitted which makes the core switches prone to congestion.
+Figure \ref{fig:network} shows a basic topology of a cloud network that is currently in use by three different clients. Each client is connected to a single switch which is the core switch acts as an entry point to the data centre. The core switch is linked to other switches called aggregation switches and is eventually linked to a Top of Rack (ToR) switch which is connected to the cloud server host machine running multiple virtual machines. This network design is called fat tree topology. A tree topology is used since it is commonly used in data centres for its good scalability, accessibility, cost effectiveness and low latency \cite{wu2015cloud}. The advantages of using fat tree instead of a binary tree is that multiple paths will be available between nodes which improves fault tolerance and increases inter-rack bandwidth \cite{al2008scalable}. The main disadvantage that has been considered with using this topology is its single point of failure at the root switch. If this core switch has a fault the entire tree network collapses. Solving this problem is beyond the scope of this project and this topology is used mainly for the fact that multiple paths will be available between two nodes.
+\newline
+\par
+Simulated video traffic will be generated at a cloud game server source and sent to the client machines. Large amounts of video data will have be to be transmitted which makes the network links prone to congestion. Latency will be simply measured by pinging between host machines while network is under load.
 
 \begin{figure}[h!]
  \centering
@@ -70,7 +82,21 @@ Figure \ref{fig:network} shows a basic topology of a cloud network that is curre
 \end{figure}
 
 \section{SDN Application Design}
-In a traditional cloud gaming system, several methods allow optimal paths in the network to be determined but use link status and parameters provided when the network was set up. Current states of network links when in use such as the amount of bandwidth currently available are not considered. The software-defined network application that will be used to control network traffic through a centralized network controller will aim to lower the latency.
+In a traditional cloud gaming system, several methods allow optimal paths in the network to be determined but use link status and parameters provided when the network was set up. Current states of network links when in use such as the amount of bandwidth currently available are not considered. The software-defined network application that will be used to control network traffic through a centralized network controller will aim to lower the latency. This controller will have global knowledge of the network by listening on a certain port where switches can set up a connection. It will use the information collected from switches to compute the best route for packets.
 \newline
 \par
-In order to find optimal paths, the shortest paths between two nodes needs to be computed. The algorithm that will be used to do this is Dijkstra's algorithm which will result in finding paths of the same length to reduce the inspection for load statistics. The path with the least load is determined from the set of all shortest path and the flows for this path is pushed to the flow tables of all the switches in that path. The main difference with this method is unlike traditional networking is that this process is executed repeatedly so the path will always be the optimal for every communication.
+A load balancing concept aims to evenly spread traffic occurring in the network by making use of available paths between a source and destination. This in turn should lower the congestion in network links and reduce variance in network load so the user will experience less stuttering and delay. In order to find optimal paths, the shortest paths between two nodes needs to be computed. The algorithm that will be used to do this is Dijkstra's algorithm which will result in finding all the paths of the shortest length to reduce the inspection for load statistics. The path with the least load is determined from the set of all shortest path. The load will be computed by querying the switches for the amount of packets received and transmitted. The flows for the path with the lowest cost is pushed to the flow tables of all the switches in that path so new packets will know to be routed using that path.
+\newline
+\par
+The main difference with this method is unlike traditional networking this process will be executed repeatedly so links costs are dynamically updated which leads to the path between the two nodes to always be the optimal path for every communication. The load balancer should only update about every minute so it will not use a lot of computation resources. This load balancing solution will make sure that all possible paths are being utilised evenly so no path is heavily congested. Using the virtual network topology above, improvement in latency should still show while performing transmission of simulated video traffic. Better results may show when using this solution with large data centre networks since more paths will be available, but it means the SDN application will have more computation to do as there will be more links and nodes that will have to be factored.
+\newline
+\par
+The load balancer application will communicate with the SDN controller by utilising its Northbound APIs. This will be done using REST calls that are already predefine with the SDN controller \cite{northbound}. Parameters and information can be sent using XML format and responses can be received using JSON format due to lower overhead that comes with these serialized formats. As shown in Figure \ref{fig:sdnarch}, the SDN network controller takes the information from the load balancer application and processes this in to instructions that can be sent to the network elements through the Southbound APIs communication protocols. OpenFlow is an example of a software adapter that the SDN controller can use to communicate with the switches \cite{southbound}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\linewidth]{images/sdnarchitecture.png}
+ \caption{SDN Basic Architecture}
+ \label{fig:sdnarch}
+\end{figure}
+
