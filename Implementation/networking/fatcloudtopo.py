@@ -55,48 +55,48 @@ class CloudTopo( Topo ):
         # self.addLink( torSwitch4, cloudHost8)
         
         self.addLink( playerHost1, coreSwitch,
-        				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+        				bw=70, delay='15ms', loss=0, max_queue_size=1000, use_htb=True )
         self.addLink( playerHost2, coreSwitch,
-        				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+        				bw=50, delay='15ms', loss=0, max_queue_size=1000, use_htb=True )
         self.addLink( playerHost3, coreSwitch,
-        				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+        				bw=30, delay='15ms', loss=0, max_queue_size=1000, use_htb=True )
         self.addLink( coreSwitch, aggSwitch1,
-        				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+        				delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
         self.addLink( coreSwitch, aggSwitch2,
-        				bw=10, delay='15ms', loss=0, max_queue_size=1000, use_htb=True )
+        				delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
 
         self.addLink( aggSwitch1, torSwitch1,
-        				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+        				delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch1, torSwitch2,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch1, torSwitch3,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch1, torSwitch4,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch2, torSwitch1,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch2, torSwitch2,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch2, torSwitch3,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( aggSwitch2, torSwitch4,
-            				bw=10, delay='20ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
 
         self.addLink( torSwitch1, cloudHost1,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch1, cloudHost2,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch2, cloudHost3,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch2, cloudHost4,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch3, cloudHost5,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch3, cloudHost6,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch4, cloudHost7,
-            				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+            			delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
     	self.addLink( torSwitch4, cloudHost8,
-        				bw=10, delay='10ms', loss=0, max_queue_size=1000, use_htb=True )
+        				delay='1ms', loss=0, max_queue_size=1000, use_htb=True )
 
 topos = { 'cloudtopo': ( lambda: CloudTopo() ) }
