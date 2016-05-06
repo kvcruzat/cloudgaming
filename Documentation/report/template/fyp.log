@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  6 MAY 2016 18:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  7 MAY 2016 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,20 +664,17 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./Chapters/chapter5.tex
 Chapter 5.
-<images/test1.png, id=114, 908.39375pt x 618.31pt>
+[21
+
+
+
+] <images/test1.png, id=117, 908.39375pt x 618.31pt>
 File: images/test1.png Graphic file (type png)
  <use images/test1.png>
 Package pdftex.def Info: images/test1.png used on input line 28.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[21
-
-
-
-] <images/test2.png, id=118, 908.39375pt x 618.31pt>
+<images/test2.png, id=118, 908.39375pt x 618.31pt>
 File: images/test2.png Graphic file (type png)
  <use images/test2.png>
 Package pdftex.def Info: images/test2.png used on input line 37.
@@ -690,44 +687,66 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: images/test3.png Graphic file (type png)
 
 <use images/test3.png>
-Package pdftex.def Info: images/test3.png used on input line 46.
+Package pdftex.def Info: images/test3.png used on input line 50.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (15.52144pt too wide) in paragraph at lines 59--73
+ [][] 
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (15.52144pt too wide) in paragraph at lines 79--93
+ [][] 
+ []
 
- [23 <./images/test2.png>]) [24 <./images/test3.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (15.10486pt too wide) in paragraph at lines 99--116
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23 <./images/test2.png>]) [24 <./images/test3.png>] [25]
 \openout2 = `./Chapters/chapter6.aux'.
 
- (./Chapters/chapter6.tex
+
+(./Chapters/chapter6.tex [26
+
+
+
+]
 Chapter 6.
-[25
+[27]) [28] (./fyp.bbl [29
 
 
-
-]) [26] (./fyp.bbl [27
-
-
-] [28]) [29]
+] [30]) [31]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [30
+ (./appendix.tex [32
 
 
-] [31
+] [33
 
-] [32]
+] [34]
 Appendix A.
-[33
+[35
 
-] [34
+] [36
 
 ]
 Appendix B.
-) [35] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
+) [37] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
 (./Chapters/chapter2.aux) (./Chapters/chapter3.aux) (./Chapters/chapter4.aux)
 (./Chapters/chapter5.aux) (./Chapters/chapter6.aux) (./appendix.aux))
 
@@ -735,10 +754,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5384 strings out of 495028
- 76678 string characters out of 6181496
- 233116 words of memory out of 5000000
- 8402 multiletter control sequences out of 15000+600000
+ 5387 strings out of 495028
+ 76717 string characters out of 6181496
+ 250149 words of memory out of 5000000
+ 8405 multiletter control sequences out of 15000+600000
  17788 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,13n,64p,1261b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -755,10 +774,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on fyp.pdf (41 pages, 481791 bytes).
+Output written on fyp.pdf (43 pages, 487339 bytes).
 PDF statistics:
- 555 PDF objects out of 1000 (max. 8388607)
- 142 compressed objects within 2 object streams
+ 567 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
