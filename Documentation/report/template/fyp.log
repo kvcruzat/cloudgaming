@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  4 MAY 2016 23:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  6 MAY 2016 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -534,13 +534,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--29
 
 ] (./acknowledge.tex) [4
 
-] (./fyp.toc)
+] (./fyp.toc [5
+
+])
 \tf@toc=\write3
 \openout3 = `fyp.toc'.
 
-) [5
-
-]
+) [6]
 \openout2 = `./Chapters/chapter1.aux'.
 
 
@@ -559,14 +559,14 @@ Chapter 2.
 
 
 
-] [4] <images/arch.png, id=43, 697.8572pt x 391.4625pt>
+] [4] <images/arch.png, id=46, 697.8572pt x 391.4625pt>
 File: images/arch.png Graphic file (type png)
 
 <use images/arch.png>
 Package pdftex.def Info: images/arch.png used on input line 34.
 (pdftex.def)             Requested size: 455.24411pt x 255.36748pt.
  [5 <./images/arch.png (PNG copy)>]
-<images/latency.png, id=47, 401.5pt x 196.735pt>
+<images/latency.png, id=50, 401.5pt x 196.735pt>
 File: images/latency.png Graphic file (type png)
  <use images/latency.png>
 Package pdftex.def Info: images/latency.png used on input line 46.
@@ -583,7 +583,7 @@ Chapter 3.
 
 
 
-] <images/cloudsystemmodel.png, id=62, 672.5125pt x 1016.79875pt>
+] <images/cloudsystemmodel.png, id=65, 672.5125pt x 1016.79875pt>
 File: images/cloudsystemmodel.png Graphic file (type png)
 
 <use images/cloudsystemmodel.png>
@@ -594,7 +594,7 @@ Package pdftex.def Info: images/cloudsystemmodel.png used on input line 19.
  <./images/cloudsystemmodel.png>] [11
 
 ]
-<images/cloudgamingdiagram.png, id=69, 588.1975pt x 842.14626pt>
+<images/cloudgamingdiagram.png, id=72, 588.1975pt x 842.14626pt>
 File: images/cloudgamingdiagram.png Graphic file (type png)
 
 <use images/cloudgamingdiagram.png>
@@ -606,12 +606,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [12
 
  <./images/cloudgamingdiagram.png>] [13]
-<images/tree.png, id=79, 638.385pt x 285.065pt>
+<images/tree.png, id=83, 638.385pt x 285.065pt>
 File: images/tree.png Graphic file (type png)
  <use images/tree.png>
 Package pdftex.def Info: images/tree.png used on input line 58.
 (pdftex.def)             Requested size: 409.71692pt x 182.95424pt.
- [14 <./images/tree.png>] <images/network.png, id=86, 1021.8175pt x 662.475pt>
+ [14 <./images/tree.png>] <images/network.png, id=89, 1021.8175pt x 662.475pt>
 File: images/network.png Graphic file (type png)
 
 <use images/network.png>
@@ -622,7 +622,7 @@ Package pdftex.def Info: images/network.png used on input line 79.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [15] [16 <./images/network.png>]
-<images/sdnarchitecture.png, id=93, 415.5525pt x 295.1025pt>
+<images/sdnarchitecture.png, id=96, 415.5525pt x 295.1025pt>
 File: images/sdnarchitecture.png Graphic file (type png)
 
 <use images/sdnarchitecture.png>
@@ -637,14 +637,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
  (./Chapters/chapter4.tex
 Chapter 4.
-<images/odltopo.png, id=101, 751.80875pt x 741.77126pt>
+<images/odltopo.png, id=104, 751.80875pt x 741.77126pt>
 File: images/odltopo.png Graphic file (type png)
 
 <use images/odltopo.png>
 Package pdftex.def Info: images/odltopo.png used on input line 8.
 (pdftex.def)             Requested size: 455.24411pt x 449.1748pt.
 
-<images/mnnetwork.png, id=102, 908.39375pt x 618.31pt>
+<images/mnnetwork.png, id=105, 908.39375pt x 618.31pt>
 File: images/mnnetwork.png Graphic file (type png)
 
 <use images/mnnetwork.png>
@@ -664,38 +664,70 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./Chapters/chapter5.tex
 Chapter 5.
-) [21
+<images/test1.png, id=114, 908.39375pt x 618.31pt>
+File: images/test1.png Graphic file (type png)
+ <use images/test1.png>
+Package pdftex.def Info: images/test1.png used on input line 28.
+(pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21
 
 
 
-]
+] <images/test2.png, id=118, 908.39375pt x 618.31pt>
+File: images/test2.png Graphic file (type png)
+ <use images/test2.png>
+Package pdftex.def Info: images/test2.png used on input line 37.
+(pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./images/test1.png>] <images/test3.png, id=122, 908.39375pt x 618.31pt>
+File: images/test3.png Graphic file (type png)
+
+<use images/test3.png>
+Package pdftex.def Info: images/test3.png used on input line 46.
+(pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23 <./images/test2.png>]) [24 <./images/test3.png>]
 \openout2 = `./Chapters/chapter6.aux'.
 
- (./Chapters/chapter6.tex [22
-
-
-
-]
+ (./Chapters/chapter6.tex
 Chapter 6.
-) [23] (./fyp.bbl [24
+[25
 
 
-] [25]) [26]
+
+]) [26] (./fyp.bbl [27
+
+
+] [28]) [29]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [27
+ (./appendix.tex [30
 
 
+] [31
 
-] [28]
+] [32]
 Appendix A.
-[29
+[33
 
-] [30
+] [34
 
 ]
 Appendix B.
-) [31] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
+) [35] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
 (./Chapters/chapter2.aux) (./Chapters/chapter3.aux) (./Chapters/chapter4.aux)
 (./Chapters/chapter5.aux) (./Chapters/chapter6.aux) (./appendix.aux))
 
@@ -703,13 +735,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5364 strings out of 495028
- 76340 string characters out of 6181496
- 232068 words of memory out of 5000000
- 8385 multiletter control sequences out of 15000+600000
+ 5384 strings out of 495028
+ 76678 string characters out of 6181496
+ 233116 words of memory out of 5000000
+ 8402 multiletter control sequences out of 15000+600000
  17788 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,10n,64p,1261b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,64p,1261b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home
 /sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/sc13kvc/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/sc13kvc/.texmf-va
@@ -723,10 +755,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on fyp.pdf (36 pages, 431806 bytes).
+Output written on fyp.pdf (41 pages, 481791 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
+ 555 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
