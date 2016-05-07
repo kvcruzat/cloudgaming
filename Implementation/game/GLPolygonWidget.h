@@ -66,6 +66,7 @@ class GLPolygonWidget: public QGLWidget {
 		int goRight; int goUp; int goForward; int doRoll;
 		Point currentPosition; // Store where currently I am
 		float speed; // Speed of movement
+		bool fpsCounter; // fps toggle
 
 		void roll(double);
 		void pitch(double);

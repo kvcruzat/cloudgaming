@@ -2,7 +2,6 @@
 \label{chapter5}
 
 \section{Test Cases}
-
 In order to test the load balancing application, test scenarios were designed to see how it would effect real world cases. Using the virtual network created with the mininet program and the iperf network bandwidth measurement tool, traffic is generated between the player hosts and game server hosts. The bandwidth of this traffic will be based on network requirements suggestions for 1080p at 60FPS, 720p at 60FPS and 720p at 30FPS given by nVidia's GeForce Now cloud gaming system requirements \cite{nvidiasysreq} as shown in Table \ref{table:traffic}. The iperf tool used to generate the traffic will set the player hosts in server mode and the game servers in client mode. This is so the game server can send UDP traffic to it's connected player host machine. UDP is used since its traffic bandwidth can be set and is the protocol that is used for streaming video data over TCP. 
 \newline
 \par
@@ -22,7 +21,7 @@ Latency will be simply tested by sending 10 ping requests from player host to ga
 \end{table}
 
 \subsection{Case 1}
-The first case is two players using the cloud gaming system with their game instance being in two separate servers but under the same switch. Player host 1 'h1' (10.0.0.1) and player host 2 'h2' (10.0.0.2) are used and are connected to 'h4' (10.0.0.4) and 'h5' (10.0.0.5) respectively. This shows a basic example of multiple players connected to different game servers but using the same Top of the Rack switch. As shown in Figure \ref{fig:test1}, there are two possible routes for traffic flowing from the core switch 's1' to switch 's4' (1::2::4 and 1::3::4). When the load balancer is running for each flow, it will assign a different route for each of them. Figure \ref{fig:test1} shows one out of the two possible load balanced routes with the other being just a swap with the red and blue path between 's1' and 's4' switches.
+The first case is two players using the cloud gaming system with their game instance being in two separate servers but under the same switch. Player host 1 'h1' (10.0.0.1) and player host 2 'h2' (10.0.0.2) are used and are connected to 'h4' (10.0.0.4) and 'h5' (10.0.0.5) respectively. This shows a basic example of multiple players connected to different game servers but using the same Top of the Rack switch. As shown in Figure \ref{fig:test1}, there are two possible routes for traffic flowing from the core switch 's1' to switch 's4' (s1::s2::s4 and s1::s3::s4). When the load balancer is running for each flow, it will assign a different route for each of them. Figure \ref{fig:test1} shows one out of the two possible load balanced routes with the other being just a swap with the red and blue path between 's1' and 's4' switches.
 
 \begin{figure}[h!]
  \includegraphics[width=\linewidth]{images/test1.png}
@@ -33,6 +32,7 @@ The first case is two players using the cloud gaming system with their game inst
 \subsection{Case 2}
 The second case is when two players are connected to the same physical game server host since it can contain multiple virtual machines with multiple game instances. Also it can represent two players playing the same game instance such as a multiplayer game so two video traffic will be needed to be generated and sent to the two separate clients. For this test case, hosts 'h1' and 'h2' will be used to be connected to host 'h4'. The possible load balanced routes between the switches will be the same as in test case 1 but with two separate traffic being generated from 'h4' as shown in Figure \ref{fig:test2}.
 
+\clearpage
 \begin{figure}[h!]
  \includegraphics[width=\linewidth]{images/test2.png}
  \caption{Test Case 2: Possible load balanced routes}
@@ -40,19 +40,19 @@ The second case is when two players are connected to the same physical game serv
 \end{figure}
 
 \subsection{Case 3}
-\lipsum[1-1]
+The third test case uses three players simultaneously connected to the cloud data centre. Game server hosts 'h4', 'h5' and 'h6' each generate traffic and are routed to the player host 'h1', 'h2' and 'h3' respectively as shown in Figure \ref{fig:test3}. This test case represents a scenario of a highly congested network with multiple traffic flows and possible paths. The results of using the load balancer application in this test case provides a good insight on it's capabilities and effectiveness.
 
-
-
-
-
-\begin{figure}[h]
+\clearpage
+\begin{figure}[h!]
  \includegraphics[width=\linewidth]{images/test3.png}
  \caption{Test Case 3: Possible load balanced routes}
  \label{fig:test3}
 \end{figure}
 
+\clearpage
 \section{Results}
+
+This sections shows the results of each test case scenario. The tables contains results collected from the ping tests which shows the different round trip times summary with 10 ping packets. The minimum round trip time as 'min', maximum as 'max', average as 'avg' and deviation as 'mdev'. The deviation result is the average of how far each ping RTT is from the mean RTT. The higher 'mdev' is, the more the RTT changes which results to a poorer user experience. Since the focus of this project is on reducing the network latency in a data centre for cloud gaming, the charts below the tables show a better representation of how the load balancing application affected the delay under certain loads.
 
 \begin{table}[h!]
 \centering
@@ -117,5 +117,33 @@ The second case is when two players are connected to the same physical game serv
 \label{table:test3}
 \end{table}
 
+\begin{figure}[h!]
+ \includegraphics[width=\linewidth]{images/test1chart.png}
+ \caption{Test Case 1: Average ping}
+ \label{fig:test1chart}
+\end{figure}
+
+\begin{figure}[h!]
+ \includegraphics[width=\linewidth]{images/test2chart.png}
+ \caption{Test Case 2: Average ping}
+ \label{fig:test2chart}
+\end{figure}
+
+\begin{figure}[h!]
+ \includegraphics[width=\linewidth]{images/test3chart.png}
+ \caption{Test Case 3: Average ping}
+ \label{fig:test3chart}
+\end{figure}
+
+\clearpage
 \section{Evaluation}
-\lipsum[1-1]
+In test case 1, the load balancer application assesses the current traffic in the shortest routes between the core swtch 's1' and the ToR switch 's4' for hosts 'h4' and 'h5'(s1::s2::s4 and s1:s3::s4). By calculating the the amount of packets being received and transmitted, it picks the route with the lowest traffic and uses it for the flow assigned for the load balancer instance. The load balancer instances for each flow once fully functioning uses a separate route for each flow. This is how the ping times decreased after load balancing. For the 50 Mbps test in Table \ref{table:test1}, the average ping time for the 'h1' to 'h4' connection decreased from 223ms to 40ms when load balancing is used but the 'h2' to 'h5' connection only decreased from 280ms to 265ms. This is likely due to the bandwidth limit on 'h2' to core switch link being the same as the traffic throughput of 50 Mbps. The 30 Mbps test further supports this since load balancing decreased 'h2''s connection ping from 280ms to 38ms. Even with 10 Mbps, there is still some latency before load balancing at around 43ms but this was reduced to 38ms when load balancing is used. This is very close to the best possible ping time theoretically possible in this virtual network of 36ms with its built in latency in the links.
+\newline
+\par
+Ping times are generally higher in test case 2 compared to test case 1 as shown in table \ref{table:test2} since the traffic source is the same host even though the same routes are being used as in test case 1. the effects of the load balancing application is not as effective in the 50 Mbps test. Test case 1 load balancing reduced the average ping time for 'h1' to 'h4' connection to 40ms, but test case 2 it as only been reduced to 213ms. This is still an 86ms reduction which means that the load balancing application is still useful. The average ping time using 30 Mbps traffic before load balancing for the 'h1' to 'h4' connection for test case 1 is 75ms and dramatically increases in test case 2 to 221ms. Load balancing has reduced both connections to 39ms. The 10 Mbps results are similar to the results in test case 1, but slightly better.
+\newline
+\par
+For test case 3, the ping times shows in Table \ref{table:test3} is similar to the results in test case 1 for the connections 'h1' to 'h4' and 'h2' to 'h5'. On the other hand the third connection in this scenario suffers a lot from long delay with ping times over 420ms before load balancing. Even with load balancing, average ping times are still over 420ms when 50 Mbps and 30 Mbps traffic is used. Load balancing greatly reduced the ping time in the 10 Mbps test, from 428ms to 37ms. This findings further supports the claim made above in test case 1, where the bandwidth limit in the 'h3' link to the core switch of 30 Mbps cannot handle the throughput being pushed.
+\newline
+\par
+According to the test results, the dynamic load balancing application has seemed to reduced ping times in every scenario. It also shows that in every case that when the throughput of the simulated traffic is high, the ping times are also high which is due to the high congestion in the routes. Another finding is that when traffic is forced on to connections with not high enough bandwidth to support it, latency increases and load balancing does not help to reduce it or it does not reduce it enough to make the game experience more playable.

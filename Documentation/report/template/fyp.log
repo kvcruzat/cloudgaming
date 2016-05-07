@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  7 MAY 2016 00:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  8 MAY 2016 00:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -637,77 +637,105 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
  (./Chapters/chapter4.tex
 Chapter 4.
-<images/odltopo.png, id=104, 751.80875pt x 741.77126pt>
-File: images/odltopo.png Graphic file (type png)
+<images/game.png, id=104, 803.0pt x 630.355pt>
+File: images/game.png Graphic file (type png)
+ <use images/game.png>
+Package pdftex.def Info: images/game.png used on input line 23.
+(pdftex.def)             Requested size: 455.24411pt x 357.37277pt.
 
-<use images/odltopo.png>
-Package pdftex.def Info: images/odltopo.png used on input line 8.
-(pdftex.def)             Requested size: 455.24411pt x 449.1748pt.
 
-<images/mnnetwork.png, id=105, 908.39375pt x 618.31pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/gamefps.png, id=105, 415.5525pt x 471.7625pt>
+File: images/gamefps.png Graphic file (type png)
+ <use images/gamefps.png>
+Package pdftex.def Info: images/gamefps.png used on input line 30.
+(pdftex.def)             Requested size: 227.62206pt x 258.41199pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19
+
+
+
+]
+
+LaTeX Warning: Text page 20 contains only floats.
+
+[20 <./images/game.png> <./images/gamefps.png>]
+<images/gamecommands.png, id=115, 534.99875pt x 480.79625pt>
+File: images/gamecommands.png Graphic file (type png)
+
+<use images/gamecommands.png>
+Package pdftex.def Info: images/gamecommands.png used on input line 40.
+(pdftex.def)             Requested size: 318.66948pt x 286.39644pt.
+ [21 <./images/gamecommands.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/mnnetwork.png, id=120, 908.39375pt x 618.31pt>
 File: images/mnnetwork.png Graphic file (type png)
 
 <use images/mnnetwork.png>
-Package pdftex.def Info: images/mnnetwork.png used on input line 15.
+Package pdftex.def Info: images/mnnetwork.png used on input line 74.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [19
+<images/odltopo.png, id=121, 751.80875pt x 741.77126pt>
+File: images/odltopo.png Graphic file (type png)
 
+<use images/odltopo.png>
+Package pdftex.def Info: images/odltopo.png used on input line 87.
+(pdftex.def)             Requested size: 455.24411pt x 449.1748pt.
+ [22]
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- <./images/odltopo.png>] [20 <./images/mnnetwork.png>]
+) [23 <./images/mnnetwork.png>] [24 <./images/odltopo.png>]
 \openout2 = `./Chapters/chapter5.aux'.
 
 
 (./Chapters/chapter5.tex
 Chapter 5.
-[21
+[25
 
 
 
-] <images/test1.png, id=117, 908.39375pt x 618.31pt>
+] <images/test1.png, id=136, 908.39375pt x 618.31pt>
 File: images/test1.png Graphic file (type png)
  <use images/test1.png>
-Package pdftex.def Info: images/test1.png used on input line 28.
+Package pdftex.def Info: images/test1.png used on input line 27.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
 
-<images/test2.png, id=118, 908.39375pt x 618.31pt>
+[26 <./images/test1.png>] <images/test2.png, id=140, 908.39375pt x 618.31pt>
 File: images/test2.png Graphic file (type png)
- <use images/test2.png>
+
+<use images/test2.png>
 Package pdftex.def Info: images/test2.png used on input line 37.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
+ [27
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[22 <./images/test1.png>] <images/test3.png, id=122, 908.39375pt x 618.31pt>
+ <./images/test2.png>]
+<images/test3.png, id=144, 908.39375pt x 618.31pt>
 File: images/test3.png Graphic file (type png)
-
-<use images/test3.png>
-Package pdftex.def Info: images/test3.png used on input line 50.
+ <use images/test3.png>
+Package pdftex.def Info: images/test3.png used on input line 47.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
 
+[28
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
+ <./images/test3.png>]
 Overfull \hbox (15.52144pt too wide) in paragraph at lines 59--73
  [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Overfull \hbox (15.52144pt too wide) in paragraph at lines 79--93
  [][] 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Overfull \hbox (15.10486pt too wide) in paragraph at lines 99--116
@@ -717,36 +745,70 @@ Overfull \hbox (15.10486pt too wide) in paragraph at lines 99--116
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23 <./images/test2.png>]) [24 <./images/test3.png>] [25]
+<images/test1chart.png, id=148, 541.5432pt x 358.941pt>
+File: images/test1chart.png Graphic file (type png)
+
+<use images/test1chart.png>
+Package pdftex.def Info: images/test1chart.png used on input line 121.
+(pdftex.def)             Requested size: 455.24411pt x 301.74388pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/test2chart.png, id=149, 541.0614pt x 359.4228pt>
+File: images/test2chart.png Graphic file (type png)
+
+<use images/test2chart.png>
+Package pdftex.def Info: images/test2chart.png used on input line 127.
+(pdftex.def)             Requested size: 455.24411pt x 302.42862pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/test3chart.png, id=150, 541.5432pt x 358.941pt>
+File: images/test3chart.png Graphic file (type png)
+
+<use images/test3chart.png>
+Package pdftex.def Info: images/test3chart.png used on input line 133.
+(pdftex.def)             Requested size: 455.24411pt x 301.74388pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29
+
+] [30 <./images/test1chart.png>] [31 <./images/test2chart.png> <./images/test3c
+hart.png>]) [32
+
+] [33]
 \openout2 = `./Chapters/chapter6.aux'.
 
-
-(./Chapters/chapter6.tex [26
+ (./Chapters/chapter6.tex [34
 
 
 
 ]
 Chapter 6.
-[27]) [28] (./fyp.bbl [29
+[35]) [36] (./fyp.bbl [37
 
 
-] [30]) [31]
+] [38]) [39]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [32
+ (./appendix.tex [40
 
 
-] [33
+] [41
 
-] [34]
+] [42]
 Appendix A.
-[35
+[43
 
-] [36
+] [44
 
 ]
 Appendix B.
-) [37] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
+) [45] (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
 (./Chapters/chapter2.aux) (./Chapters/chapter3.aux) (./Chapters/chapter4.aux)
 (./Chapters/chapter5.aux) (./Chapters/chapter6.aux) (./appendix.aux))
 
@@ -754,13 +816,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5387 strings out of 495028
- 76717 string characters out of 6181496
- 250149 words of memory out of 5000000
- 8405 multiletter control sequences out of 15000+600000
+ 5431 strings out of 495028
+ 77556 string characters out of 6181496
+ 249254 words of memory out of 5000000
+ 8443 multiletter control sequences out of 15000+600000
  17788 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,13n,64p,1261b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,64p,1344b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home
 /sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/sc13kvc/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/sc13kvc/.texmf-va
@@ -774,10 +836,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on fyp.pdf (43 pages, 487339 bytes).
+Output written on fyp.pdf (51 pages, 1088578 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
+ 610 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

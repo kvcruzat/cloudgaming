@@ -112,6 +112,9 @@ void ClientWindow::keyReleaseEvent( QKeyEvent* event )
             case Qt::Key_S:
                 pressedKey = "-S";
                 break;
+            case Qt::Key_F:
+                pressedKey = "-F";
+                break;
             case Qt::Key_Space:
                 break;
             default:

@@ -33,6 +33,8 @@ GLPolygonWidget::GLPolygonWidget(QWidget *parent) : QGLWidget(parent){
     center = currentPosition + forward;
     upVec = up;
 
+    fpsCounter = false;
+
 	xChange = 0;
 	yChange = 0;		// intializes translation values
 	zChange = 0;
@@ -154,7 +156,8 @@ void GLPolygonWidget::paintGL(){
 	// std::cout << timeInterval << std::endl;
 
 	if(timeInterval > 1000) {
-		// std::cout << frameCount / (timeInterval/1000.0f) << std::endl;
+		if(fpsCounter)
+		std::cout << frameCount / (timeInterval/1000.0f) << std::endl;
 
 		QImage image = this->grabFrameBuffer();
 		srand(time(NULL));
@@ -593,6 +596,11 @@ void GLPolygonWidget::keyReleaseEvent( QKeyEvent* event )
         case Qt::Key_S:
             goForward = 0;
             break;
+        case Qt::Key_F:
+	    	if (fpsCounter == true)
+	        	fpsCounter = false;
+	        else
+	        	fpsCounter = true;
         default:
             event->ignore();
             break;
@@ -664,4 +672,10 @@ void GLPolygonWidget::simulateKey(std::string key){
         goForward = 0;
     if (key == "-S")
         goForward = 0;
+    if (key == "-F") {
+    	if (fpsCounter == true)
+        	fpsCounter = false;
+        else
+        	fpsCounter = true;
+    }
 }
