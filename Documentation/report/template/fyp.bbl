@@ -5,6 +5,18 @@ M.~Al-Fares, A.~Loukissas, and A.~Vahdat.
 \newblock A scalable, commodity data center network architecture.
 \newblock {\em ACM SIGCOMM Computer Communication Review}, 38(4):63--74, 2008.
 
+\bibitem{amiri2015sdn2}
+M.~Amiri, H.~Al~Osman, S.~Shirmohammadi, and M.~Abdallah.
+\newblock Sdn-based game-aware network management for cloud gaming.
+\newblock {\em Proc. ACM/IEEE Network and Systems Support for Games, Zagreb,
+  Croatia}, 2015.
+
+\bibitem{amiri2015sdn1}
+M.~Amiri, H.~Al~Osman, S.~Shirmohammadi, and M.~Abdallah.
+\newblock An sdn controller for delay and jitter reduction in cloud gaming.
+\newblock In {\em Proceedings of the 23rd Annual ACM Conference on Multimedia
+  Conference}, pages 1043--1046. ACM, 2015.
+
 \bibitem{beigbeder2004effects}
 T.~Beigbeder, R.~Coughlan, C.~Lusher, J.~Plunkett, E.~Agu, and M.~Claypool.
 \newblock The effects of loss and latency on user performance in unreal
@@ -146,11 +158,29 @@ D.~Roggen.
 \newblock [Online]. [Accessed on 7 May 2016]. Available from:
   https://code.google.com/archive/p/qtffmpegwrapper.
 
+\bibitem{controlplane}
+M.~Rouse.
+\newblock What is control plane (cp)?, 2013.
+\newblock [Online]. [Accessed on 18 April 2016]. Available from:
+  http://searchsdn.techtarget.com/definition/control-plane-CP.
+
+\bibitem{dataplane}
+M.~Rouse.
+\newblock What is data plane (dp)?, 2013.
+\newblock [Online]. [Accessed on 18 April 2016]. Available from:
+  http://searchsdn.techtarget.com/definition/data-plane-DP.
+
 \bibitem{rtsp}
 H.~Schulzrinne, A.~Rao, and R.~Lanphier.
 \newblock Real time streaming protocol, 1998.
 \newblock [Online]. [Accessed 20 April 2016]. Available from:
   https://www.ietf.org/rfc/rfc2326.txt.
+
+\bibitem{sdncontroller}
+SDxCentral.
+\newblock What are sdn controllers?, 2015.
+\newblock [Online]. [Accessed on 8 May 2016]. Available from:
+  https://www.sdxcentral.com/resources/sdn/sdn-controllers/.
 
 \bibitem{northbound}
 SDxCentral.
