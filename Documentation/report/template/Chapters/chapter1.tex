@@ -24,4 +24,16 @@ The deliverables of the project include:
 \end{itemize}
 
 \section{Project Schedule}
-\lipsum[1-1]
+\begin{figure}[h]
+ \includegraphics[width=\linewidth]{images/gantt.png}
+ \caption{Gantt chart of project schedule}
+ \label{fig:schedule}
+\end{figure}
+
+The approach that was used for this project was iterative. After doing background research, the next process is literature review of the information I have found. Comparisons of different techniques that will reduce latency and increase the overall performance of the system was made. A single technique was then chosen to focus on and this was software-defined networking. The next step was to design the architecture for the cloud gaming system along with how it will be implemented:
+\newline
+\par
+A prototype of the game was produced and was made sure it was running properly on a single system in the DEC-10 Lab. The game rendered a procedurally generated tree using Lindenmayer system which is computationally expensive to produce in real time. The game also uses lighting and shadows which adds more to the compute power needed. The game area can be navigated around by the player using simple flight simulator controls.
+\newline
+\par
+When this is completed, a server-client system where the server can receive user input from a client and relay the commands to the OpenGL program was prototyped. The intention of this was to stream the rendered frames in video format to the client's window and the bandwidth of the video traffic was to be recorded. Simulated traffic was then used on a virtual network for the SDN solution. Which was tested against different test scenarios and evaluated.

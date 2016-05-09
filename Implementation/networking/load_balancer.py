@@ -92,9 +92,6 @@ def getStats(data):
 		rx = int(i["opendaylight-port-statistics:flow-capable-node-connector-statistics"]["packets"]["received"])
 		cost = cost + tx + rx - txRate
 
-	#cost = cost + txRate
-	#print cost
-
 def systemCommand(cmd):
 	terminalProcess = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
 	terminalOutput, stderr = terminalProcess.communicate()
@@ -113,9 +110,7 @@ def pushFlowRules(bestPath):
 			outport = outport[0]
 		else:
 			prevNode = bestPath[currentNode-1]
-			#print prevNode
 			srcNode = bestPath[currentNode]
-			#print srcNode
 			dstNode = bestPath[currentNode+1]
 			inport = linkPorts[prevNode + "::" + srcNode]
 			inport = inport.split("::")[1]
@@ -123,19 +118,14 @@ def pushFlowRules(bestPath):
 			outport = outport.split("::")[0]
 
 		xmlSrcToDst = '\'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><flow xmlns=\"urn:opendaylight:flow:inventory\"><priority>32767</priority><flow-name>Load Balance'+hnum1+':'+hnum2+' 1</flow-name><match><in-port>' + str(inport) +'</in-port><ipv4-destination>10.0.0.'+hnum1+'/32</ipv4-destination><ipv4-source>10.0.0.'+hnum2+'/32</ipv4-source><ethernet-match><ethernet-type><type>2048</type></ethernet-type></ethernet-match></match><id>'+hnum1+hnum2+'1</id><table_id>0</table_id><instructions><instruction><order>0</order><apply-actions><action><order>0</order><output-action><output-node-connector>' + str(outport) +'</output-node-connector></output-action></action></apply-actions></instruction></instructions></flow>\''
-
 		xmlDstToSrc = '\'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><flow xmlns=\"urn:opendaylight:flow:inventory\"><priority>32767</priority><flow-name>Load Balance'+hnum1+':'+hnum2+' 2</flow-name><match><in-port>' + str(outport) +'</in-port><ipv4-destination>10.0.0.'+hnum2+'/32</ipv4-destination><ipv4-source>10.0.0.'+hnum1+'/32</ipv4-source><ethernet-match><ethernet-type><type>2048</type></ethernet-type></ethernet-match></match><id>'+hnum1+hnum2+'2</id><table_id>0</table_id><instructions><instruction><order>0</order><apply-actions><action><order>0</order><output-action><output-node-connector>' + str(inport) +'</output-node-connector></output-action></action></apply-actions></instruction></instructions></flow>\''
 
 		flowURL = "http://127.0.0.1:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:"+ bestPath[currentNode] +"/table/0/flow/"+hnum1+hnum2+"1"
-
 		command = 'curl --user "admin":"admin" -H "Accept: application/xml" -H "Content-type: application/xml" -X PUT ' + flowURL + ' -d ' + xmlSrcToDst
-
 		systemCommand(command)
 
 		flowURL = "http://127.0.0.1:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:"+ bestPath[currentNode] +"/table/0/flow/"+hnum1+hnum2+"2"
-
 		command = 'curl --user "admin":"admin" -H "Accept: application/xml" -H "Content-type: application/xml" -X PUT ' + flowURL + ' -d ' + xmlDstToSrc
-
 		systemCommand(command)
 
 	srcNode = bestPath[-1]
@@ -145,24 +135,16 @@ def pushFlowRules(bestPath):
 	outport = hostPorts[h1]
 
 	xmlSrcToDst = '\'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><flow xmlns=\"urn:opendaylight:flow:inventory\"><priority>32767</priority><flow-name>Load Balance:'+hnum1+':'+hnum2+' 1</flow-name><match><in-port>' + str(inport) +'</in-port><ipv4-destination>10.0.0.'+hnum1+'/32</ipv4-destination><ipv4-source>10.0.0.'+hnum2+'/32</ipv4-source><ethernet-match><ethernet-type><type>2048</type></ethernet-type></ethernet-match></match><id>'+hnum1+hnum2+'1</id><table_id>0</table_id><instructions><instruction><order>0</order><apply-actions><action><order>0</order><output-action><output-node-connector>' + str(outport) +'</output-node-connector></output-action></action></apply-actions></instruction></instructions></flow>\''
-
 	xmlDstToSrc = '\'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><flow xmlns=\"urn:opendaylight:flow:inventory\"><priority>32767</priority><flow-name>Load Balance:'+hnum1+':'+hnum2+' 2</flow-name><match><in-port>' + str(outport) +'</in-port><ipv4-destination>10.0.0.'+hnum2+'/32</ipv4-destination><ipv4-source>10.0.0.'+hnum1+'/32</ipv4-source><ethernet-match><ethernet-type><type>2048</type></ethernet-type></ethernet-match></match><id>'+hnum1+hnum2+'2</id><table_id>0</table_id><instructions><instruction><order>0</order><apply-actions><action><order>0</order><output-action><output-node-connector>' + str(inport) +'</output-node-connector></output-action></action></apply-actions></instruction></instructions></flow>\''
 
 	flowURL = "http://127.0.0.1:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:"+ bestPath[-1] +"/table/0/flow/"+hnum1+hnum2+"1"
-
 	command = 'curl --user \"admin\":\"admin\" -H \"Accept: application/xml\" -H \"Content-type: application/xml\" -X PUT ' + flowURL + ' -d ' + xmlSrcToDst
-
 	systemCommand(command)
 
 	flowURL = "http://127.0.0.1:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:"+ bestPath[-1] +"/table/0/flow/"+hnum1+hnum2+"2"
-
 	command = 'curl --user "admin":"admin" -H "Accept: application/xml" -H "Content-type: application/xml" -X PUT ' + flowURL + ' -d ' + xmlDstToSrc
-
 	systemCommand(command)
 
-# Main
-
-# Stores H1 and H2 from user
 global h1,h2,h3
 
 h1 = ""
@@ -186,7 +168,7 @@ while flag:
 	#Creating Graph
 	G = nx.Graph()
 
-	# Stores Info About H3 And H4's Switch
+	# Stores switch info
 	switch = {}
 
 	# MAC of Hosts i.e. IP:MAC
@@ -195,7 +177,7 @@ while flag:
 	# IP of Hosts i.e. MAC:IP
 	deviceIP = {}
 
-	# Stores Switch Links To H3 and H4's Switch
+	# Stores Switch Links
 	switchLinks = {}
 
 	# Stores Host Switch Ports

@@ -20,7 +20,7 @@ class GLPolygonWidget: public QGLWidget {
 
 	public:
 		GLPolygonWidget(QWidget *parent=0);
-		void simulateKey(std::string key);
+		void simulateKey(std::string key);	// simulate key press for game
 
 	protected:
 		void initializeGL();
@@ -61,20 +61,21 @@ class GLPolygonWidget: public QGLWidget {
 		int currentTime, previousTime;
 		int frameCount, qImageCount;
 
-		Point eye; Point center; Vector upVec; // For Look at
-		Vector right; Vector up; Vector forward; // For the movement
-		int goRight; int goUp; int goForward; int doRoll;
-		Point currentPosition; // Store where currently I am
+		Point eye; Point center; Vector upVec;
+		Vector right; Vector up; Vector forward;
+		int goRight; int goUp; int goForward; int doRoll; // Specifies how to move
+		Point currentPosition; // store position
 		float speed; // Speed of movement
 		bool fpsCounter; // fps toggle
 
-		void roll(double);
+		void roll(double);	// functions to move
 		void pitch(double);
 		void yaw(double);
 
-		void keyPressEvent(QKeyEvent*);
+		void keyPressEvent(QKeyEvent*);	// handle key events
 		void keyReleaseEvent(QKeyEvent*);
-		void pickMovement();
+
+		void movePlayer();
 		void updateCurrent();
 
 };

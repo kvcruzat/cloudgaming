@@ -1,6 +1,6 @@
 \chapter{Design}
 \label{chapter3}
-This chapter will outline the proposed design of the cloud gaming system as well as the game that will be used to run on the system. Also at a high level, I will discuss the virtual network design that will be used to simulate a cloud data centre as well as the proposed solution to use software-defined networking to reduce latency in the network.
+This chapter outlines the proposed design of the cloud gaming system as well as the game that will be used to run on the system. Also at a high level, this chapter discusses the virtual network design that will be used to simulate a cloud data centre as well as the proposed solution to use software-defined networking to reduce latency in the network.
 
 \section{Cloud Gaming System}
 As a result of the background research conducted, the cloud gaming system will aim to offload the game engine to the cloud data centre. This includes the game logic, physics and graphics rendering. Due to this, it will leave the client's application to just take control of receiving physical button input and send this to the game server as well as receiving and displaying the game video frames.
@@ -26,7 +26,7 @@ As for the framework of the cloud gaming system, it will start with a local prog
 \begin{figure}[h!]
  \centering
  \includegraphics[width=\linewidth]{images/cloudgamingdiagram.png}
- \caption{Cloud Gaming Framework}
+ \caption{Cloud Gaming Framework \cite{chuah2014cloud}}
  \label{fig:cloudframework}
 \end{figure}
 
@@ -96,7 +96,7 @@ The load balancer application will communicate with the SDN controller by utilis
 \begin{figure}[h!]
  \centering
  \includegraphics[width=0.9\linewidth]{images/sdnarchitecture.png}
- \caption{SDN Basic Architecture}
+ \caption{SDN Basic Architecture \cite{sdnarch}}
  \label{fig:sdnarch}
 \end{figure}
 

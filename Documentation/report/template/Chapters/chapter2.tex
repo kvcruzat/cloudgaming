@@ -3,6 +3,7 @@
 
 \section{Problem Overview}
 Compute power of games can be offloaded to a server of much powerful computers and then streamed to a client with lower specification hardware such as a laptop or a mobile device. With this comes risks and shortcomings that need to be factored. One of these problems are the latency of the game. Latency can be huge factor in the gameplay such as high-paced games like first-person shooters or fighting games. The delay in pressing a button on the gamepad to seeing the action performed on the screen needs to be kept to a minimum. This idea of interaction delay tolerance being different from genre to genre of games is discussed by Shea et al. \cite{shea2013cloud}. As stated above, a player of FPS games can only tolerate the least which is around 100ms whereas Role playing game (RPG) gamers can tolerate around 500 ms.
+\newline
 \par
 Another problem that is directly linked to delay in the system is the effect of packet loss. As stated in the \textit{Eight Fallacies of Distributed Computing} \cite{deutsch1994eight}, it should be assumed that latency is never zero as mentioned above as well as network is not always reliable. This means that packet loss can occur which in terms of cloud computing can mean the degradation of image quality. In the investigation conducted by Jarschel et al. \cite{jarschel2011evaluation} in which they surveyed average consumers about the importance of packet loss and delay. Generally the quality of the video streamed to the clients plays an important role as the participants were open to using such as a service if provided in good quality.
 
@@ -32,7 +33,7 @@ In the paper \textit{Cloud Gaming: A Green Solution to Massive Multiplayer Onlin
 
 \begin{figure}[h]
  \includegraphics[width=\linewidth]{images/arch.png}
- \caption{Cloud gaming system architecture}
+ \caption{Cloud gaming system architecture \cite{cloudarch}}
  \label{fig:arch}
 \end{figure}
 
@@ -44,7 +45,7 @@ Due to the many different processes involved in the architecture of a cloud gami
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.8\linewidth]{images/latency.png}
- \caption{Latency in cloud gaming}
+ \caption{Latency in cloud gaming \cite{cloudlatency}}
  \label{fig:latency}
 \end{figure}
 

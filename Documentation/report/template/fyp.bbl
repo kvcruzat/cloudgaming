@@ -45,6 +45,12 @@ P.~Deutsch.
 \newblock [Online]. [Accessed 15 April 2016]. Available from:
   http://metro.co.uk/2015/10/30/the-witcher-3-wins-ultimate-game-of-the-year-at-golden-joysticks-2015-5471812/.
 
+\bibitem{cloudarch}
+{Gaming Anywhere}.
+\newblock Cloud gaming architecture, 2014.
+\newblock [Online]. [Accessed on 18 April 2016]. Available from:
+  http://gaminganywhere.org/gaming\_anywhere.files/arch.png.
+
 \bibitem{grossman2009case}
 R.~L. Grossman.
 \newblock The case for cloud computing.
@@ -73,6 +79,12 @@ M.~Jarschel, D.~Schlosser, S.~Scheuring, and T.~Ho{\ss}feld.
 \newblock In {\em Innovative Mobile and Internet Services in Ubiquitous
   Computing (IMIS), 2011 Fifth International Conference on}, pages 330--335.
   IEEE, 2011.
+
+\bibitem{cloudlatency}
+A.~Kharatian.
+\newblock E3 2012: Nvidia’s grid changes the face of cloud gaming, 2012.
+\newblock [Online]. [Accessed on 18 April 2016]. Available from:
+  http://nerdreactor.com/wp-content/uploads/2012/06/gridlatency.jpg.
 
 \bibitem{kim2013improving}
 H.~Kim and N.~Feamster.
@@ -133,6 +145,12 @@ nVidia.
 \newblock What are the system requirements for geforce now? | shield, 2016.
 \newblock [Online]. [Accessed on 4 May 2016]. Available from:
   https://shield.nvidia.co.uk/support/geforce-now/system-requirements/1.
+
+\bibitem{sdnarch}
+{Open Networking Foundation}.
+\newblock Openflow, 2016.
+\newblock [Online]. [Accessed on 1 May 2016]. Available from:
+  https://www.opennetworking.org/images/stories/sdn-resources/openflow/12-8-OpenFlow-Diagram.jpg.
 
 \bibitem{opengl}
 OpenGL.
@@ -210,6 +228,12 @@ A.~Soomoro.
 \newblock What is input lag: The breakdown, 2013.
 \newblock [Online]. [Accessed 21 April 2016]. Available from:
   http://www.displaylag.com/what-is-input-lag-the-breakdown/.
+
+\bibitem{wireshark}
+Wireshark.
+\newblock Wireshark faq, 2015.
+\newblock [Online]. [Accessed on 5 May 2016]. Available from:
+  https://www.wireshark.org/faq.html.
 
 \bibitem{wu2015cloud}
 C.~Wu and R.~Buyya.

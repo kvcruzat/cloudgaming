@@ -38,12 +38,13 @@ ClientWindow::ClientWindow()
 
         networkSession = new QNetworkSession(config, this);
         connect(networkSession, SIGNAL(opened()), this, SLOT(sessionOpened()));
-// 
+
         networkSession->open();
     }
 
 }
 
+// Handles key presses
 void ClientWindow::keyPressEvent(QKeyEvent* event)
 {
     //Pick the key that has been pressed and assign the relevant variables.
@@ -84,6 +85,8 @@ void ClientWindow::keyPressEvent(QKeyEvent* event)
     }
     pressedKey = "";    
 }
+
+// Handles key releases
 void ClientWindow::keyReleaseEvent( QKeyEvent* event )
 {
     if (!event->isAutoRepeat()){
@@ -127,10 +130,10 @@ void ClientWindow::keyReleaseEvent( QKeyEvent* event )
     pressedKey = "";
 }
 
+// Function to send key presses to server
 void ClientWindow::sendData(){
 
     if (pressedKey != "") {
-        // tcpSocket->write(QString::fromStdString(pressedKey).toLatin1().data());
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
@@ -145,6 +148,7 @@ void ClientWindow::sendData(){
    
 }
 
+// Initial connection to server
 void ClientWindow::connectServer(string hostname, string port){
 
     blockSize = 0;
@@ -170,6 +174,7 @@ void ClientWindow::sessionOpened()
     settings.endGroup();
 }
 
+// read in data from server (Confirm connection)
 void ClientWindow::readData()
 {   
     QDataStream in(tcpSocket);

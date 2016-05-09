@@ -2,7 +2,7 @@ from mininet.topo import Topo
 from mininet.link import TCLink
 
 class CloudTopo( Topo ):
-    "Simple cloud gaming topology"
+    "Simple fat tree cloud gaming topology"
 
     def __init__( self ):
         "Create custom cloud topo."
@@ -30,6 +30,7 @@ class CloudTopo( Topo ):
     	cloudHost7 = self.addHost( 'h10' )
         cloudHost8 = self.addHost( 'h11' )
 
+        # Uncomment below code for no link delays and bandwidth limits
         # self.addLink( playerHost1, coreSwitch)
         # self.addLink( playerHost2, coreSwitch)
         # self.addLink( playerHost3, coreSwitch)

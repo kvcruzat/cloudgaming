@@ -488,16 +488,14 @@ void GLPolygonWidget::wheelEvent ( QWheelEvent* event )
 
 void GLPolygonWidget::move()
 {
-	pickMovement();
+	movePlayer();
     updateCurrent();
     updateGL();
 }
 
+// function to roll right using specified angle (roll left using negative)
 void GLPolygonWidget::roll(double angle)
 {
-    // To roll, I want to go right, by the amount of the angle, plus
-    // up by this amount too.
-    //I roll the other way by a negative angle.
     Vector tempRight = (right * cos(angle));
     Vector tempUp = (up * sin(angle));
 
@@ -506,6 +504,7 @@ void GLPolygonWidget::roll(double angle)
     up = right.crossProduct(forward);
 }
 
+// function to pitch up using specified angle (pitch down using negative)
 void GLPolygonWidget::pitch(double angle)
 {
     // To pitch, I want to go up, by the amount of the angle, plus
@@ -519,11 +518,9 @@ void GLPolygonWidget::pitch(double angle)
     up = right.crossProduct(forward);
 }
 
+// function to yaw right using specified angle (yaw left using negative)
 void GLPolygonWidget::yaw(double angle)
 {
-    // To yaw, I want to go right, by the amount of the angle, plus
-    // up by this amount too.
-    // Left yaw is done by a negative angle.
     Vector tempRight = (right * cos(angle));
     Vector tempForward = (forward * sin(angle));
 
@@ -609,21 +606,16 @@ void GLPolygonWidget::keyReleaseEvent( QKeyEvent* event )
 
 void GLPolygonWidget::updateCurrent()
 {
-    // The current position is the original position plus
-    // the movement vector times by the speed
     Vector change = (forward * speed);
     currentPosition = currentPosition + change;
 
-    // Eye is where I currently am
     eye = currentPosition;
-    // Center (What I'm looking at) is the eye + what is infront of me
     center = currentPosition + forward;
-    // Up vector is what is currently up relative to me
     upVec = up;
 
 }
 
-void GLPolygonWidget::pickMovement()
+void GLPolygonWidget::movePlayer()
 {
     // Move if required
     if(goUp != 0)

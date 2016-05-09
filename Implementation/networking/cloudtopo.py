@@ -1,6 +1,8 @@
 from mininet.topo import Topo
 from mininet.link import TCLink
 
+# Previous network topology
+
 class CloudTopo( Topo ):
     "Simple cloud gaming topology"
 

@@ -78,7 +78,7 @@ Mininet is a tool that can be used to create a virtual network on a single machi
 
 \subsection{OpenDaylight SDN Controller}
 Several SDN controllers were explored such as NOX which is the first SDN controller initially developed with OpenFlow by Nicira Networks then was made open source. Other open source controllers include POX and Beacon which is one of the most popular \cite{sdncontroller}. Beacon is a Java-based OpenFlow Controller and which many current commercial controllers are based on such as Floodlight. The SDN controller that was used for this is OpenDaylight which is the controller companies such as HP, Cisco and IBM used after using controllers based off Beacon.
-\newling
+\newline
 \par
 OpenDaylight was released in 2014 with its first code release names "Hydrogen". The version that is used in this project is OpenDaylight's fifth release which as of this project it is OpenDaylight's current version. OpenDaylight provides an easy to use command line interface and web graphical user interface for flow statistics, also it uses OpenFlow as its SDN protocol.
 \newline
@@ -100,3 +100,6 @@ The load balancer application asks for user input for two machines, the source h
 \newline
 \par
 The original code was improved on by allowing for multiple instances of load balancing as the original could only work for a single flow. If multiple flows were attempted to be pushed it would overwrite previously pushed flows. This means load balancing in the virtual network will not work created for this project will not work. The improved version allows this so multiple flows can be pushed to their shortest path for evenly spread traffic reducing congestion. These flows are deleted by a python script that loops through every switch and deletes every possible flow that could have been installed through REST API calls.
+\newline
+\par
+Load balancing was tested by using a network packet analyser tool called Wireshark \cite{wireshark}. Once load balancing is executed, Wireshark was used on a switch that is a part of the lowest load path then filter all packets that is from an IP address or going to an IP address of a host machine that is part of the load balanced path. UDP packets were being displayed in Wireshark which means that the traffic was using the load balanced path. To further confirm this, Wireshark was used on a switch that is part of a path that is not the pushed flow. Due to the design of the network, there can only be two shortest paths from a player host to a server host. This means Wireshark should not pick up any UDP packets as it should be using the path set by the application which was the case. 

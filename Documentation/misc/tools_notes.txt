@@ -8,7 +8,7 @@ sudo ovs-vswitchd --pidfile --detach
 
 // To start mininet
 
-sudo mn --controller=remote,ip=127.0.0.1 --custom cloudtopo.py --topo cloudtopo --link tc
+sudo mn --controller=remote,ip=127.0.0.1 --custom fatcloudtopo.py --topo cloudtopo --link tc
 
 // iperf
 

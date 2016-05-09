@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  8 MAY 2016 14:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.11.28)  9 MAY 2016 22:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -604,7 +604,7 @@ LaTeX Font Info:    Try loading font information for T1+ptm on input line 2.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-<logo_black.png, id=167, 770.88pt x 219.82124pt>
+<logo_black.png, id=204, 770.88pt x 219.82124pt>
 File: logo_black.png Graphic file (type png)
  <use logo_black.png>
 Package pdftex.def Info: logo_black.png used on input line 2.
@@ -652,49 +652,56 @@ Chapter 1.
 
 
 
-]) [2]
+] <images/gantt.png, id=296, 1325.95375pt x 506.89375pt>
+File: images/gantt.png Graphic file (type png)
+
+<use images/gantt.png>
+Package pdftex.def Info: images/gantt.png used on input line 28.
+(pdftex.def)             Requested size: 455.24411pt x 174.02773pt.
+) [2 <./images/gantt.png>] [3]
 \openout2 = `./Chapters/chapter2.aux'.
 
  (./Chapters/chapter2.tex
+[4
+
+
+
+]
 Chapter 2.
-[3
-
-
-
-] [4] <images/arch.png, id=287, 697.8572pt x 391.4625pt>
+[5] [6] <images/arch.png, id=344, 697.8572pt x 391.4625pt>
 File: images/arch.png Graphic file (type png)
 
 <use images/arch.png>
-Package pdftex.def Info: images/arch.png used on input line 34.
+Package pdftex.def Info: images/arch.png used on input line 35.
 (pdftex.def)             Requested size: 455.24411pt x 255.36748pt.
- [5 <./images/arch.png (PNG copy)>]
-<images/latency.png, id=298, 401.5pt x 196.735pt>
+ [7 <./images/arch.png (PNG copy)>]
+<images/latency.png, id=358, 401.5pt x 196.735pt>
 File: images/latency.png Graphic file (type png)
  <use images/latency.png>
-Package pdftex.def Info: images/latency.png used on input line 46.
+Package pdftex.def Info: images/latency.png used on input line 47.
 (pdftex.def)             Requested size: 364.19667pt x 178.46774pt.
 
-[6 <./images/latency.png>] [7]) [8]
+[8 <./images/latency.png>] [9]) [10]
 \openout2 = `./Chapters/chapter3.aux'.
 
  (./Chapters/chapter3.tex
 Chapter 3.
-[9
+[11
 
 
 
-] <images/cloudsystemmodel.png, id=339, 672.5125pt x 1016.79875pt>
+] <images/cloudsystemmodel.png, id=399, 672.5125pt x 1016.79875pt>
 File: images/cloudsystemmodel.png Graphic file (type png)
 
 <use images/cloudsystemmodel.png>
 Package pdftex.def Info: images/cloudsystemmodel.png used on input line 19.
 (pdftex.def)             Requested size: 432.48051pt x 653.88304pt.
- [10
+ [12
 
- <./images/cloudsystemmodel.png>] [11
+ <./images/cloudsystemmodel.png>] [13
 
 ]
-<images/cloudgamingdiagram.png, id=350, 588.1975pt x 842.14626pt>
+<images/cloudgamingdiagram.png, id=411, 588.1975pt x 842.14626pt>
 File: images/cloudgamingdiagram.png Graphic file (type png)
 
 <use images/cloudgamingdiagram.png>
@@ -703,15 +710,15 @@ Package pdftex.def Info: images/cloudgamingdiagram.png used on input line 28.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12
+ [14
 
- <./images/cloudgamingdiagram.png>] [13]
-<images/tree.png, id=368, 638.385pt x 285.065pt>
+ <./images/cloudgamingdiagram.png>] [15]
+<images/tree.png, id=429, 638.385pt x 285.065pt>
 File: images/tree.png Graphic file (type png)
  <use images/tree.png>
 Package pdftex.def Info: images/tree.png used on input line 58.
 (pdftex.def)             Requested size: 409.71692pt x 182.95424pt.
- [14 <./images/tree.png>] <images/network.png, id=382, 1021.8175pt x 662.475pt>
+ [16 <./images/tree.png>] <images/network.png, id=443, 1021.8175pt x 662.475pt>
 File: images/network.png Graphic file (type png)
 
 <use images/network.png>
@@ -721,8 +728,8 @@ Package pdftex.def Info: images/network.png used on input line 79.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15] [16 <./images/network.png>]
-<images/sdnarchitecture.png, id=397, 415.5525pt x 295.1025pt>
+[17] [18 <./images/network.png>]
+<images/sdnarchitecture.png, id=458, 415.5525pt x 295.1025pt>
 File: images/sdnarchitecture.png Graphic file (type png)
 
 <use images/sdnarchitecture.png>
@@ -732,12 +739,12 @@ Package pdftex.def Info: images/sdnarchitecture.png used on input line 98.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [17] [18 <./images/sdnarchitecture.png>]
+) [19] [20 <./images/sdnarchitecture.png>]
 \openout2 = `./Chapters/chapter4.aux'.
 
  (./Chapters/chapter4.tex
 Chapter 4.
-<images/game.png, id=414, 803.0pt x 630.355pt>
+<images/game.png, id=479, 803.0pt x 630.355pt>
 File: images/game.png Graphic file (type png)
  <use images/game.png>
 Package pdftex.def Info: images/game.png used on input line 23.
@@ -746,7 +753,7 @@ Package pdftex.def Info: images/game.png used on input line 23.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/gamefps.png, id=415, 415.5525pt x 471.7625pt>
+<images/gamefps.png, id=480, 415.5525pt x 471.7625pt>
 File: images/gamefps.png Graphic file (type png)
  <use images/gamefps.png>
 Package pdftex.def Info: images/gamefps.png used on input line 30.
@@ -755,26 +762,26 @@ Package pdftex.def Info: images/gamefps.png used on input line 30.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19
+[21
 
 
 
 ]
 
-LaTeX Warning: Text page 20 contains only floats.
+LaTeX Warning: Text page 22 contains only floats.
 
-[20 <./images/game.png> <./images/gamefps.png>]
-<images/gamecommands.png, id=432, 534.99875pt x 480.79625pt>
+[22 <./images/game.png> <./images/gamefps.png>]
+<images/gamecommands.png, id=496, 534.99875pt x 480.79625pt>
 File: images/gamecommands.png Graphic file (type png)
 
 <use images/gamecommands.png>
 Package pdftex.def Info: images/gamecommands.png used on input line 40.
 (pdftex.def)             Requested size: 318.66948pt x 286.39644pt.
- [21 <./images/gamecommands.png>]
+ [23 <./images/gamecommands.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/mnnetwork.png, id=447, 908.39375pt x 618.31pt>
+<images/mnnetwork.png, id=511, 908.39375pt x 618.31pt>
 File: images/mnnetwork.png Graphic file (type png)
 
 <use images/mnnetwork.png>
@@ -784,12 +791,8 @@ Package pdftex.def Info: images/mnnetwork.png used on input line 74.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-! Undefined control sequence.
-l.81 \newling
-             
-? 
-[22] [23 <./images/mnnetwork.png>]
-<images/odltopo.png, id=466, 751.80875pt x 741.77126pt>
+[24] [25 <./images/mnnetwork.png>]
+<images/odltopo.png, id=530, 751.80875pt x 741.77126pt>
 File: images/odltopo.png Graphic file (type png)
 
 <use images/odltopo.png>
@@ -799,37 +802,37 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 96.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [24 <./images/odltopo.png>]) [25]
+) [26 <./images/odltopo.png>]) [27]
 \openout2 = `./Chapters/chapter5.aux'.
 
- (./Chapters/chapter5.tex [26
+ (./Chapters/chapter5.tex [28
 
 
 
 ]
 Chapter 5.
-[27] <images/test1.png, id=495, 908.39375pt x 618.31pt>
+[29] <images/test1.png, id=560, 908.39375pt x 618.31pt>
 File: images/test1.png Graphic file (type png)
  <use images/test1.png>
 Package pdftex.def Info: images/test1.png used on input line 27.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
 
-[28 <./images/test1.png>] <images/test2.png, id=503, 908.39375pt x 618.31pt>
+[30 <./images/test1.png>] <images/test2.png, id=568, 908.39375pt x 618.31pt>
 File: images/test2.png Graphic file (type png)
 
 <use images/test2.png>
 Package pdftex.def Info: images/test2.png used on input line 37.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
- [29
+ [31
 
  <./images/test2.png>]
-<images/test3.png, id=510, 908.39375pt x 618.31pt>
+<images/test3.png, id=576, 908.39375pt x 618.31pt>
 File: images/test3.png Graphic file (type png)
  <use images/test3.png>
 Package pdftex.def Info: images/test3.png used on input line 47.
 (pdftex.def)             Requested size: 455.24411pt x 309.87126pt.
 
-[30
+[32
 
  <./images/test3.png>]
 Overfull \hbox (15.52144pt too wide) in paragraph at lines 59--73
@@ -849,7 +852,7 @@ Overfull \hbox (15.10486pt too wide) in paragraph at lines 99--116
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/test1chart.png, id=515, 541.5432pt x 358.941pt>
+<images/test1chart.png, id=581, 541.5432pt x 358.941pt>
 File: images/test1chart.png Graphic file (type png)
 
 <use images/test1chart.png>
@@ -859,7 +862,7 @@ Package pdftex.def Info: images/test1chart.png used on input line 121.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/test2chart.png, id=516, 541.0614pt x 359.4228pt>
+<images/test2chart.png, id=582, 541.0614pt x 359.4228pt>
 File: images/test2chart.png Graphic file (type png)
 
 <use images/test2chart.png>
@@ -869,7 +872,7 @@ Package pdftex.def Info: images/test2chart.png used on input line 127.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/test3chart.png, id=517, 541.5432pt x 358.941pt>
+<images/test3chart.png, id=583, 541.5432pt x 358.941pt>
 File: images/test3chart.png Graphic file (type png)
 
 <use images/test3chart.png>
@@ -879,41 +882,44 @@ Package pdftex.def Info: images/test3chart.png used on input line 133.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31
+[33
 
-] [32 <./images/test1chart.png>] [33 <./images/test2chart.png> <./images/test3c
-hart.png>]) [34
+] [34 <./images/test1chart.png>] [35 <./images/test2chart.png> <./images/test3c
+hart.png>]) [36
 
-] [35]
+] [37]
 \openout2 = `./Chapters/chapter6.aux'.
 
- (./Chapters/chapter6.tex [36
+ (./Chapters/chapter6.tex [38
 
 
 
 ]
 Chapter 6.
-[37] [38] [39]) [40] (./fyp.bbl [41
+[39] [40] [41]) [42] (./fyp.bbl [43
 
 
-] [42]) [43]
+] [44] [45]) [46]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex [44
+ (./appendix.tex [47
 
 
-] [45
 
 ]
-[46]
+[48]
 Appendix A.
-[47
+[49
 
-] [48
+] [50
 
 ]
 Appendix B.
-) [49]
+[51] [52
+
+]
+Appendix C.
+[53] [54] [55]) [56]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
  (./fyp.aux (./prelude.aux) (./Chapters/chapter1.aux)
@@ -922,7 +928,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
 Package rerunfilecheck Info: File `fyp.out' has not changed.
-(rerunfilecheck)             Checksum: F17F6022825496EFA0DAEC07225A6B38;2484.
+(rerunfilecheck)             Checksum: 7B57977512C3BD281D27967B1227EA5E;3115.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -930,13 +936,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
  ) 
 Here is how much of TeX's memory you used:
- 9106 strings out of 495028
- 133347 string characters out of 6181496
- 330718 words of memory out of 5000000
- 11932 multiletter control sequences out of 15000+600000
+ 9146 strings out of 495028
+ 133924 string characters out of 6181496
+ 330962 words of memory out of 5000000
+ 11950 multiletter control sequences out of 15000+600000
  18101 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,13n,64p,1349b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,64p,1349b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home
 /sc13kvc/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/sc13kvc/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/sc13kvc/.texmf-va
@@ -951,10 +957,10 @@ dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb>
-Output written on fyp.pdf (55 pages, 1116010 bytes).
+Output written on fyp.pdf (62 pages, 1171141 bytes).
 PDF statistics:
- 1073 PDF objects out of 1200 (max. 8388607)
- 598 compressed objects within 6 object streams
- 158 named destinations out of 1000 (max. 500000)
- 424 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1216 PDF objects out of 1440 (max. 8388607)
+ 683 compressed objects within 7 object streams
+ 179 named destinations out of 1000 (max. 500000)
+ 501 words of extra memory for PDF output out of 10000 (max. 10000000)
 

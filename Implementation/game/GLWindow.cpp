@@ -200,6 +200,7 @@ QSlider* GLWindow::sliderScaleCreate() {
 	return slider;
 }
 
+// Send connection confirmation message to client
 void GLWindow::sendData()
 {
     QByteArray block;
@@ -221,6 +222,7 @@ void GLWindow::sendData()
  
 }
 
+// Listen to messages sent from client
 void GLWindow::sessionOpened()
 {
     // Save the used configuration
@@ -263,6 +265,7 @@ void GLWindow::sessionOpened()
 
 }
 
+// read in commands sent from client
 void GLWindow::readData()
 {	
 	// QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
