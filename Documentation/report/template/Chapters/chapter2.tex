@@ -54,8 +54,17 @@ The aim of this project is to reduce the network latency which is the element th
 \section{Latency Mitigation}
 One method of latency mitigation in the network is to simply move the server closer to the clients. This means that traffic will have to travel less distance therefore latency will decrease. Unfortunately, this solution is not feasible since building and maintaining data centres are expensive. Video streaming services such as Netflix and YouTube use buffering which loads video data before playing the video in order for continuous playback. This cannot be done for live cloud gaming so other solutions to improve experiences of latency sensitive games must be explored.
 
+\subsection{Speculative Execution: Outatime}
+ Microsoft's Outatime which uses \textit{speculation to enable low-latency continuous interaction for mobile cloud gaming} \cite{lee2015outatime} is a form of latency mitigation. This method acknowledges that there will be latency and attempts to reduce its effects since studies have shown that players are sensitive to latency from 75-100ms, decreasing accuracy in shooting games and decreasing their scores by almost up to 50\% \cite{beigbeder2004effects}.
+\newline 
+\par
+Outatime basically predicts multiple possible frame outputs that may appear in the future of the game's render scene on the client side. It has to predict what frames may be needed at least a full end host round trip time (RTT) ahead of time the client actually produces game input controls. So unlike standard cloud gaming where clients receive a response after more than one RTT, Outatime delivers a response immediately since the possible frames are all ready to be displayed.
+\newline
+\par
+Outatime was extensively tested by having people play a shooting game without knowing if they were using a traditional cloud gaming system or Outatime. The tests were conducted multiple times at various network delays and players were asked qualitatively their opinion on the playability of the game. The results show that Outatime was favoured by the players in all cases even with experienced players.
+
 \subsection{Software-Defined Networking}
-As stated by Kirkpatrick \cite{kirkpatrick2013software}, software-defined networking (SDN) is a new networking architecture that allows programmers to quickly reconfigure and define network usage. Whilst significant advances have been in other areas of technology, networking has not been able to evolve in the same pace.
+Another form of latency mitigation that is being explored is software-defined networking. As stated by Kirkpatrick \cite{kirkpatrick2013software}, software-defined networking (SDN) is a new networking architecture that allows programmers to quickly reconfigure and define network usage. Whilst significant advances have been in other areas of technology, networking has not been able to evolve in the same pace.
 \newline
 \par
 Similar to mobile phones shifting to the world of smartphones with the help of APIs (application program interface), in an SDN environment, applications can communicate with network switches through an API. The API can be used to quickly reconfigure the resources of the network to accommodate the needs of the applications being executed. This main benefit of using SDN is also discussed in \textit{Improving network management with software defined networking} \cite{kim2013improving}. Kim et al mentions that network operators will not need to configure all the network devices individually to make network behaviour changes, but instead make network-wide traffic forwarding decisions. The SDN controller is used for this and would have global knowledge of the state of the network.
@@ -65,15 +74,6 @@ SDN consists of two planes, the data and control plane. The data plane also know
 \newline
 \par
 The controller is the core component for the software-defined networking. It is an application that manages the flow control of data between nodes. In order for SDN applications to communicate with the network switches it has to go through the controller which can be accessed by applications with REST API (a way to communicate to between machines through HTTP requests). This allows network administrators to manage how the data plane handles network traffic and its routing.
-
-\subsection{Speculative Execution: Outatime}
-Another form of latency mitigation that is being explored is Microsoft's Outatime which uses \textit{speculation to enable low-latency continuous interaction for mobile cloud gaming} \cite{lee2015outatime}. This method acknowledges that there will be latency and attempts to reduce its effects since studies have shown that players are sensitive to latency from 75-100ms, decreasing accuracy in shooting games and decreasing their scores by almost up to 50\% \cite{beigbeder2004effects}.
-\newline 
-\par
-Outatime basically predicts multiple possible frame outputs that may appear in the future of the game's render scene on the client side. It has to predict what frames may be needed at least a full end host round trip time (RTT) ahead of time the client actually produces game input controls. So unlike standard cloud gaming where clients receive a response after more than one RTT, Outatime delivers a response immediately since the possible frames are all ready to be displayed.
-\newline
-\par
-Outatime was extensively tested by having people play a shooting game without knowing if they were using a traditional cloud gaming system or Outatime. The tests were conducted multiple times at various network delays and players were asked qualitatively their opinion on the playability of the game. The results show that Outatime was favoured by the players in all cases even with experienced players.
 
 \section{Related Works}
 There are a few researches that has been conducted that is related to latency mitigation in cloud gaming systems using software-defined networking. Amiri et al. \cite{amiri2015sdn1} explored using SDN to reduce latency by using SDN to share the load in a network. The shortest path is found in the network and the path cost is computed by pinging the machines at each node to discover the end-to-end delay. Incoming packets are then split among the paths depending on the weights so the load is evenly shared in the network.

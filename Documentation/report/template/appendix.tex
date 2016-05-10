@@ -8,6 +8,7 @@ External libraries and software used:
 	\item OpenDaylight 0.5.0 SDN controller
 	\item Open vSwitch virtual switches
 	\item Mininet virtual network simulator
+	\item Wireshark network packet analyser
 \end{itemize}
 
 The load balancer code was based on code found in: \url{https://github.com/nayanseth/sdn-loadbalancing}. The code was improved by allowing for multiple traffic flows to be load balanced.
@@ -80,7 +81,7 @@ To execute Mininet with the \textit{fatcloudtopo.py} topology, OpenDaylight need
 \subsection{Open vSwitch}
 To install Open vSwitch, the following installation instructions can be used:
 \newline
-\path{http://dannykim.me/danny/openflow/57620}
+\url{http://dannykim.me/danny/openflow/57620}
 \newline
 \par
 The following commands are used to start Open vSwitch:
@@ -114,7 +115,7 @@ The OpenDaylight web GUI can be accessed using the following link in a browser w
 \url{http://localhost:8181/index.html}
 
 \subsection{Load Balancer}
-To run the load balancer tests, the SDN controller (section C.2.3) needs to be running in the background and the fat tree topology running with Mininet (section C.2.1). In Mininet CLI ping all hosts and connect to hosts where traffic will be sent and received using the example following commands:
+To run the load balancer tests, the SDN controller (section C.2.3) needs to be running in the background and the fat tree topology running with Mininet (section C.2.1). In Mininet CLI ping all hosts (Figure \ref{fig:pingall}) and connect to hosts where traffic will be sent and received using the example following commands:
 \begin{verbatim}
 	mininet> pingall
 	mininet> xterm h1 h2 h4 h5
@@ -145,4 +146,13 @@ The installed flows can be deleted by running the python script \textit{deletefl
 \begin{verbatim}
 	$ python deleteflows.py
 \end{verbatim}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/mnpingall.png}
+ \caption{Screenshot of all hosts discovering each other through pingall command}
+ \label{fig:pingall}
+\end{figure}
+
+
 \end{appendices}

@@ -42,7 +42,7 @@ The basic cloud gaming system implementation uses Qt's framework for the network
  \label{fig:gamecommands}
 \end{figure}
 
-Due to time constraints and setbacks, the video streaming portion of the cloud gaming system was not completed and I will outline the initial implementation plans. The rendered frames on the server side needed to be rendered off screen so it will not display on the server machine. This is done by using Qt's QOffscreenSurface class that allows rendering with OpenGL on an arbitrary thread without the need to create a QWindow then these offscreen rendered frames are then captured in to QImage format \cite{qoffscreen}. Capturing frames to QImage format was actually already implemented but further work on it was not carried out.
+Due to time constraints and setbacks, the video streaming portion of the cloud gaming system was not completed so the initial implementation plans are outlined. The rendered frames on the server side needed to be rendered off screen so it will not display on the server machine. This is done by using Qt's QOffscreenSurface class that allows rendering with OpenGL on an arbitrary thread without the need to create a QWindow then these offscreen rendered frames are then captured in to QImage format \cite{qoffscreen}. Capturing frames to QImage format was actually already implemented but further work on it was not carried out.
 \newline
 \par
 The captured QImage frames are then to be encoded in to streamable H.264 MP4 video format since it is compressed so video traffic data size is smaller. This was supposed to be done using a Qt wrapper called QtFFmpegWrapper\cite{qtffmpeg} for FFmpeg which helps encode and decode video. It uses Qt QImage to exchange video frames with the encoder/decoder. Unfortunately, this code has not been updated for three years so some functions have been deprecated with recent Qt and FFmpeg versions leading to it not being able to be compiled. With the time constraints, learning the ffmpeg library to manually encode QImage data would have been too time consuming with the networking implementations and report deliverables still to be completed.
@@ -102,4 +102,62 @@ The load balancer application asks for user input for two machines, the source h
 The original code was improved on by allowing for multiple instances of load balancing as the original could only work for a single flow. If multiple flows were attempted to be pushed it would overwrite previously pushed flows. This means load balancing in the virtual network will not work created for this project will not work. The improved version allows this so multiple flows can be pushed to their shortest path for evenly spread traffic reducing congestion. These flows are deleted by a python script that loops through every switch and deletes every possible flow that could have been installed through REST API calls.
 \newline
 \par
-Load balancing was tested by using a network packet analyser tool called Wireshark \cite{wireshark}. Once load balancing is executed, Wireshark was used on a switch that is a part of the lowest load path then filter all packets that is from an IP address or going to an IP address of a host machine that is part of the load balanced path. UDP packets were being displayed in Wireshark which means that the traffic was using the load balanced path. To further confirm this, Wireshark was used on a switch that is part of a path that is not the pushed flow. Due to the design of the network, there can only be two shortest paths from a player host to a server host. This means Wireshark should not pick up any UDP packets as it should be using the path set by the application which was the case. 
+Load balancing was tested by using a network packet analyser tool called Wireshark \cite{wireshark}. Once load balancing is executed, Wireshark was used on a switch that is a part of the lowest load path then filter all packets that is from an IP address or going to an IP address of a host machine that is part of the load balanced path. UDP packets were being displayed in Wireshark which means that the traffic was using the load balanced path. To further confirm this, Wireshark was used on a switch that is part of a path that is not the pushed flow. Due to the design of the network, there can only be two shortest paths from a player host to a server host. This means Wireshark should not pick up any UDP packets as it should be using the path set by the application which was the case.
+\clearpage
+The following figures shows the working load balancer application using the network topology shown in \ref{fig:mnnetwork}. The simulated traffic is from h4 to h1 host machines and another traffic going from h5 to h2. The two possible paths for both traffic flows is through the switches s4::s2::s1 annd s4::s4::s1.
+\newline
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/h1toh4.png}
+ \caption{Screenshot of load balancer for h4 to h1 traffic. Path s4::s2::s1 was chosen as least load path so this path was pushed to the sdn controller.}
+ \label{fig:h1toh4}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/h2toh5.png}
+ \caption{Screenshot of load balancer for h5 to h2 traffic. Path s4::s3::s1 was chosen as least load path.}
+ \label{fig:h2toh5}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/balancedcosts.png}
+ \caption{Screenshot showing load balanced paths with almost equal computed costs for each path of 76660 and 7518 packets}
+ \label{fig:balancedcosts}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/flows.png}
+ \caption{Postman request showing pushed flows in switch s1}
+ \label{fig:flows}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/s2fromh1.png}
+ \caption{Wireshark showing UDP packets for h4 to h1 traffic going through s2 switch.}
+ \label{fig:s2fromh1}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/s2fromh2.png}
+ \caption{Wireshark showing no packets are going through s2 switch for h5 to h2 traffic}
+ \label{fig:s2fromh2}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/s3fromh2.png}
+ \caption{Wireshark showing UDP packets going through switch s3 for h5 to h2 taffic}
+ \label{fig:s3fromh2}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\linewidth]{images/loadbalancing/s3fromh1.png}
+ \caption{Wireshark showing no packetws going through switch s3 for h4 to h1 traffic}
+ \label{fig:s3fromh1}
+\end{figure}
