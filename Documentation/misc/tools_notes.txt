@@ -13,10 +13,10 @@ sudo mn --controller=remote,ip=127.0.0.1 --custom fatcloudtopo.py --topo cloudto
 // iperf
 
 server:
-iperf -s
+iperf -s -u 
 
 client:
-iperf -c 10.0.0.X
+iperf -c 10.0.0.X -u -b XXM -t 60
 
 // ODL
 
