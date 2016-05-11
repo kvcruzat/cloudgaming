@@ -11,43 +11,43 @@
 \contentsline {section}{\numberline {2.1}Problem Overview}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Cloud Computing}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}Cloud Gaming}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}Latency Mitigation}{8}{section.2.4}
+\contentsline {section}{\numberline {2.4}Latency Mitigation}{9}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Speculative Execution: Outatime}{9}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Software-Defined Networking}{9}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}Related Works}{10}{section.2.5}
-\contentsline {chapter}{\numberline {3}Design}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Cloud Gaming System}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Game Design}{15}{section.3.2}
-\contentsline {section}{\numberline {3.3}Virtual Network}{17}{section.3.3}
-\contentsline {section}{\numberline {3.4}SDN Application Design}{18}{section.3.4}
-\contentsline {chapter}{\numberline {4}Implementation}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Game Implementation}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}Cloud Gaming}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}Networking Implementation}{24}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Mininet Virtual Network}{24}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}OpenDaylight SDN Controller}{25}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Load Balancer}{26}{subsection.4.3.3}
-\contentsline {chapter}{\numberline {5}Testing and Evaluation}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Test Cases}{33}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Case 1}{33}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Case 2}{34}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Case 3}{35}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}Results}{37}{section.5.2}
-\contentsline {section}{\numberline {5.3}Evaluation}{40}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusion}{43}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{44}{section.6.2}
-\contentsline {section}{\numberline {6.3}Personal Reflection}{45}{section.6.3}
-\contentsline {chapter}{References}{47}{section.6.3}
-\contentsline {chapter}{Appendices}{51}{section*.3}
-\contentsline {chapter}{\numberline {A}External Material}{53}{Appendix.a.A}
-\contentsline {chapter}{\numberline {B}Ethical Issues Addressed}{55}{Appendix.a.B}
-\contentsline {chapter}{\numberline {C}User Manual}{57}{Appendix.a.C}
-\contentsline {section}{\numberline {C.1}Cloud Gaming System}{57}{section.a.C.1}
-\contentsline {subsection}{\numberline {C.1.1}Game Server}{57}{subsection.a.C.1.1}
-\contentsline {subsection}{\numberline {C.1.2}Client Program}{57}{subsection.a.C.1.2}
-\contentsline {section}{\numberline {C.2}Networking}{58}{section.a.C.2}
-\contentsline {subsection}{\numberline {C.2.1}Mininet Virtual Network}{58}{subsection.a.C.2.1}
-\contentsline {subsection}{\numberline {C.2.2}Open vSwitch}{58}{subsection.a.C.2.2}
-\contentsline {subsection}{\numberline {C.2.3}OpenDaylight SDN Controller}{58}{subsection.a.C.2.3}
-\contentsline {subsection}{\numberline {C.2.4}Load Balancer}{59}{subsection.a.C.2.4}
+\contentsline {subsection}{\numberline {2.4.2}Software-Defined Networking}{10}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Related Works}{11}{section.2.5}
+\contentsline {chapter}{\numberline {3}Design}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Cloud Gaming System}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Game Design}{17}{section.3.2}
+\contentsline {section}{\numberline {3.3}Virtual Network}{19}{section.3.3}
+\contentsline {section}{\numberline {3.4}SDN Application Design}{20}{section.3.4}
+\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Game Implementation}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}Cloud Gaming}{25}{section.4.2}
+\contentsline {section}{\numberline {4.3}Networking Implementation}{26}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Mininet Virtual Network}{26}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}OpenDaylight SDN Controller}{27}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Load Balancer}{28}{subsection.4.3.3}
+\contentsline {chapter}{\numberline {5}Testing and Evaluation}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Test Cases}{35}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Case 1}{36}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Case 2}{37}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Case 3}{38}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Results}{39}{section.5.2}
+\contentsline {section}{\numberline {5.3}Evaluation}{42}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusion}{45}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusion}{45}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{46}{section.6.2}
+\contentsline {section}{\numberline {6.3}Personal Reflection}{47}{section.6.3}
+\contentsline {chapter}{References}{49}{section.6.3}
+\contentsline {chapter}{Appendices}{53}{section*.3}
+\contentsline {chapter}{\numberline {A}External Material}{55}{Appendix.a.A}
+\contentsline {chapter}{\numberline {B}Ethical Issues Addressed}{57}{Appendix.a.B}
+\contentsline {chapter}{\numberline {C}User Manual}{59}{Appendix.a.C}
+\contentsline {section}{\numberline {C.1}Cloud Gaming System}{59}{section.a.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Game Server}{59}{subsection.a.C.1.1}
+\contentsline {subsection}{\numberline {C.1.2}Client Program}{59}{subsection.a.C.1.2}
+\contentsline {section}{\numberline {C.2}Networking}{60}{section.a.C.2}
+\contentsline {subsection}{\numberline {C.2.1}Mininet Virtual Network}{60}{subsection.a.C.2.1}
+\contentsline {subsection}{\numberline {C.2.2}Open vSwitch}{60}{subsection.a.C.2.2}
+\contentsline {subsection}{\numberline {C.2.3}OpenDaylight SDN Controller}{61}{subsection.a.C.2.3}
+\contentsline {subsection}{\numberline {C.2.4}Load Balancer}{61}{subsection.a.C.2.4}

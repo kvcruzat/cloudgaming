@@ -96,20 +96,24 @@ Mininet can connect to this controller so the virtual network can be managed by 
 To communicate with the OpenDaylight controller, its northbound API was used through REST API calls. Initially, Postman which is a Google Chrome extension tool to make API calls was used to test out retrieval of flow statistics and to push flows. The load balancer application was created in python since it can be used to easily create simple programs since it will mainly be making REST API calls. The load balancer code was based on code at \url{https://github.com/nayanseth/sdn-loadbalancing} and YANG UI in the OpenDaylight web GUI. The YANG UI helps in development of applications by listing and executing APIS for the SDN controller.
 \newline
 \par
-The load balancer application asks for user input for two machines, the source host machine and destination host machine. An API call is made to retrieve the network topology which includes the host names and switches and the links. The python package NetworkX is used to store the retrieved network. NetworkX also include a built in Dijkstra's algorithm function and is used to compute all the shortest paths. For each switch of each shortest path, multiple REST calls are made so packet statistics can be obtained. The amount of packets received and transmitted are summed up and then subtracted from the amount of packets received and transmitted two seconds later. This gives the transmission rate for that switch. The transmission rate is accumulated for every switch in a path for the cost of that path to be computed. The path with the minimum cost is then chosen to be the flow route between the host machines. This flow is then pushed to the SDN controller with REST calls.
+The load balancer application asks for user input for two machines, the source host machine and destination host machine. An API call is made to retrieve the network topology which includes the host names and switches and the links. The python package NetworkX is used to store the retrieved network. NetworkX also include a built in Dijkstra's algorithm function and is used to compute all the shortest paths between the two specified hosts. A weight of 1 is used for each link so the paths with the shortest amount links in them are found. Multiple paths are found so the cost for each patch are calculated to find the chosen path to be used for that flow.
 \newline
 \par
-The original code was improved on by allowing for multiple instances of load balancing as the original could only work for a single flow. If multiple flows were attempted to be pushed it would overwrite previously pushed flows. This means load balancing in the virtual network will not work created for this project will not work. The improved version allows this so multiple flows can be pushed to their shortest path for evenly spread traffic reducing congestion. These flows are deleted by a python script that loops through every switch and deletes every possible flow that could have been installed through REST API calls.
+For each switch of each shortest path, multiple REST calls are made so packet statistics can be obtained. The amount of packets received and transmitted are summed up and then subtracted from the amount of packets received and transmitted two seconds later. This gives the transmission rate for that switch which is essentially the amount packets going through that switch in the span of two seconds. The transmission rate is accumulated for every switch in a path and the final value is the cost of that path or in other words the amount of load in that path.. The path with the minimum cost is then chosen to be the flow route between the two host machines. This flow is then pushed to the SDN controller with REST calls and two of them are made for one for each direction of the flow.
 \newline
 \par
-Load balancing was tested by using a network packet analyser tool called Wireshark \cite{wireshark}. Once load balancing is executed, Wireshark was used on a switch that is a part of the lowest load path then filter all packets that is from an IP address or going to an IP address of a host machine that is part of the load balanced path. UDP packets were being displayed in Wireshark which means that the traffic was using the load balanced path. To further confirm this, Wireshark was used on a switch that is part of a path that is not the pushed flow. Due to the design of the network, there can only be two shortest paths from a player host to a server host. This means Wireshark should not pick up any UDP packets as it should be using the path set by the application which was the case.
-\clearpage
+The original code was improved on by allowing for multiple instances of load balancing as the original could only work for a single flow. If multiple flows were attempted to be pushed it would overwrite previously pushed flows only allowing for one flow to be load balanced. This means load balancing in the virtual network created for this project will not work as multiple traffic flows will be using the network simultaeneously. The improved version allows this so multiple flows can be pushed to their lowest cost path for evenly spread traffic so therefore reducing congestion. These flows are deleted by a python script that loops through every switch and deletes every possible flow that could have been installed through REST API calls.
+\newline
+\par
+Load balancing was tested by using a network packet analyser tool called Wireshark \cite{wireshark}. Once load balancing is executed, Wireshark was used on a switch and port number that is a part of the lowest load path then filter all packets that is from an IP address or going to an IP address of a host machine that is part of the load balanced path. UDP packets were being displayed in Wireshark which means that the traffic was using the load balanced path. To further confirm this, Wireshark was used on a switch that is part of a path that is not the pushed flow. Due to the design of the network, there can only be two shortest paths from a player host to a server host. This means Wireshark should not pick up any UDP packets as it should be using the path set by the application which was the case so load balancing is working.
+\newline
+\par
 The following figures shows the working load balancer application using the network topology shown in \ref{fig:mnnetwork}. The simulated traffic is from h4 to h1 host machines and another traffic going from h5 to h2. The two possible paths for both traffic flows is through the switches s4::s2::s1 annd s4::s4::s1.
 \newline
 \begin{figure}[h!]
  \centering
  \includegraphics[width=\linewidth]{images/loadbalancing/h1toh4.png}
- \caption{Screenshot of load balancer for h4 to h1 traffic. Path s4::s2::s1 was chosen as least load path so this path was pushed to the sdn controller.}
+ \caption{Screenshot of load balancer for h4 to h1 traffic. Path s4::s2::s1 was chosen as least load path so this path was pushed to the SDN controller.}
  \label{fig:h1toh4}
 \end{figure}
 
@@ -137,27 +141,27 @@ The following figures shows the working load balancer application using the netw
 \begin{figure}[h!]
  \centering
  \includegraphics[width=\linewidth]{images/loadbalancing/s2fromh1.png}
- \caption{Wireshark showing UDP packets for h4 to h1 traffic going through s2 switch.}
+ \caption{Wireshark showing UDP packets for h4 to h1 traffic going through switch s2 port 2.}
  \label{fig:s2fromh1}
 \end{figure}
 
 \begin{figure}[h!]
  \centering
  \includegraphics[width=\linewidth]{images/loadbalancing/s2fromh2.png}
- \caption{Wireshark showing no packets are going through s2 switch for h5 to h2 traffic}
+ \caption{Wireshark showing no packets are going through switch s2 port 2 for h5 to h2 traffic}
  \label{fig:s2fromh2}
 \end{figure}
 
 \begin{figure}[h!]
  \centering
  \includegraphics[width=\linewidth]{images/loadbalancing/s3fromh2.png}
- \caption{Wireshark showing UDP packets going through switch s3 for h5 to h2 taffic}
+ \caption{Wireshark showing UDP packets going through switch s3 port 2 for h5 to h2 taffic}
  \label{fig:s3fromh2}
 \end{figure}
 
 \begin{figure}[h!]
  \centering
  \includegraphics[width=\linewidth]{images/loadbalancing/s3fromh1.png}
- \caption{Wireshark showing no packetws going through switch s3 for h4 to h1 traffic}
+ \caption{Wireshark showing no packetws going through switch s3 port 2 for h4 to h1 traffic}
  \label{fig:s3fromh1}
 \end{figure}

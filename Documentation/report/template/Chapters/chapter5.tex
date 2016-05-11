@@ -2,11 +2,11 @@
 \label{chapter5}
 
 \section{Test Cases}
-In order to test the load balancing application, test scenarios were designed to see how it would effect real world cases. Using the virtual network created with the mininet program and the iperf network bandwidth measurement tool, traffic is generated between the player hosts and game server hosts. The bandwidth of this traffic will be based on network requirements suggestions for 1080p at 60FPS, 720p at 60FPS and 720p at 30FPS given by nVidia's GeForce Now cloud gaming system requirements \cite{nvidiasysreq} as shown in Table \ref{table:traffic}. The iperf tool used to generate the traffic will set the player hosts in server mode and the game servers in client mode. This is so the game server can send UDP traffic to it's connected player host machine. UDP is used since its traffic bandwidth can be set and is the protocol that is used for streaming video data over TCP. 
+In order to test the load balancing application, test scenarios were designed to see how it would effect real world cases. Using the virtual network created with the Mininet program and the iPerf network bandwidth measurement tool, traffic is generated between the player hosts and game server hosts. The bandwidth of this traffic will be based on network requirements suggestions for 1080p at 60FPS, 720p at 60FPS and 720p at 30FPS given by nVidia's GeForce Now cloud gaming system requirements \cite{nvidiasysreq} as shown in Table \ref{table:traffic}. The iPerf tool used to generate the traffic will set the player hosts in server mode and the game servers in client mode. This is so the game server can send UDP traffic to its connected player host machine. UDP is used since its traffic bandwidth can be set and is the protocol that is used for streaming video data instead of TCP. 
 \newline
 \par
-Latency will be simply tested by sending 10 ping requests from player host to game server whilst the iperf traffic is being sent. Each test case will contain multiple tests using each of the settings in Table \ref{table:traffic} with tests before load balancing and then with load balancing in effect. To make sure th tests without load balancing doesn't depend on routes specified by previous load balanced runs, flows created by previous load balanced runs are deleted using a python script that makes REST API calls to the OpenDaylight SDN controller.
-
+Latency will be simply tested by sending 10 ping requests from player host to game server whilst the iPerf traffic is being sent. Each test case will contain multiple tests using each of the settings in Table \ref{table:traffic} with tests before load balancing and then with load balancing in effect. To make sure th tests without load balancing doesn't depend on routes specified by previous load balanced runs, flows created by previous load balanced runs are deleted using a python script that makes REST API calls to the OpenDaylight SDN controller to delete every flow in every switch.
+\newline
 \begin{table}[h!]
 \centering
 \begin{tabular}{|l|l|}
@@ -20,29 +20,30 @@ Latency will be simply tested by sending 10 ping requests from player host to ga
 \label{table:traffic}
 \end{table}
 
+\clearpage
 \subsection{Case 1}
 The first case is two players using the cloud gaming system with their game instance being in two separate servers but under the same switch. Player host 1 'h1' (10.0.0.1) and player host 2 'h2' (10.0.0.2) are used and are connected to 'h4' (10.0.0.4) and 'h5' (10.0.0.5) respectively. This shows a basic example of multiple players connected to different game servers but using the same Top of the Rack switch. As shown in Figure \ref{fig:test1}, there are two possible routes for traffic flowing from the core switch 's1' to switch 's4' (s1::s2::s4 and s1::s3::s4). When the load balancer is running for each flow, it will assign a different route for each of them. Figure \ref{fig:test1} shows one out of the two possible load balanced routes with the other being just a swap with the red and blue path between 's1' and 's4' switches.
-
+\newline
 \begin{figure}[h!]
  \includegraphics[width=\linewidth]{images/test1.png}
  \caption{Test Case 1: Possible load balanced routes}
  \label{fig:test1}
 \end{figure}
 
+\clearpage
 \subsection{Case 2}
 The second case is when two players are connected to the same physical game server host since it can contain multiple virtual machines with multiple game instances. Also it can represent two players playing the same game instance such as a multiplayer game so two video traffic will be needed to be generated and sent to the two separate clients. For this test case, hosts 'h1' and 'h2' will be used to be connected to host 'h4'. The possible load balanced routes between the switches will be the same as in test case 1 but with two separate traffic being generated from 'h4' as shown in Figure \ref{fig:test2}.
-
-\clearpage
+\newline
 \begin{figure}[h!]
  \includegraphics[width=\linewidth]{images/test2.png}
  \caption{Test Case 2: Possible load balanced routes}
  \label{fig:test2}
 \end{figure}
 
+\clearpage
 \subsection{Case 3}
 The third test case uses three players simultaneously connected to the cloud data centre. Game server hosts 'h4', 'h5' and 'h6' each generate traffic and are routed to the player host 'h1', 'h2' and 'h3' respectively as shown in Figure \ref{fig:test3}. This test case represents a scenario of a highly congested network with multiple traffic flows and possible paths. The results of using the load balancer application in this test case provides a good insight on it's capabilities and effectiveness.
-
-\clearpage
+\newline
 \begin{figure}[h!]
  \includegraphics[width=\linewidth]{images/test3.png}
  \caption{Test Case 3: Possible load balanced routes}
@@ -147,3 +148,6 @@ For test case 3, the ping times shows in Table \ref{table:test3} is similar to t
 \newline
 \par
 According to the test results, the dynamic load balancing application has seemed to reduced ping times in every scenario. It also shows that in every case that when the throughput of the simulated traffic is high, the ping times are also high which is due to the high congestion in the routes. Another finding is that when traffic is forced on to connections with not high enough bandwidth to support it, latency increases and load balancing does not help to reduce it or it does not reduce it enough to make the game experience more playable.
+\newline
+\par
+In conclusion, software-defined networking with load balancing was effective in reducing network latency produced from congestion of simulated video traffic data in the network representing a cloud gaming data centre. As simulated traffic and simulated network links with simulated bandwidth limites and latency were used, the results do not directly reflect the effectiveness of software-defined networking load balancing in a real world data centre, but it gives a good insight on the possible results that could be gained.
